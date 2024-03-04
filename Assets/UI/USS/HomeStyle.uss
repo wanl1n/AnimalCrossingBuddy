@@ -1,0 +1,75 @@
+#Root {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+}
+
+#NaviBar {
+    flex-direction: row;
+    background-color: rgb(255, 247, 215);
+    padding: 1%;
+}
+
+#MainButtons {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+Button {
+    background-color: rgba(188, 188, 188, 0);
+    border-width: 0;
+    font-size: 27px;
+}
+
+.navi-buttons {
+    background-color: rgba(188, 188, 188, 0);
+    font-size: 27px;
+    color: rgb(61, 133, 198);
+    -unity-font-style: bold;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 5px;
+    border-right-width: 0;
+    border-color: rgb(0, 0, 0);
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#NBSeasButton {
+    border-right-width: 5px;
+}
+
+#ContentScreen {
+    height: 100%;
+}
+
+Label {
+    font-size: 65px;
+    -unity-font-style: bold;
+    align-self: center;
+    -unity-text-align: middle-center;
+}
+
+#TimeLabel {
+    font-size: 300px;
+}
+
+#ResetButton {
+    background-color: rgb(255, 189, 0);
+    font-size: 36px;
+    -unity-font-style: bold;
+    padding-top: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    padding-left: 2%;
+    align-self: center;
+    -unity-text-align: middle-center;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
+    border-bottom-right-radius: 20%;
+    border-bottom-left-radius: 20%;
+}

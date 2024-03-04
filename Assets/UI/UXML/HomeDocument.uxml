@@ -1,0 +1,20 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/HomeStyle.uss?fileID=7433441132597879392&amp;guid=3a6d156e7e3a3df408d88423080dda91&amp;type=3#HomeStyle" />
+    <engine:VisualElement name="Root">
+        <engine:VisualElement name="NaviBar">
+            <engine:VisualElement name="MainButtons">
+                <engine:Button text="Villagers" name="NBVillagersButton" class="navi-buttons" />
+                <engine:Button text="Fish" name="NBFishButton" class="navi-buttons" />
+                <engine:Button text="Bugs" name="NBBugsButton" class="navi-buttons" />
+                <engine:Button text="Sea Creatures" name="NBSeasButton" class="navi-buttons" />
+            </engine:VisualElement>
+            <engine:Button name="NBMenuButton" text="menu" />
+        </engine:VisualElement>
+        <engine:VisualElement name="ContentScreen">
+            <engine:Label text="Monday, 5 February" name="DateLabel" />
+            <engine:Label text="12:45" name="TimeLabel" />
+            <engine:Label text="Winter" name="SeasonLabel" />
+            <engine:Button text="Reset Date and Time" name="ResetButton" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
