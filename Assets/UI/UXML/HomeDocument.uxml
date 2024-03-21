@@ -10,11 +10,26 @@
             </engine:VisualElement>
             <engine:Button name="NBMenuButton" text="menu" />
         </engine:VisualElement>
-        <engine:VisualElement name="ContentScreen">
-            <engine:Label text="Monday, 5 February" name="DateLabel" />
-            <engine:Label text="12:45" name="TimeLabel" />
-            <engine:Label text="Winter" name="SeasonLabel" />
-            <engine:Button text="Reset Date and Time" name="ResetButton" />
-        </engine:VisualElement>
+        <engine:ScrollView name="ContentPage" >
+            <engine:VisualElement name="DateTimeScreen" class="content-group">
+                <engine:Label text="Winter" name="SeasonLabel" />
+                <engine:VisualElement name="TimeContainer" class="TextRightContainer text-right-container">
+                    <engine:Label text="12:45" name="TimeLabel" />
+                    <engine:Label text="AM" name="AMPMLabel" />
+                </engine:VisualElement>
+                <engine:VisualElement name="DateContainer" class="TextRightContainer text-right-container">
+                    <engine:Label text="Mon." name="DayLabel" />
+                    <engine:Label text="5 February" name="DateLabel" />
+                </engine:VisualElement>
+                <engine:Image text="Reset Date and Time" name="ResetButton"  />
+            </engine:VisualElement>
+            <engine:VisualElement name="CatchableScreen" class="content-group">
+                <engine:Label text="Catchable Now" name="CatchableNowLabel" />
+                <engine:VisualElement name="CatchableLists">
+                    <engine:ListView name="CatchableFishList" header-title="Fish" class="catchable-list" />
+                    <engine:ListView name="CatchableBugsList" header-title="Bugs" class="catchable-list" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:ScrollView>
     </engine:VisualElement>
 </engine:UXML>
