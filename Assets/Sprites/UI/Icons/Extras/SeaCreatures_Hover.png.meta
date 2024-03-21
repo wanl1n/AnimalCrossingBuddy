@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SeaCreatures_Hover_0: -5211405171993759195
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

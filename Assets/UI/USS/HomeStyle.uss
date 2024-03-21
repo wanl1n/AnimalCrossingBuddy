@@ -133,6 +133,8 @@ Label {
     justify-content: flex-end;
     align-self: flex-end;
     font-size: 74px;
+    letter-spacing: 6px;
+    margin-bottom: 8px;
 }
 
 #HorizontalLine {
@@ -141,14 +143,29 @@ Label {
     height: 11px;
     background-color: rgba(0, 0, 0, 0);
     width: 556px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 #DayLabel {
     font-size: 55px;
+    background-color: rgb(247, 248, 230);
+    border-top-width: 10px;
+    border-right-width: 25px;
+    border-bottom-width: 10px;
+    border-left-width: 25px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    color: rgb(114, 93, 66);
 }
 
 #DateLabel {
     font-size: 55px;
+    margin-left: 20px;
 }
 
 #ResetButton {
@@ -158,6 +175,7 @@ Label {
     margin: 20px;
     background-image: url("project://database/Assets/Sprites/UI/Buttons/Button_Reset%20Date%20and%20Time.png?fileID=2800000&guid=94b5b17aec454874786a39ee021903e9&type=3#Button_Reset Date and Time");
     width: 575px;
+    margin-top: 40px;
 }
 
 #CatchableScreen {
