@@ -50,6 +50,7 @@ Label {
 #NBHomeButton {
     background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%201.png?fileID=2800000&guid=a0b26be245aecb348a697c1b8d606388&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 1");
     margin-left: 17px;
+    -unity-background-image-tint-color: rgb(253, 147, 3);
 }
 
 #NBVillagersButton {
@@ -143,6 +144,7 @@ Label {
 }
 
 #DayLabel {
+    font-size: 55px;
 }
 
 #DateLabel {
