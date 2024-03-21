@@ -1,48 +1,76 @@
-#Root {
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    height: 100%;
-}
-
-#NaviBar {
-    flex-direction: row;
-    background-color: rgb(255, 247, 215);
-    padding: 1%;
-}
-
-#MainButtons {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
 Button {
     background-color: rgba(188, 188, 188, 0);
     border-width: 0;
     font-size: 27px;
-    -unity-font-definition: url("project://database/Assets/Fonts/FOT-RodinBokutoh%20Pro%20EB.otf?fileID=12800000&guid=c70dee4bea39a0b42a0c8f0c7e23973e&type=3#FOT-RodinBokutoh Pro EB");
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-RodinBokutoh%20Pro/FOT-RodinBokutoh%20Pro%20EB.otf?fileID=12800000&guid=c70dee4bea39a0b42a0c8f0c7e23973e&type=3#FOT-RodinBokutoh Pro EB");
     -unity-font-style: normal;
+    color: rgb(114, 93, 66);
+}
+
+Label {
+    font-size: 65px;
+    align-self: center;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B%20SDF.asset?fileID=11400000&guid=264ea6ed0297cd441b2f52b79f6a7576&type=2#FOT-Seurat Pro B SDF");
+    color: rgb(114, 93, 66);
+}
+
+#Root {
+    background-color: rgb(231, 221, 185);
+    width: 100%;
+    height: 100%;
+}
+
+#NavigationBarContainer {
+    padding-top: 31px;
+    padding-right: 31px;
+    padding-bottom: 31px;
+    padding-left: 31px;
+    align-items: center;
+}
+
+#NaviBar {
+    flex-direction: row;
+    padding: 1%;
+    background-image: url("project://database/Assets/Sprites/UI/Icons/NaviBar_BG.png?fileID=2800000&guid=93ec7e3d9587122419067be38274040a&type=3#NaviBar_BG");
+    width: 667px;
+    height: 185px;
+    justify-content: space-between;
 }
 
 .navi-buttons {
-    background-color: rgba(188, 188, 188, 0);
-    font-size: 27px;
-    color: rgb(61, 133, 198);
-    -unity-font-style: bold;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    border-left-width: 5px;
-    border-right-width: 0;
-    border-color: rgb(0, 0, 0);
-    margin-left: 0;
-    margin-right: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    width: 61px;
+    height: 70px;
+    margin-bottom: 13px;
+    -unity-background-image-tint-color: rgb(186, 183, 164);
+    margin-top: 13px;
+    justify-content: space-between;
+}
+
+#NBHomeButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%201.png?fileID=2800000&guid=a0b26be245aecb348a697c1b8d606388&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 1");
+    margin-left: 17px;
+}
+
+#NBVillagersButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%205.png?fileID=2800000&guid=5c695254a018d5c4d895f4299456f775&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 5");
+}
+
+#NBFishButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%206.png?fileID=2800000&guid=ba1b49cd7444c2242aac3b8a310424df&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 6");
+}
+
+#NBBugsButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%203.png?fileID=2800000&guid=9b1647d1a540acc42b1a5c42ab0838eb&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 3");
 }
 
 #NBSeasButton {
-    border-right-width: 5px;
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Octopus.png?fileID=2800000&guid=613d7ed3a99e952488416ca9de10585c&type=3#Octopus");
+}
+
+#NBUserButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%204.png?fileID=2800000&guid=4d82d335a1b5e334c818224207eed6bb&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 4");
+    margin-right: 16px;
 }
 
 #ContentPage {
@@ -58,19 +86,58 @@ Button {
     align-self: center;
 }
 
-Label {
-    font-size: 65px;
-    align-self: center;
-    -unity-text-align: middle-center;
-    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B%20SDF.asset?fileID=11400000&guid=264ea6ed0297cd441b2f52b79f6a7576&type=2#FOT-Seurat Pro B SDF");
+#SeasonIcons {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -72px;
 }
 
-Textfield {
-    background-color: rgba(255, 255, 255, 0);
+#AutumnIcon {
+    display: flex;
+    background-image: url("project://database/Assets/Sprites/UI/128279.png?fileID=-802975789&guid=75faedde1d0439048b64367b5e2156d1&type=3#128279_65");
+}
+
+#SummerIcon {
+    background-image: url("project://database/Assets/Sprites/UI/128279.png?fileID=911446716&guid=75faedde1d0439048b64367b5e2156d1&type=3#128279_136");
+}
+
+#SpringIcon {
+    background-image: url("project://database/Assets/Sprites/UI/128279.png?fileID=-114384443&guid=75faedde1d0439048b64367b5e2156d1&type=3#128279_95");
+}
+
+#WinterIcon {
+    background-image: url("project://database/Assets/Sprites/UI/128279.png?fileID=-2059856415&guid=75faedde1d0439048b64367b5e2156d1&type=3#128279_101");
+}
+
+.season-icon {
+    width: 141px;
+    height: 150px;
+    display: none;
 }
 
 #TimeLabel {
-    font-size: 116px;
+    font-size: 136px;
+}
+
+#AMPMLabel {
+    justify-content: flex-end;
+    align-self: flex-end;
+    font-size: 74px;
+}
+
+#HorizontalLine {
+    background-image: url("project://database/Assets/Sprites/UI/HorizontalLine.png?fileID=2800000&guid=26ed822ace3a1154b8b9a56a013ed1b5&type=3#HorizontalLine");
+    -unity-background-image-tint-color: rgb(114, 93, 66);
+    height: 11px;
+    background-color: rgba(0, 0, 0, 0);
+    width: 556px;
+}
+
+#DayLabel {
+}
+
+#DateLabel {
+    font-size: 55px;
 }
 
 #ResetButton {
@@ -78,7 +145,7 @@ Textfield {
     align-self: center;
     width: 519px;
     margin: 20px;
-    background-image: url("project://database/Assets/Sprites/UI/Buttons/Button_Reset%20Date%20and%20Time.png?fileID=2800000&amp;guid=94b5b17aec454874786a39ee021903e9&amp;type=3#Button_Reset Date and Time"); 
+    background-image: url("project://database/Assets/Sprites/UI/Buttons/Button_Reset%20Date%20and%20Time.png?fileID=2800000&guid=94b5b17aec454874786a39ee021903e9&type=3#Button_Reset Date and Time");
     width: 575px;
 }
 
@@ -88,7 +155,7 @@ Textfield {
     align-self: center;
     margin: auto;
     width: 100%;
-    height: 100%;
+    overflow: hidden;
 }
 
 .content-group {
@@ -113,11 +180,42 @@ Textfield {
     flex-direction: row;
 }
 
-#AMPMLabel {
-    justify-content: flex-end;
-    align-self: flex-end;
-}
-
 .text-right-container {
     flex-direction: row;
+}
+
+.unity-repeat-button {
+    background-image: url("project://database/Assets/Sprites/UI/ScrollBarEdge.png?fileID=2800000&guid=7315a353e3f660b4d8ad12527a6b6c57&type=3#ScrollBarEdge");
+    background-color: rgba(0, 0, 0, 0);
+    -unity-background-image-tint-color: rgb(226, 212, 173);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.unity-base-slider__dragger {
+    background-image: url("project://database/Assets/Sprites/UI/UI_ScrollBar.png?fileID=2800000&guid=7aa9ee5a17ec1054dacbde081ecb5a2f&type=3#UI_ScrollBar");
+    background-color: rgba(0, 0, 0, 0);
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.unity-base-slider__tracker {
+    background-image: url("project://database/Assets/Sprites/UI/UI_ScrollBarFull.png?fileID=2800000&guid=22cef9fd00819f94c9a74cbae881debf&type=3#UI_ScrollBarFull");
+    width: 12px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    margin-left: 6px;
+}
+
+.unity-scroller {
+    margin-right: 1%;
+    height: 95%;
+    margin-top: 1%;
+}
+
+#DateTimeScreen {
+    height: 1457px;
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 613d7ed3a99e952488416ca9de10585c
+guid: 26ed822ace3a1154b8b9a56a013ed1b5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3041970383809997380
-    second: Octopus_0
+      213: 2093332244703814366
+    second: HorizontalLine_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Octopus_0
+      name: HorizontalLine_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 81
-        height: 107
+        width: 760
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44ae04072ff373a20800000000000000
-      internalID: 3041970383809997380
+      spriteID: ed2217ae5920d0d10800000000000000
+      internalID: 2093332244703814366
       vertices: []
       indices: 
       edges: []
@@ -143,8 +143,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Octopus_0: 3041970383809997380
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
