@@ -2,14 +2,14 @@
     <Style src="project://database/Assets/UI/USS/HomeStyle.uss?fileID=7433441132597879392&amp;guid=3a6d156e7e3a3df408d88423080dda91&amp;type=3#HomeStyle" />
     <engine:VisualElement name="Root">
         <engine:VisualElement name="NavigationBarContainer">
-            <engine:Image name="NaviBar">
-                <engine:Image name="NBHomeButton" class="navi-buttons" />
-                <engine:Image name="NBVillagersButton" class="navi-buttons" />
-                <engine:Image name="NBFishButton" class="navi-buttons" />
-                <engine:Image name="NBBugsButton" class="navi-buttons" />
-                <engine:Image name="NBSeasButton" class="navi-buttons" />
-                <engine:Image name="NBUserButton" class="navi-buttons" />
-            </engine:Image>
+            <engine:GroupBox name="NaviBar">
+                <engine:RadioButton name="NBHomeButton" class="navi-buttons" />
+                <engine:RadioButton name="NBVillagersButton" class="navi-buttons" />
+                <engine:RadioButton name="NBFishButton" class="navi-buttons" />
+                <engine:RadioButton name="NBBugsButton" class="navi-buttons" />
+                <engine:RadioButton name="NBSeasButton" class="navi-buttons" />
+                <engine:RadioButton name="NBUserButton" class="navi-buttons" />
+            </engine:GroupBox>
         </engine:VisualElement>
         <engine:ScrollView name="ContentPage">
             <engine:VisualElement name="DateTimeScreen" class="content-group">
