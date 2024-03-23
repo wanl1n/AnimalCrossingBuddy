@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 2
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -116,19 +116,82 @@ TextureImporter:
       name: Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1155
-        height: 725
+        x: 182
+        y: 283
+        width: 100
+        height: 79
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fc7d48cffda8aa3b0800000000000000
-      internalID: -5500431300260735025
+      spriteID: 50b53949155c38b4f94ff258619a4b62
+      internalID: -610958827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_1
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 283
+        width: 100
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee332086befc0bb4c814f353745c7419
+      internalID: 1916928278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_9
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 202
+        width: 100
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a1e4cce1c397fc4fb9f4b96ea79b2cc
+      internalID: -1407235055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_10
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 202
+        width: 100
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a15963470cbc346a34081e41f7251e
+      internalID: 475501925
       vertices: []
       indices: 
       edges: []
@@ -136,7 +199,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6685a8b1aaed6d54683c708401fa3e91
     internalID: 0
     vertices: []
     indices: 
@@ -144,7 +207,42 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_0: -5500431300260735025
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_0: -610958827
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_1: 1916928278
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_10: 475501925
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_11: -410497715
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_12: -1909529729
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_13: 1170812159
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_14: 337744274
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_15: -124773378
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_16: -1500536398
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_17: 2092209987
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_18: 919617220
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_19: -1414641101
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_2: -2004718851
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_20: -459906063
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_21: -1341893630
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_22: -1736571584
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_23: 1639043226
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_24: -180788995
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_25: 1492916175
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_26: -1637721250
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_27: 1953791273
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_28: 2113634187
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_29: -1392945818
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_3: 417452951
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_30: -592709612
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_31: -999702880
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_32: 542057453
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_33: -310981526
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_34: -534838364
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_35: 1211195156
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_4: 1002653235
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_5: -1957392806
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_6: -1424734647
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_7: 59103394
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_8: -1087656209
+      Nintendo Switch - Animal Crossing New Horizons - Nook Phone Icons_9: -1407235055
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
