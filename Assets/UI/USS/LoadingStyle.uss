@@ -28,5 +28,8 @@ Label {
     height: 158px;
     align-self: center;
     transform-origin: bottom;
-    rotate: -10deg;
+    rotate: -21deg;
+    transition-property: rotate;
+    transition-duration: 120ms;
+    transition-timing-function: ease-in;
 }

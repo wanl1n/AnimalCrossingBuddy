@@ -11,8 +11,15 @@ public class LoadingGUIManager : MonoBehaviour
 
     [SerializeField]
     private List<Sprite> _animation;
-    private int[] degrees;
     private int _animationFrame = 0;
+    
+    private int _degrees = 0;
+    
+    [SerializeField]
+    private int _degreeIncrement = 10;
+    
+    [SerializeField]
+    private int _degreeLimit = 20; 
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +33,14 @@ public class LoadingGUIManager : MonoBehaviour
     private void AdvanceAnimationFrame()
     {
         _loadingSprite.style.backgroundImage = new(_animation[_animationFrame]);
+        _loadingSprite.style.rotate = new Rotate(_degrees);
+
+        if (_degrees + _degreeIncrement < _degreeLimit)
+        {
+            _degrees += _degreeIncrement;
+        }
+        else
+            _degrees = -_degreeLimit;
 
         if (_animationFrame == _animation.Count - 1)
             _animationFrame = 0;
