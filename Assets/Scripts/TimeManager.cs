@@ -5,14 +5,18 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    public static TimeManager Instance;
+    private static TimeManager Instance;
 
     private bool _isCustomTimeSet = false;
     public bool IsCustomTimeSet
     {
         get
         {
-            return _isCustomTimeSet;
+            return this._isCustomTimeSet;
+        }
+        set
+        {
+            this._isCustomTimeSet = value;
         }
     }
 
@@ -22,12 +26,12 @@ public class TimeManager : MonoBehaviour
     {
         set
         {
-            _playerTime = value;
+            this._playerTime = value;
         }
         get
         {
-            if (_isCustomTimeSet)
-                return _playerTime;
+            if (this._isCustomTimeSet)
+                return this._playerTime;
             else
                 return DateTime.Now;
         }
@@ -35,8 +39,8 @@ public class TimeManager : MonoBehaviour
 
     public void ResetDateTime()
     {
-        _playerTime = DateTime.Now;
-        _isCustomTimeSet = false;
+        this._playerTime = DateTime.Now;
+        this._isCustomTimeSet = false;
     }
 
     // date string ("26 March")
@@ -69,5 +73,14 @@ public class TimeManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+    }
+
+    public static TimeManager GetInstance()
+    {
+        if (Instance == null)
+        {
+            Instance = new TimeManager();
+        }
+        return Instance;
     }
 }
