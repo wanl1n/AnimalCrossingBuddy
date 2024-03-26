@@ -203,6 +203,11 @@ Label {
     margin-left: 10px;
 }
 
+#DateContainer {
+    width: 556px;
+    justify-content: space-evenly;
+}
+
 #DayLabel {
     font-size: 55px;
     background-color: rgb(247, 248, 230);
@@ -215,11 +220,13 @@ Label {
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
     color: rgb(114, 93, 66);
+    left: 0;
 }
 
 #DateLabel {
-    font-size: 55px;
+    font-size: 60px;
     margin-left: 20px;
+    right: 0;
 }
 
 #ResetButton {
