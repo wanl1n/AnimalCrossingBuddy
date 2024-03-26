@@ -1,0 +1,43 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/VillagersStyle.uss?fileID=7433441132597879392&amp;guid=bbdc773eaee296644bf159e13bddb718&amp;type=3#VillagersStyle" />
+    <engine:VisualElement name="Root">
+        <engine:VisualElement name="NavigationBarContainer">
+            <engine:Image name="NaviBar">
+                <engine:Image name="NBHomeButton" class="navi-buttons" />
+                <engine:Image name="NBVillagersButton" class="navi-buttons" />
+                <engine:Image name="NBFishButton" class="navi-buttons" />
+                <engine:Image name="NBBugsButton" class="navi-buttons" />
+                <engine:Image name="NBSeasButton" class="navi-buttons" />
+                <engine:Image name="NBUserButton" class="navi-buttons" />
+            </engine:Image>
+        </engine:VisualElement>
+        <engine:ScrollView name="ContentPage">
+            <engine:Label text="Villagers" name="VillagersBanner" />
+            <engine:VisualElement name="CurrentBirthdaysScreen" focusable="true" class="content-group">
+                <engine:Label text="Today&apos;s Birthdays" name="CurrentBirthdaysLabel" class="subheader" />
+                <engine:VisualElement name="CurrentBirthdaysList">
+                    <engine:Image name="VillagerPortrait1" class="villager-portrait" />
+                    <engine:Image name="VillagerPortrait2" class="villager-portrait" />
+                    <engine:Image name="VillagerPortrait3" class="villager-portrait" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="VillagersScreen" class="content-group">
+                <engine:Label text="All Villagers" name="AllVillagersLabel" class="subheader" />
+                <engine:VisualElement name="AllVillagersList">
+                    <engine:ListView name="VillagersList" header-title="Fish" class="catchable-list" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:ScrollView>
+        <engine:VisualElement name="DateTimeScreen">
+            <engine:VisualElement name="TimeContainer" class="TextRightContainer text-right-container">
+                <engine:Label text="12:45" name="TimeLabel" />
+                <engine:Label text="AM" name="AMPMLabel" />
+            </engine:VisualElement>
+            <engine:Image name="HorizontalLine" />
+            <engine:VisualElement name="DateContainer" class="TextRightContainer text-right-container">
+                <engine:Label text="Mon." name="DayLabel" />
+                <engine:Label text="5 February" name="DateLabel" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
