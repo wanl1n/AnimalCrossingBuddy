@@ -1,6 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/USS/VillagersStyle.uss?fileID=7433441132597879392&amp;guid=bbdc773eaee296644bf159e13bddb718&amp;type=3#VillagersStyle" />
-    <Style src="project://database/Assets/UI/USS/CategoryPageStyle.uss?fileID=7433441132597879392&amp;guid=cde8dc80b26dc054cae1836a81a7ac8b&amp;type=3#CategoryPageStyle" />
+    <Style src="project://database/Assets/UI/USS/Critters/CategoryPageStyle.uss?fileID=7433441132597879392&amp;guid=cde8dc80b26dc054cae1836a81a7ac8b&amp;type=3#CategoryPageStyle" />
+    <Style src="project://database/Assets/UI/USS/UserStyle.uss?fileID=7433441132597879392&amp;guid=06da156370e2f6b4a97fbfaabef1cacc&amp;type=3#UserStyle" />
     <engine:VisualElement name="Root">
         <engine:VisualElement name="NavigationBarContainer">
             <engine:Image name="NaviBar">
@@ -12,7 +12,6 @@
                 <engine:Image name="NBUserButton" class="navi-buttons" />
             </engine:Image>
         </engine:VisualElement>
-        <engine:Label text="Villagers" name="Banner" />
         <engine:VisualElement name="DateTimeScreen">
             <engine:VisualElement name="TimeContainer" class="TextRightContainer text-right-container">
                 <engine:Label text="12:45" name="TimeLabel" />
@@ -25,23 +24,28 @@
             </engine:VisualElement>
         </engine:VisualElement>
         <engine:ScrollView name="ContentPage">
-            <engine:VisualElement name="CurrentScreen" focusable="true" class="content-group content-page">
-                <engine:Label name="CurrentLabel" text="Today&apos;s Birthdays" class="subheader" />
-                <engine:VisualElement name="CurrentList">
-                    <engine:Image name="Portrait1" class="villager-portrait portraits" />
-                    <engine:Image name="Portrait2" class="villager-portrait portraits" />
-                    <engine:Image name="Portrait3" class="villager-portrait portraits" />
+            <engine:TextField placeholder-text="NAME" name="Username" />
+            <engine:VisualElement name="TablesContainer">
+                <engine:VisualElement name="Table1" class="tables">
+                    <engine:VisualElement name="ListHeaderContainer">
+                        <engine:Label text="Collected Villagers" name="AllLabel" class="subheader" />
+                        <engine:TextField placeholder-text="Search by name..." />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="AllList">
+                        <engine:ListView name="List" header-title="Collected Villagers" />
+                    </engine:VisualElement>
                 </engine:VisualElement>
-            </engine:VisualElement>
-            <engine:VisualElement name="AllScreen" class="content-group content-page">
-                <engine:VisualElement name="ListHeaderContainer" style="flex-grow: 1;">
-                    <engine:Label text="All Villagers" name="AllLabel" class="subheader" />
-                    <engine:TextField placeholder-text="Search by name..." />
-                </engine:VisualElement>
-                <engine:VisualElement name="AllList">
-                    <engine:ListView name="List" header-title="Fish" class="catchable-list" />
+                <engine:VisualElement name="Table2" class="tables">
+                    <engine:VisualElement name="ListHeaderContainer">
+                        <engine:Label text="Caught Critters" name="AllLabel" class="subheader" />
+                        <engine:TextField placeholder-text="Search by name..." />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="AllList">
+                        <engine:ListView name="List" header-title="Caught Critters" />
+                    </engine:VisualElement>
                 </engine:VisualElement>
             </engine:VisualElement>
         </engine:ScrollView>
+        <engine:Label text="User Profile" name="Banner" />
     </engine:VisualElement>
 </engine:UXML>

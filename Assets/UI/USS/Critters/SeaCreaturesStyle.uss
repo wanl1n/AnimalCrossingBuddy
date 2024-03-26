@@ -1,0 +1,13 @@
+.portraits {
+    width: 200px;
+    height: 100%;
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Octopus.png?fileID=2800000&guid=613d7ed3a99e952488416ca9de10585c&type=3#Octopus");
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+#NBSeasButton {
+    -unity-background-image-tint-color: rgb(253, 147, 3);
+}

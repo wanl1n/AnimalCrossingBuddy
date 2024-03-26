@@ -1,4 +1,11 @@
-#NBVillagersButton {
+#Username {
+    width: 29%;
+    height: 609px;
+    padding-top: 260px;
+    padding-bottom: 260px;
+}
+
+#NBUserButton {
     -unity-background-image-tint-color: rgb(253, 147, 3);
 }
 
@@ -10,4 +17,21 @@
     margin-right: 15px;
     margin-bottom: 15px;
     margin-left: 15px;
+}
+
+#TablesContainer {
+    flex-direction: row;
+    width: 100%;
+}
+
+#ListHeaderContainer {
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
+.tables {
+    width: 50%;
 }
