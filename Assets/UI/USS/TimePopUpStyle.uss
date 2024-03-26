@@ -1,0 +1,66 @@
+#PopUpBG {
+    background-image: url("project://database/Assets/Sprites/UI/PopUpBG.png?fileID=2800000&guid=007c5b45498e2e04ab4d9e8dbeabef68&type=3#PopUpBG");
+    height: 480px;
+    width: 652px;
+    position: absolute;
+    right: 65px;
+    top: 300px;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    align-self: center;
+}
+
+#Highlight {
+    background-image: url("project://database/Assets/Sprites/UI/Highlight.png?fileID=2800000&guid=183e0403409147a4eaca410f0dcc0582&type=3#Highlight");
+    height: 33px;
+    position: absolute;
+    left: 184px;
+    right: 171px;
+    top: 233px;
+}
+
+#ColonLabel {
+    -unity-text-align: upper-center;
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
+    font-size: 59px;
+    color: rgb(114, 93, 66);
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    bottom: 33px;
+    left: -17px;
+}
+
+.number-sliders {
+    -unity-text-align: upper-right;
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
+    font-size: 60px;
+    color: rgb(114, 93, 66);
+    height: 80%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.unity-repeat-button {
+    visibility: hidden;
+}
+
+.unity-base-slider__dragger {
+    visibility: hidden;
+}
+
+.unity-base-slider__tracker {
+    visibility: hidden;
+}
+
+.unity-scroller {
+    visibility: hidden;
+}
+
+#MinuteSlider {
+    justify-content: space-between;
+}

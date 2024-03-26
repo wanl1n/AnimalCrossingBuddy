@@ -1,0 +1,92 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/TimePopUpStyle.uss?fileID=7433441132597879392&amp;guid=5e3e4c9fe31559c4b898a2ba9137a32b&amp;type=3#TimePopUpStyle" />
+    <engine:Image name="PopUpBG">
+        <engine:VisualElement name="Highlight">
+            <engine:Label text=":" name="ColonLabel" />
+        </engine:VisualElement>
+        <engine:ScrollView name="HourSlider" class="number-sliders">
+            <engine:Label text="" />
+            <engine:Label text="" />
+            <engine:Label text="1" name="Hour1" />
+            <engine:Label text="2" name="Hour2" />
+            <engine:Label text="3" name="Hour3" />
+            <engine:Label text="4" name="Hour4" />
+            <engine:Label text="5" name="Hour5" />
+            <engine:Label text="6" name="Hour6" />
+            <engine:Label text="7" name="Hour7" />
+            <engine:Label text="8" name="Hour8" />
+            <engine:Label text="9" name="Hour9" />
+            <engine:Label text="10" name="Hour10" />
+            <engine:Label text="11" name="Hour11" />
+            <engine:Label text="12" name="Hour12" />
+            <engine:Label text="" />
+            <engine:Label text="" />
+        </engine:ScrollView>
+        <engine:ScrollView name="MinuteSlider" class="number-sliders">
+            <engine:Label text="" />
+            <engine:Label text="" />
+            <engine:Label text="01" name="Minute1" />
+            <engine:Label text="02" name="Minute2" />
+            <engine:Label text="03" name="Minute3" />
+            <engine:Label text="04" name="Minute4" />
+            <engine:Label text="05" name="Minute5" />
+            <engine:Label text="06" name="Minute6" />
+            <engine:Label text="07" name="Minute7" />
+            <engine:Label text="08" name="Minute8" />
+            <engine:Label text="09" name="Minute9" />
+            <engine:Label text="10" name="Minute10" />
+            <engine:Label text="11" name="Minute11" />
+            <engine:Label text="12" name="Minute12" />
+            <engine:Label text="13" name="Minute13" />
+            <engine:Label text="14" name="Minute14" />
+            <engine:Label text="15" name="Minute15" />
+            <engine:Label text="16" name="Minute16" />
+            <engine:Label text="17" name="Minute17" />
+            <engine:Label text="18" name="Minute18" />
+            <engine:Label text="19" name="Minute19" />
+            <engine:Label text="20" name="Minute20" />
+            <engine:Label text="21" name="Minute21" />
+            <engine:Label text="22" name="Minute22" />
+            <engine:Label text="23" name="Minute23" />
+            <engine:Label text="24" name="Minute24" />
+            <engine:Label text="25" name="Minute25" />
+            <engine:Label text="26" name="Minute26" />
+            <engine:Label text="27" name="Minute" />
+            <engine:Label text="28" name="Minute" />
+            <engine:Label text="29" name="Minute" />
+            <engine:Label text="30" name="Minute" />
+            <engine:Label text="31" name="Minute" />
+            <engine:Label text="32" name="Minute" />
+            <engine:Label text="33" name="Minute" />
+            <engine:Label text="34" name="Minute" />
+            <engine:Label text="35" name="Minute" />
+            <engine:Label text="36" name="Minute" />
+            <engine:Label text="37" name="Minute" />
+            <engine:Label text="38" name="Minute" />
+            <engine:Label text="39" name="Minute" />
+            <engine:Label text="40" name="Minute" />
+            <engine:Label text="41" name="Minute" />
+            <engine:Label text="42" name="Minute" />
+            <engine:Label text="43" name="Minute" />
+            <engine:Label text="44" name="Minute" />
+            <engine:Label text="45" name="Minute" />
+            <engine:Label text="46" name="Minute" />
+            <engine:Label text="47" name="Minute" />
+            <engine:Label text="48" name="Minute" />
+            <engine:Label text="49" name="Minute" />
+            <engine:Label text="50" name="Minute" />
+            <engine:Label text="51" name="Minute" />
+            <engine:Label text="52" name="Minute" />
+            <engine:Label text="53" name="Minute" />
+            <engine:Label text="54" name="Minute" />
+            <engine:Label text="55" name="Minute" />
+            <engine:Label text="56" name="Minute" />
+            <engine:Label text="57" name="Minute" />
+            <engine:Label text="58" name="Minute" />
+            <engine:Label text="59" name="Minute" />
+            <engine:Label text="00" name="Minute60" />
+            <engine:Label text="" />
+            <engine:Label text="" />
+        </engine:ScrollView>
+    </engine:Image>
+</engine:UXML>
