@@ -19,6 +19,7 @@
                     <engine:Image name="SpringIcon" class="season-icon" />
                     <engine:Image name="WinterIcon" class="season-icon" />
                 </engine:VisualElement>
+                <engine:Toggle value="false" name="HemisphereToggle" text="Hemisphere" />
                 <engine:VisualElement name="TimeContainer" class="TextRightContainer text-right-container">
                     <engine:Label text="12:45" name="TimeLabel" />
                     <engine:Label text="AM" name="AMPMLabel" />
