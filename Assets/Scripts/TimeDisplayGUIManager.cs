@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class TimeDisplayGUIManager : MonoBehaviour
 {
+
     private VisualElement _root;
     private Label _timeLabel;
     private Label _AMPMLabel;
@@ -13,6 +14,9 @@ public class TimeDisplayGUIManager : MonoBehaviour
     private Label _dateLabel;
 
     private VisualElement _resetButton;
+
+    [SerializeField]
+    private GameObject _timePopup;
 
     // Start is called before the first frame update
     public void Start()
@@ -27,10 +31,23 @@ public class TimeDisplayGUIManager : MonoBehaviour
         if (_timeLabel != null)
             StartCoroutine(UpdateTime());
 
+        this._timeLabel.RegisterCallback<PointerDownEvent>(this.OnTimeClick);
         this._AMPMLabel.RegisterCallback<PointerDownEvent>(this.OnAMPMClick);
         this._resetButton.RegisterCallback<PointerDownEvent>(this.OnResetClick);
     }
 
+    void OnTimeClick(PointerDownEvent e)
+    {
+        VisualElement popupRoot = this._timePopup.GetComponent<UIDocument>().rootVisualElement;
+        VisualElement transparentBG = popupRoot.Q<VisualElement>("TransparentBG");
+        transparentBG.style.display = DisplayStyle.Flex;
+
+        Image popUpBG = transparentBG.Q<Image>("PopUpBG");
+        popUpBG.style.display = DisplayStyle.Flex;
+
+        this._timePopup.GetComponent<TimePopUpGUIManager>().ScrollToTime();
+    }
+        
     void OnAMPMClick(PointerDownEvent e)
     {
         int hour = TimeManager.GetInstance().PlayerTime.Hour;
@@ -68,7 +85,7 @@ public class TimeDisplayGUIManager : MonoBehaviour
         }
     }
 
-    private void UpdateDisplay()
+    public void UpdateDisplay()
     {
         this._timeLabel.text = TimeManager.GetInstance().GetTimeString();
         this._AMPMLabel.text = TimeManager.GetInstance().GetAMPMString();

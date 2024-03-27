@@ -1,3 +1,10 @@
+#TransparentBG {
+    height: 100%;
+    width: 100%;
+
+    display: none;
+}
+
 #PopUpBG {
     background-image: url("project://database/Assets/Sprites/UI/PopUpBG.png?fileID=2800000&guid=007c5b45498e2e04ab4d9e8dbeabef68&type=3#PopUpBG");
     height: 480px;
@@ -9,6 +16,8 @@
     align-items: stretch;
     justify-content: center;
     align-self: center;
+
+    display: flex;
 }
 
 #Highlight {
@@ -49,18 +58,44 @@
     visibility: hidden;
 }
 
-.unity-base-slider__dragger {
-    visibility: hidden;
-}
-
 .unity-base-slider__tracker {
-    visibility: hidden;
+    visibility: visible;
 }
 
-.unity-scroller {
-    visibility: hidden;
+#HourSlider Scroller {
+    scale: 5 1;
+    transform-origin: 100%;
+}
+
+#MinuteSlider Scroller {
+    scale: 5 1;
+    transform-origin: 100%;
+}
+
+#unity-tracker {
+    opacity: 0.1;
+}
+
+#unity-dragger {
+    visibility: visible;
+    background-color: rgb(253, 147, 3);
+    opacity: 0.05;
+    position-top: 10px;
+}
+
+#unity-slider {
+    margin: 0px 0px 0px 0px;
+}
+
+#MinuteSlider #unity-dragger {
+    scale: 1 7;
 }
 
 #MinuteSlider {
     justify-content: space-between;
+}
+
+.hour-list {
+    margin: 10% 0px 10% 0px;
+    padding: auto;
 }

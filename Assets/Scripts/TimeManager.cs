@@ -37,6 +37,14 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (this._isCustomTimeSet)
+        {
+            this._playerTime = this._playerTime.AddSeconds(Time.deltaTime);
+        }
+    }
+
     public void ResetDateTime()
     {
         this._playerTime = DateTime.Now;
