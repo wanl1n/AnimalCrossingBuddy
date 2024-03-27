@@ -99,3 +99,8 @@
     margin: 10% 0px 10% 0px;
     padding: auto;
 }
+
+.minute-list {
+    margin: 10% 0px 10% 0px;
+    padding: auto;
+}
