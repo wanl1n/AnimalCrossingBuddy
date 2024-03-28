@@ -39,6 +39,7 @@ public class NavBarGUIManager : MonoBehaviour
     private void LoadFishScene()
     {
         Debug.Log("LoadFishScene");
+         SceneManager.LoadScene("FishScene");    
     }
 
     private void LoadBugsScene()
@@ -49,6 +50,7 @@ public class NavBarGUIManager : MonoBehaviour
     private void LoadSeasScene()
     {
         Debug.Log("LoadSeasScene");
+         SceneManager.LoadScene("SeasScene");    
     }
     private void LoadHomeScene()
     {

@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 
 public class LoadingGUIManager : MonoBehaviour
 {
+    private static LoadingGUIManager _instance;
+
     private VisualElement _root;
 
     private Image _loadingSprite;
@@ -22,16 +24,31 @@ public class LoadingGUIManager : MonoBehaviour
     private int _degreeLimit = 20; 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         this._root = this.GetComponent<UIDocument>().rootVisualElement;
 
         _loadingSprite = _root.Q<Image>("LoadingSprite");
         _loadingSprite.schedule.Execute(AdvanceAnimationFrame).Every(60);
+    
+        HideLoading();
+    }
+
+    public void ShowLoading()
+    {
+        _root.style.display = DisplayStyle.Flex;
+    }
+
+    public void HideLoading()
+    {
+        _root.style.display = DisplayStyle.None;
     }
 
     private void AdvanceAnimationFrame()
     {
+        if (_root.style.display == DisplayStyle.None)
+            return;
+
         _loadingSprite.style.backgroundImage = new(_animation[_animationFrame]);
         _loadingSprite.style.rotate = new Rotate(_degrees);
 
@@ -48,11 +65,22 @@ public class LoadingGUIManager : MonoBehaviour
             _animationFrame++;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
+        if (_instance == null)
+            _instance = this;
+        else
+            Destroy(gameObject);
 
+        DontDestroyOnLoad(gameObject);
     }
 
-
+    public static LoadingGUIManager GetInstance()
+    {
+        if (_instance == null)
+        {
+            _instance = new();
+        }
+        return _instance;
+    }
 }

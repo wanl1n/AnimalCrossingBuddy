@@ -228,7 +228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1425392815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: c0d592afbb639f8479e40cf21e201e86, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: b86bb56682776ee49be5971bbe204548, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!4 &1425392817
 Transform:
   m_ObjectHideFlags: 0
@@ -387,6 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c567dfb2414374c4fb9287baf9ab5459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _activeHour: -1
+  _activeMin: -1
   timeDisplayGUIManager: {fileID: 2051520036}
 --- !u!1 &2051520032
 GameObject:

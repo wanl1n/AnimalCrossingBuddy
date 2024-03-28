@@ -5,21 +5,21 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    private static TimeManager Instance;
-
-    private bool _isCustomTimeSet = false;
-    public bool IsCustomTimeSet
+    public enum Seasons
     {
-        get
-        {
-            return this._isCustomTimeSet;
-        }
-        set
-        {
-            this._isCustomTimeSet = value;
-        }
+        SPRING,
+        SUMMER,
+        FALL,
+        WINTER
     }
 
+    private static TimeManager _instance;
+
+    private bool _isInSouthernHemisphere = false;
+    public bool IsInSouthernHemisphere { get => _isInSouthernHemisphere; set => _isInSouthernHemisphere = value; }
+
+    private bool _isCustomTimeSet = false;
+    public bool IsCustomTimeSet { get => _isCustomTimeSet; set => _isCustomTimeSet = value; }
 
     private DateTime _playerTime = DateTime.Now;
     public DateTime PlayerTime
@@ -37,12 +37,9 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    public static bool IsBetweenTwoDates(DateTime dt, DateTime start, DateTime end)
     {
-        if (this._isCustomTimeSet)
-        {
-            this._playerTime = this._playerTime.AddSeconds(Time.deltaTime);
-        }
+        return dt >= start && dt <= end;
     }
 
     public void ResetDateTime()
@@ -50,6 +47,30 @@ public class TimeManager : MonoBehaviour
         this._playerTime = DateTime.Now;
         this._isCustomTimeSet = false;
     }
+
+    // TODO: Take season dates from database
+    // public Seasons GetCurrentSeason()
+    // {
+    //     if (IsInSouthernHemisphere)
+    //     {
+    //         DateTime SHSpringStart  = new(PlayerTime.Year, 08, 25);
+    //         DateTime SHSpringEnd    = new(PlayerTime.Year, 11, 30);
+    //         DateTime SHSummerStart  = new(PlayerTime.Year, 08, 25);
+    //         DateTime SHSummerEnd    = new(PlayerTime.Year, 11, 30);
+    //         DateTime SHFallStart    = new(PlayerTime.Year, 08, 25);
+    //         DateTime SHFallEnd      = new(PlayerTime.Year, 11, 30);
+    //         DateTime SHWinterStart  = new(PlayerTime.Year, 08, 25);
+    //         DateTime SHWinterEnd    = new(PlayerTime.Year, 11, 30);
+
+    //         if (IsBetweenTwoDates(PlayerTime, SHSpringStart, SHSpringEnd))
+    //             return Seasons.SPRING;
+    //     }
+    //     else
+    //     {
+
+    //         return;
+    //     }
+    // }
 
     // date string ("26 March")
     public string GetDateString()
@@ -75,20 +96,30 @@ public class TimeManager : MonoBehaviour
         return PlayerTime.ToString("tt");
     }
 
+    private void Update()
+    {
+        if (this._isCustomTimeSet)
+        {
+            this._playerTime = this._playerTime.AddSeconds(Time.deltaTime);
+        }
+    }
+
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
+        if (_instance == null)
+            _instance = this;
         else
             Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public static TimeManager GetInstance()
     {
-        if (Instance == null)
+        if (_instance == null)
         {
-            Instance = new TimeManager();
+            _instance = new();
         }
-        return Instance;
+        return _instance;
     }
 }
