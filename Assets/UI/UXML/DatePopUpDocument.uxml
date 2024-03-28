@@ -1,0 +1,63 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/DatePopUpStyle.uss?fileID=7433441132597879392&amp;guid=16235d95385083841a13808ee9e09bd4&amp;type=3#DatePopUpStyle" />
+    <engine:VisualElement name="TransparentBG">
+        <engine:Image name="PopUpBG">
+            <engine:VisualElement name="Highlight" />
+            <engine:ScrollView name="MonthSlider" class="number-sliders">
+                <engine:Label name="Offset1" class="left-slider-list" />
+                <engine:Label name="Offset2" class="left-slider-list" />
+                <engine:Label text="January" name="Month1" class="left-slider-list" />
+                <engine:Label text="February" name="Month2" class="left-slider-list" />
+                <engine:Label text="March" name="Month3" class="left-slider-list" />
+                <engine:Label text="April" name="Month4" class="left-slider-list" />
+                <engine:Label text="May" name="Month5" class="left-slider-list" />
+                <engine:Label text="June" name="Month6" class="left-slider-list" />
+                <engine:Label text="July" name="Month7" class="left-slider-list" />
+                <engine:Label text="August" name="Month8" class="left-slider-list" />
+                <engine:Label text="September" name="Month9" class="left-slider-list" />
+                <engine:Label text="October" name="Month10" class="left-slider-list" />
+                <engine:Label text="November" name="Month11" class="left-slider-list" />
+                <engine:Label text="December" name="Month12" class="left-slider-list" />
+                <engine:Label name="Offset3" class="left-slider-list" />
+                <engine:Label name="Offset4" class="left-slider-list" />
+            </engine:ScrollView>
+            <engine:ScrollView name="DaySlider" class="number-sliders">
+                <engine:Label name="Offset1" />
+                <engine:Label name="Offset2" />
+                <engine:Label text="01" name="Day1" />
+                <engine:Label text="02" name="Day2" />
+                <engine:Label text="03" name="Day3" />
+                <engine:Label text="04" name="Day4" />
+                <engine:Label text="05" name="Day5" />
+                <engine:Label text="06" name="Day6" />
+                <engine:Label text="07" name="Day7" />
+                <engine:Label text="08" name="Day8" />
+                <engine:Label text="09" name="Day9" />
+                <engine:Label text="10" name="Day10" />
+                <engine:Label text="11" name="Day11" />
+                <engine:Label text="12" name="Day12" />
+                <engine:Label text="13" name="Day13" />
+                <engine:Label text="14" name="Day14" />
+                <engine:Label text="15" name="Day15" />
+                <engine:Label text="16" name="Day16" />
+                <engine:Label text="17" name="Day17" />
+                <engine:Label text="18" name="Day18" />
+                <engine:Label text="19" name="Day19" />
+                <engine:Label text="20" name="Day20" />
+                <engine:Label text="21" name="Day21" />
+                <engine:Label text="22" name="Day22" />
+                <engine:Label text="23" name="Day23" />
+                <engine:Label text="24" name="Day24" />
+                <engine:Label text="25" name="Day25" />
+                <engine:Label text="26" name="Day26" />
+                <engine:Label text="27" name="Day27" />
+                <engine:Label text="28" name="Day28" />
+                <engine:Label text="29" name="Day29" />
+                <engine:Label text="30" name="Day30" />
+                <engine:Label text="31" name="Day31" />
+                <engine:Label name="Offset3" />
+                <engine:Label name="Offset4" />
+            </engine:ScrollView>
+        </engine:Image>
+    </engine:VisualElement>
+</engine:UXML>

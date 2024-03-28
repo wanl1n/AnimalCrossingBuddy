@@ -1,7 +1,6 @@
 #TransparentBG {
     height: 100%;
     width: 100%;
-
     display: none;
 }
 
@@ -16,7 +15,6 @@
     align-items: stretch;
     justify-content: center;
     align-self: center;
-
     display: flex;
 }
 
@@ -24,22 +22,9 @@
     background-image: url("project://database/Assets/Sprites/UI/Highlight.png?fileID=2800000&guid=183e0403409147a4eaca410f0dcc0582&type=3#Highlight");
     height: 33px;
     position: absolute;
-    left: 184px;
-    right: 171px;
+    left: 78px;
+    right: 53px;
     top: 233px;
-}
-
-#ColonLabel {
-    -unity-text-align: upper-center;
-    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
-    font-size: 59px;
-    color: rgb(114, 93, 66);
-    margin-top: auto;
-    margin-right: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    bottom: 33px;
-    left: -17px;
 }
 
 .number-sliders {
@@ -79,18 +64,19 @@ Scroller {
 }
 
 #unity-slider {
-    margin: 0px 0px 0px 0px;
+    margin: 0 0 0 0;
 }
 
-#MinuteSlider #unity-dragger {
+#DaySlider #unity-dragger {
     scale: 1 7;
 }
 
-#MinuteSlider {
-    justify-content: space-between;
+.left-slider-list {
+    margin: 10% 0 10% 0;
+    padding: auto;
+    margin-top: -2%;
+    margin-bottom: 8%;
 }
 
-.hour-list {
-    margin: 10% 0px 10% 0px;
-    padding: auto;
+#MonthSlider #unity-slider {
 }
