@@ -356,3 +356,19 @@ Label {
     width: 200px;
     translate: -50% 0;
 }
+
+#TimeLabel:hover {
+    color: rgb(253, 147, 3);
+}
+
+#AMPMLabel:hover {
+    color: rgb(253, 147, 3);
+}
+
+#DateLabel:hover {
+    color: rgb(253, 147, 3);
+}
+
+#ResetButton:hover {
+    -unity-background-image-tint-color: rgb(198, 195, 186);
+}
