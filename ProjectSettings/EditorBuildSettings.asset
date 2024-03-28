@@ -8,5 +8,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HomeScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/BugScene.unity
+    guid: 485cb9ed55a386742b4efba6f9aa8504
+  - enabled: 1
+    path: Assets/Scenes/VillagerScene.unity
+    guid: b4495eb94de16d849aa26872e3097f56
+  - enabled: 1
+    path: Assets/Scenes/FIshScene.unity
+    guid: 1670fec689f384541b92c24fe5f07afd
+  - enabled: 1
+    path: Assets/Scenes/SeasScene.unity
+    guid: e2742678f0288ca4a94528a8441e109f
+  - enabled: 1
+    path: Assets/Scenes/UserScene.unity
+    guid: 1bc82facad3acaa4384becc9e4366135
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

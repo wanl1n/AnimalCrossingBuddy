@@ -12,6 +12,8 @@ public class HomeGUIManager : MonoBehaviour
     private VisualElement _catchableScreen;
     private VisualElement _eventsScreen;
 
+    private Toggle _hemisphereToggle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +23,14 @@ public class HomeGUIManager : MonoBehaviour
         this._dateTimeScreen = this._root.Q<VisualElement>("DateTimeScren");
         this._catchableScreen = this._root.Q<VisualElement>("CatchableScreen");
         this._eventsScreen = this._root.Q<VisualElement>("EventsScreen");
+        this._hemisphereToggle = this._root.Q<Toggle>("HemisphereToggle");
+        this._hemisphereToggle.RegisterValueChangedCallback(
+            evt =>
+            {
+                TimeManager.GetInstance().IsInSouthernHemisphere = evt.newValue;
+            }
+        );
+
+        this._hemisphereToggle.value = TimeManager.GetInstance().IsInSouthernHemisphere;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
 }

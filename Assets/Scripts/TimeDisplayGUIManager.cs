@@ -28,12 +28,17 @@ public class TimeDisplayGUIManager : MonoBehaviour
         this._dateLabel = _root.Q<Label>("DateLabel");
         this._resetButton = _root.Q<VisualElement>("ResetButton");
     
-        if (_timeLabel != null)
+        if (this._timeLabel != null)
+        {
             StartCoroutine(UpdateTime());
+            this._timeLabel.RegisterCallback<PointerDownEvent>(this.OnTimeClick);
+        }
 
-        this._timeLabel.RegisterCallback<PointerDownEvent>(this.OnTimeClick);
-        this._AMPMLabel.RegisterCallback<PointerDownEvent>(this.OnAMPMClick);
-        this._resetButton.RegisterCallback<PointerDownEvent>(this.OnResetClick);
+        if (this._AMPMLabel != null)
+            this._AMPMLabel.RegisterCallback<PointerDownEvent>(this.OnAMPMClick);
+
+        if (this._resetButton != null)
+            this._resetButton.RegisterCallback<PointerDownEvent>(this.OnResetClick);
     }
 
     void OnTimeClick(PointerDownEvent e)

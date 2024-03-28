@@ -1,0 +1,129 @@
+#NavigationBarContainer {
+    padding-top: 31px;
+    padding-right: 31px;
+    padding-bottom: 31px;
+    padding-left: 31px;
+    align-items: center;
+}
+
+#NaviBar {
+    flex-direction: row;
+    padding: 1%;
+    background-image: url("project://database/Assets/Sprites/UI/Icons/NaviBar_BG.png?fileID=2800000&guid=93ec7e3d9587122419067be38274040a&type=3#NaviBar_BG");
+    width: 667px;
+    height: 137px;
+    justify-content: space-between;
+}
+
+.navi-buttons {
+    width: 61px;
+    height: 70px;
+    margin-bottom: 13px;
+    -unity-background-image-tint-color: rgb(186, 183, 164);
+    margin-top: 13px;
+    justify-content: space-between;
+    overflow: visible;
+    transition-property: scale;
+    transition-duration: 50ms;
+    transition-timing-function: ease-out;
+}
+
+.navi-buttons VisualElement {
+    width: 160%;
+    height: 140%;
+    justify-content: space-between;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-color: rgba(114, 93, 66, 0);
+    align-self: center;
+    margin-left: -18px;
+}
+
+.navi-buttons:hover VisualElement {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgba(114, 93, 66, 0.12);
+}
+
+.navi-buttons:active {
+    width: 61px;
+    height: 70px;
+    margin-bottom: 13px;
+    margin-top: 13px;
+    justify-content: space-between;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    scale: 1.2 1.2;
+}
+
+.navi-buttons:checked {
+    width: 61px;
+    height: 70px;
+    margin-bottom: 13px;
+    -unity-background-image-tint-color: rgb(253, 147, 3);
+    margin-top: 13px;
+    justify-content: space-between;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+#NBHomeButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%201.png?fileID=2800000&guid=a0b26be245aecb348a697c1b8d606388&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 1");
+    margin-left: 17px;
+}
+
+#NBVillagersButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%205.png?fileID=2800000&guid=5c695254a018d5c4d895f4299456f775&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 5");
+}
+
+#NBFishButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%206.png?fileID=2800000&guid=ba1b49cd7444c2242aac3b8a310424df&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 6");
+}
+
+#NBBugsButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%203.png?fileID=2800000&guid=9b1647d1a540acc42b1a5c42ab0838eb&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 3");
+}
+
+#NBSeasButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Octopus.png?fileID=2800000&guid=613d7ed3a99e952488416ca9de10585c&type=3#Octopus");
+}
+
+#NBUserButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%204.png?fileID=2800000&guid=4d82d335a1b5e334c818224207eed6bb&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 4");
+    margin-right: 16px;
+}
+
+#NBHomeButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%201.png?fileID=2800000&guid=a0b26be245aecb348a697c1b8d606388&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 1");
+    margin-left: 17px;
+}
+
+#NBVillagersButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%205.png?fileID=2800000&guid=5c695254a018d5c4d895f4299456f775&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 5");
+}
+
+#NBFishButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%206.png?fileID=2800000&guid=ba1b49cd7444c2242aac3b8a310424df&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 6");
+}
+
+#NBBugsButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%203.png?fileID=2800000&guid=9b1647d1a540acc42b1a5c42ab0838eb&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 3");
+}
+
+#NBSeasButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Octopus.png?fileID=2800000&guid=613d7ed3a99e952488416ca9de10585c&type=3#Octopus");
+}
+
+#NBUserButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%204.png?fileID=2800000&guid=4d82d335a1b5e334c818224207eed6bb&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 4");
+    margin-right: 16px;
+}

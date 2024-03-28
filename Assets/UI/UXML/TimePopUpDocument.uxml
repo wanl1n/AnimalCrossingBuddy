@@ -24,70 +24,70 @@
                 <engine:Label name="Offset4" class="hour-list" />
             </engine:ScrollView>
             <engine:ScrollView name="MinuteSlider" class="number-sliders">
-                <engine:Label name="Offset1" />
-                <engine:Label name="Offset2" />
-                <engine:Label text="00" name="Minute0" />
-                <engine:Label text="01" name="Minute1" />
-                <engine:Label text="02" name="Minute2" />
-                <engine:Label text="03" name="Minute3" />
-                <engine:Label text="04" name="Minute4" />
-                <engine:Label text="05" name="Minute5" />
-                <engine:Label text="06" name="Minute6" />
-                <engine:Label text="07" name="Minute7" />
-                <engine:Label text="08" name="Minute8" />
-                <engine:Label text="09" name="Minute9" />
-                <engine:Label text="10" name="Minute10" />
-                <engine:Label text="11" name="Minute11" />
-                <engine:Label text="12" name="Minute12" />
-                <engine:Label text="13" name="Minute13" />
-                <engine:Label text="14" name="Minute14" />
-                <engine:Label text="15" name="Minute15" />
-                <engine:Label text="16" name="Minute16" />
-                <engine:Label text="17" name="Minute17" />
-                <engine:Label text="18" name="Minute18" />
-                <engine:Label text="19" name="Minute19" />
-                <engine:Label text="20" name="Minute20" />
-                <engine:Label text="21" name="Minute21" />
-                <engine:Label text="22" name="Minute22" />
-                <engine:Label text="23" name="Minute23" />
-                <engine:Label text="24" name="Minute24" />
-                <engine:Label text="25" name="Minute25" />
-                <engine:Label text="26" name="Minute26" />
-                <engine:Label text="27" name="Minute27" />
-                <engine:Label text="28" name="Minute28" />
-                <engine:Label text="29" name="Minute29" />
-                <engine:Label text="30" name="Minute30" />
-                <engine:Label text="31" name="Minute31" />
-                <engine:Label text="32" name="Minute32" />
-                <engine:Label text="33" name="Minute33" />
-                <engine:Label text="34" name="Minute34" />
-                <engine:Label text="35" name="Minute35" />
-                <engine:Label text="36" name="Minute36" />
-                <engine:Label text="37" name="Minute37" />
-                <engine:Label text="38" name="Minute38" />
-                <engine:Label text="39" name="Minute39" />
-                <engine:Label text="40" name="Minute40" />
-                <engine:Label text="41" name="Minute41" />
-                <engine:Label text="42" name="Minute42" />
-                <engine:Label text="43" name="Minute43" />
-                <engine:Label text="44" name="Minute44" />
-                <engine:Label text="45" name="Minute45" />
-                <engine:Label text="46" name="Minute46" />
-                <engine:Label text="47" name="Minute47" />
-                <engine:Label text="48" name="Minute48" />
-                <engine:Label text="49" name="Minute49" />
-                <engine:Label text="50" name="Minute50" />
-                <engine:Label text="51" name="Minute51" />
-                <engine:Label text="52" name="Minute52" />
-                <engine:Label text="53" name="Minute53" />
-                <engine:Label text="54" name="Minute54" />
-                <engine:Label text="55" name="Minute55" />
-                <engine:Label text="56" name="Minute56" />
-                <engine:Label text="57" name="Minute57" />
-                <engine:Label text="58" name="Minute58" />
-                <engine:Label text="59" name="Minute59" />
-                <engine:Label name="Offset3" />
-                <engine:Label name="Offset4" />
+                <engine:Label name="Offset1" class="minute-list"/>
+                <engine:Label name="Offset2" class="minute-list"/>
+                <engine:Label text="00" name="Minute0" class="minute-list"/>
+                <engine:Label text="01" name="Minute1" class="minute-list"/>
+                <engine:Label text="02" name="Minute2" class="minute-list"/>
+                <engine:Label text="03" name="Minute3" class="minute-list"/>
+                <engine:Label text="04" name="Minute4" class="minute-list"/>
+                <engine:Label text="05" name="Minute5" class="minute-list"/>
+                <engine:Label text="06" name="Minute6" class="minute-list"/>
+                <engine:Label text="07" name="Minute7" class="minute-list"/>
+                <engine:Label text="08" name="Minute8" class="minute-list"/>
+                <engine:Label text="09" name="Minute9" class="minute-list"/>
+                <engine:Label text="10" name="Minute10" class="minute-list"/>
+                <engine:Label text="11" name="Minute11" class="minute-list"/>
+                <engine:Label text="12" name="Minute12" class="minute-list"/>
+                <engine:Label text="13" name="Minute13" class="minute-list"/>
+                <engine:Label text="14" name="Minute14" class="minute-list"/>
+                <engine:Label text="15" name="Minute15" class="minute-list"/>
+                <engine:Label text="16" name="Minute16" class="minute-list"/>
+                <engine:Label text="17" name="Minute17" class="minute-list"/>
+                <engine:Label text="18" name="Minute18" class="minute-list"/>
+                <engine:Label text="19" name="Minute19" class="minute-list"/>
+                <engine:Label text="20" name="Minute20" class="minute-list"/>
+                <engine:Label text="21" name="Minute21" class="minute-list"/>
+                <engine:Label text="22" name="Minute22" class="minute-list"/>
+                <engine:Label text="23" name="Minute23" class="minute-list"/>
+                <engine:Label text="24" name="Minute24" class="minute-list"/>
+                <engine:Label text="25" name="Minute25" class="minute-list"/>
+                <engine:Label text="26" name="Minute26" class="minute-list"/>
+                <engine:Label text="27" name="Minute27" class="minute-list"/>
+                <engine:Label text="28" name="Minute28" class="minute-list"/>
+                <engine:Label text="29" name="Minute29" class="minute-list"/>
+                <engine:Label text="30" name="Minute30" class="minute-list"/>
+                <engine:Label text="31" name="Minute31" class="minute-list"/>
+                <engine:Label text="32" name="Minute32" class="minute-list"/>
+                <engine:Label text="33" name="Minute33" class="minute-list"/>
+                <engine:Label text="34" name="Minute34" class="minute-list"/>
+                <engine:Label text="35" name="Minute35" class="minute-list"/>
+                <engine:Label text="36" name="Minute36" class="minute-list"/>
+                <engine:Label text="37" name="Minute37" class="minute-list"/>
+                <engine:Label text="38" name="Minute38" class="minute-list"/>
+                <engine:Label text="39" name="Minute39" class="minute-list"/>
+                <engine:Label text="40" name="Minute40" class="minute-list"/>
+                <engine:Label text="41" name="Minute41" class="minute-list"/>
+                <engine:Label text="42" name="Minute42" class="minute-list"/>
+                <engine:Label text="43" name="Minute43" class="minute-list"/>
+                <engine:Label text="44" name="Minute44" class="minute-list"/>
+                <engine:Label text="45" name="Minute45" class="minute-list"/>
+                <engine:Label text="46" name="Minute46" class="minute-list"/>
+                <engine:Label text="47" name="Minute47" class="minute-list"/>
+                <engine:Label text="48" name="Minute48" class="minute-list"/>
+                <engine:Label text="49" name="Minute49" class="minute-list"/>
+                <engine:Label text="50" name="Minute50" class="minute-list"/>
+                <engine:Label text="51" name="Minute51" class="minute-list"/>
+                <engine:Label text="52" name="Minute52" class="minute-list"/>
+                <engine:Label text="53" name="Minute53" class="minute-list"/>
+                <engine:Label text="54" name="Minute54" class="minute-list"/>
+                <engine:Label text="55" name="Minute55" class="minute-list"/>
+                <engine:Label text="56" name="Minute56" class="minute-list"/>
+                <engine:Label text="57" name="Minute57" class="minute-list"/>
+                <engine:Label text="58" name="Minute58" class="minute-list"/>
+                <engine:Label text="59" name="Minute59" class="minute-list"/>
+                <engine:Label name="Offset3" class="minute-list"/>
+                <engine:Label name="Offset4" class="minute-list"/>
             </engine:ScrollView>
         </engine:Image>
     </engine:VisualElement>
