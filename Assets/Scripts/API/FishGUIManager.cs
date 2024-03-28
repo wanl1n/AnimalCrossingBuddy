@@ -72,6 +72,7 @@ public class FishGUIManager : MonoBehaviour
             VisualElement newIcon = new();
             newIcon.AddToClassList("portraits");
             newIcon.style.backgroundImage = new StyleBackground(icon);
+            // newIcon.RegisterCallback<ClickEvent>(evt => OpenFishPopup());
             _listView.Add(newIcon);
         }
 
