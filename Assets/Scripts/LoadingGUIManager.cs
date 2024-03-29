@@ -9,6 +9,8 @@ public class LoadingGUIManager : MonoBehaviour
 
     private VisualElement _root;
 
+    private VisualElement _rootElement;
+
     private Image _loadingSprite;
 
     [SerializeField]
@@ -28,26 +30,31 @@ public class LoadingGUIManager : MonoBehaviour
     {
         this._root = this.GetComponent<UIDocument>().rootVisualElement;
 
+        _rootElement = _root.Q<VisualElement>("Root");
         _loadingSprite = _root.Q<Image>("LoadingSprite");
         _loadingSprite.schedule.Execute(AdvanceAnimationFrame).Every(60);
     
+        // _root.RegisterCallback<TransitionEndEvent>(e => _root);
+
         HideLoading();
     }
 
     public void ShowLoading()
     {
-        _root.style.display = DisplayStyle.Flex;
+        _rootElement.style.opacity = 100;
+        // _root.style.display = DisplayStyle.Flex;
     }
 
     public void HideLoading()
     {
-        _root.style.display = DisplayStyle.None;
+        _rootElement.style.opacity = 0;
+        // _root.style.display = DisplayStyle.None;
     }
 
     private void AdvanceAnimationFrame()
     {
-        if (_root.style.display == DisplayStyle.None)
-            return;
+        // if (_rootElement.style.opacity == 0)
+        //     return;
 
         _loadingSprite.style.backgroundImage = new(_animation[_animationFrame]);
         _loadingSprite.style.rotate = new Rotate(_degrees);

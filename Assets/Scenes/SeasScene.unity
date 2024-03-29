@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 2051520033}
   - component: {fileID: 2051520035}
   - component: {fileID: 2051520036}
+  - component: {fileID: 2051520037}
   m_Layer: 5
   m_Name: Sea Creatures Document
   m_TagString: Untagged
@@ -350,6 +351,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timePopup: {fileID: 1345408650}
+--- !u!114 &2051520037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051520032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50d106f6f8e32d4281517b78e5c5740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _table: sea_creatures
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

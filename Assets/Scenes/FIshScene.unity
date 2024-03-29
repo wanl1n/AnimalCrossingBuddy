@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50d106f6f8e32d4281517b78e5c5740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _table: fish
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

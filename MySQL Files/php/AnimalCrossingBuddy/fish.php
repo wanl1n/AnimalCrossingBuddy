@@ -6,9 +6,9 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$query1 = "SELECT * FROM `fish`;";
+$query = "SELECT * FROM `fish`;";
 
-$fishQuery = mysqli_query($connection, $query1) or die("[2] : QUERY failed.");
+$columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 
 // if (mysqli_num_rows($usernameCheck) != 1) {
 //     echo "[4] : Username doesn't exist.";
@@ -23,11 +23,11 @@ echo "0\t";
 
 // print_r($a);
 
-while ($row = mysqli_fetch_assoc($fishQuery)) {
+while ($row = mysqli_fetch_assoc($columnQuery)) {
     echo json_encode($row) . "\t";
 }
 
-mysqli_free_result($fishQuery);
+mysqli_free_result($columnQuery);
 mysqli_close($connection);
 
 ?>

@@ -4,7 +4,7 @@
 
 .portraits {
     width: 200px;
-    height: 100%;
+    height: 200px;
     background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%205.png?fileID=2800000&guid=5c695254a018d5c4d895f4299456f775&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 5");
     margin-top: 15px;
     margin-right: 15px;

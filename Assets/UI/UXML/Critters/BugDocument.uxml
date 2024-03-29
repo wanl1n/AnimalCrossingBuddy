@@ -30,9 +30,9 @@
                     <engine:Label text="All Bugs" name="AllLabel" class="subheader" />
                     <engine:TextField placeholder-text="Search by name..." />
                 </engine:VisualElement>
-                <engine:VisualElement name="AllList">
-                    <engine:ListView name="List" header-title="Fish" class="catchable-list" />
-                </engine:VisualElement>
+                <engine:ScrollView name="AllList" mode="VerticalAndHorizontal" vertical-scroller-visibility="Hidden">
+                    <engine:VisualElement name="VisualElement" class="catchable-list" />
+                </engine:ScrollView>
             </engine:VisualElement>
         </engine:ScrollView>
     </engine:VisualElement>
