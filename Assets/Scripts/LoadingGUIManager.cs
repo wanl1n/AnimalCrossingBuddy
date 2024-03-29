@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class LoadingGUIManager : MonoBehaviour
@@ -36,7 +37,8 @@ public class LoadingGUIManager : MonoBehaviour
     
         // _root.RegisterCallback<TransitionEndEvent>(e => _root);
 
-        HideLoading();
+        if (SceneManager.GetActiveScene().name.Contains("Home"))
+            this.HideLoading();
     }
 
     public void ShowLoading()

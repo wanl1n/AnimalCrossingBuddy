@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 2051520037}
   m_Layer: 5
   m_Name: Fish Document
-  m_TagString: Untagged
+  m_TagString: Scene Document
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timePopup: {fileID: 1034019696}
-  _datePopup: {fileID: 0}
+  _datePopup: {fileID: 571837509}
 --- !u!114 &2051520037
 MonoBehaviour:
   m_ObjectHideFlags: 0

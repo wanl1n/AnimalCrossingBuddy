@@ -74,16 +74,24 @@ public class DatabaseManager : MonoBehaviour
             newIcon.RegisterCallback<ClickEvent, VisualElement>(Clicked, newIcon);
             // list.Add(newIcon);
             parent.Add(newIcon);
+            
         }
+
 
         // callback(list);
     }
 
-    private void Clicked(ClickEvent evt, VisualElement elementClicked)
+    private void Clicked(ClickEvent evt, VisualElement element)
     {
         // get data 
         // show the popup
-        
+
+        GameObject contentListManager = GameObject.FindGameObjectWithTag("Scene Document");
+        if (contentListManager != null)
+        {
+            contentListManager.GetComponent<ContentListGUIManager>().LoadIconData(element.name);
+        }
+
     }
 
     private void Awake()
