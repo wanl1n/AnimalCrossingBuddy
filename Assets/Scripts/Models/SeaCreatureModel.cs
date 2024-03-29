@@ -1,11 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.UIElements;
 
-public class FishModel : AvailabilityModel
+public class SeaCreatureModel : AvailabilityModel
 {
     [JsonProperty("Id")]
     public string Id { get; set; }
@@ -22,22 +22,16 @@ public class FishModel : AvailabilityModel
     [JsonProperty("Sell Price")]
     public int SellPrice { get; set; }
 
-    [JsonProperty("Location")]
-    public string Location { get; set; }
-
     [JsonProperty("Shadow Size")]
     public string ShadowSize { get; set; }
 
-    [JsonProperty("Catch Difficulty")]
-    public string CatchDifficulty { get; set; }
+    [JsonProperty("Movement Speed")]
+    public string MovementSpeed { get; set; }
 
     [JsonProperty("Total Catches")]
     public int TotalCatches { get; set; }
 
-    [JsonProperty("Description")]
-    public string Description { get; set; }
-
-    public static IEnumerator GetFish(string id, string table, System.Action<FishModel> fish)
+    public static IEnumerator GetSeaCreature(string id, string table, System.Action<SeaCreatureModel> seaCreature)
     {
         WWWForm form = new();
 
@@ -52,8 +46,8 @@ public class FishModel : AvailabilityModel
 
         if (result[0] == "0")
         {
-            FishModel returnFish = JsonConvert.DeserializeObject<FishModel>(result[1]);
-            fish(returnFish);
+            SeaCreatureModel returnSeaCreature = JsonConvert.DeserializeObject<SeaCreatureModel>(result[1]);
+            seaCreature(returnSeaCreature);
         }
         else { Debug.LogError("GetModelData failed. [ERROR] : " + handler.error); }
     }
