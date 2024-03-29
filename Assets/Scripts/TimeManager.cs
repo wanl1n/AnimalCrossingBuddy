@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using NUnit.Framework.Constraints;
 
 public class TimeManager : MonoBehaviour
 {
@@ -48,29 +49,45 @@ public class TimeManager : MonoBehaviour
         this._isCustomTimeSet = false;
     }
 
-    // TODO: Take season dates from database
-    // public Seasons GetCurrentSeason()
-    // {
-    //     if (IsInSouthernHemisphere)
-    //     {
-    //         DateTime SHSpringStart  = new(PlayerTime.Year, 08, 25);
-    //         DateTime SHSpringEnd    = new(PlayerTime.Year, 11, 30);
-    //         DateTime SHSummerStart  = new(PlayerTime.Year, 08, 25);
-    //         DateTime SHSummerEnd    = new(PlayerTime.Year, 11, 30);
-    //         DateTime SHFallStart    = new(PlayerTime.Year, 08, 25);
-    //         DateTime SHFallEnd      = new(PlayerTime.Year, 11, 30);
-    //         DateTime SHWinterStart  = new(PlayerTime.Year, 08, 25);
-    //         DateTime SHWinterEnd    = new(PlayerTime.Year, 11, 30);
+     public Seasons GetCurrentSeason()
+    {
+        DateTime SpringStart = new DateTime(this.PlayerTime.Year, 2, 25);
+        DateTime SpringEnd = new DateTime(this.PlayerTime.Year, 5, 31);
 
-    //         if (IsBetweenTwoDates(PlayerTime, SHSpringStart, SHSpringEnd))
-    //             return Seasons.SPRING;
-    //     }
-    //     else
-    //     {
+        DateTime SummerStart = new DateTime(this.PlayerTime.Year, 6, 1);
+        DateTime SummerEnd = new DateTime(this.PlayerTime.Year, 8, 31);
 
-    //         return;
-    //     }
-    // }
+        DateTime AutumnStart = new DateTime(this.PlayerTime.Year, 9, 1);
+        DateTime AutumnEnd = new DateTime(this.PlayerTime.Year, 11, 25);
+
+        DateTime WinterStart = new DateTime(this.PlayerTime.Year, 11, 26);
+        DateTime WinterEnd = new DateTime(this.PlayerTime.Year, 2, 24);
+
+        if (IsInSouthernHemisphere)
+        {
+            SpringStart = new DateTime(this.PlayerTime.Year, 8, 25);
+            SpringEnd = new DateTime(this.PlayerTime.Year, 11, 30);
+
+            SummerStart = new DateTime(this.PlayerTime.Year, 12, 1);
+            SummerEnd = new DateTime(this.PlayerTime.Year, 2, 29);
+
+            AutumnStart = new DateTime(this.PlayerTime.Year, 3, 1);
+            AutumnEnd = new DateTime(this.PlayerTime.Year, 5, 25);
+
+            WinterStart = new DateTime(this.PlayerTime.Year, 5, 26);
+            WinterStart = new DateTime(this.PlayerTime.Year, 8, 24);
+        }
+
+        if (IsBetweenTwoDates(this.PlayerTime, SpringStart, SpringEnd))
+            return Seasons.SPRING;
+        else if (IsBetweenTwoDates(this.PlayerTime, SummerStart, SummerEnd))
+            return Seasons.SUMMER;
+        else if (IsBetweenTwoDates(this.PlayerTime, AutumnStart, AutumnEnd))
+            return Seasons.FALL;
+        else
+            return Seasons.WINTER;
+
+    }
 
     // date string ("26 March")
     public string GetDateString()

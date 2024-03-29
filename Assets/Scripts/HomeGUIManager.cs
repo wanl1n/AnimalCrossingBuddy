@@ -28,6 +28,7 @@ public class HomeGUIManager : MonoBehaviour
             evt =>
             {
                 TimeManager.GetInstance().IsInSouthernHemisphere = evt.newValue;
+                this.GetComponent<TimeDisplayGUIManager>().UpdateDisplay();
             }
         );
 

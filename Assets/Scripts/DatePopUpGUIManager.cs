@@ -205,24 +205,6 @@ public class DatePopUpGUIManager : MonoBehaviour
         this._daySlider.ScrollTo(moveTo);
     }
 
-    private void OnTransparentBGClick(PointerDownEvent e)
-    {
-        this._transparentBG.style.display = DisplayStyle.None;
-
-        TimeManager.GetInstance().IsCustomTimeSet = true;
-
-        DateTime dateTime = TimeManager.GetInstance().PlayerTime;
-        TimeManager.GetInstance().PlayerTime =
-            new System.DateTime(dateTime.Year, this._activeMonth, dateTime.Day, dateTime.Hour, dateTime.Minute, dateTime.Second);
-        
-        dateTime = TimeManager.GetInstance().PlayerTime;
-        this.CheckDay();
-        TimeManager.GetInstance().PlayerTime =
-            new System.DateTime(dateTime.Year, dateTime.Month, this._activeDay, dateTime.Hour, dateTime.Minute, dateTime.Second);
-
-        this.timeDisplayGUIManager.UpdateDisplay();
-    }
-
     private void CheckDay()
     {
         switch (this._activeMonth)
@@ -241,4 +223,24 @@ public class DatePopUpGUIManager : MonoBehaviour
                 break;
         }
     }
+
+    private void OnTransparentBGClick(PointerDownEvent e)
+    {
+        this._transparentBG.style.display = DisplayStyle.None;
+
+        TimeManager.GetInstance().IsCustomTimeSet = true;
+
+        DateTime dateTime = TimeManager.GetInstance().PlayerTime;
+        TimeManager.GetInstance().PlayerTime =
+            new System.DateTime(dateTime.Year, this._activeMonth, dateTime.Day, dateTime.Hour, dateTime.Minute, dateTime.Second);
+        
+        dateTime = TimeManager.GetInstance().PlayerTime;
+        this.CheckDay();
+        TimeManager.GetInstance().PlayerTime =
+            new System.DateTime(dateTime.Year, dateTime.Month, this._activeDay, dateTime.Hour, dateTime.Minute, dateTime.Second);
+
+
+        this.timeDisplayGUIManager.UpdateDisplay();
+    }
+
 }
