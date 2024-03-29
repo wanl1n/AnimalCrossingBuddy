@@ -6,21 +6,17 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-
-$column = $_POST["column"];
+$id = $_POST["id"];
 $table = $_POST["table"];
 
-$query = "SELECT Id, `" . $column . "` FROM `" . $table . "`;";
+$query = "SELECT * FROM `" . $table . "` WHERE Id = ". $id . ";";
 
 $columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 
-echo "0\t";
+echo "0 \t";
 
 while ($row = mysqli_fetch_assoc($columnQuery)) {
-    $data = array(
-        'Id' => $row["Id"],
-        'Data' => $row[$column]);
-    echo json_encode($data, JSON_FORCE_OBJECT) . "\t";
+    echo json_encode($row) . "\t";
 }
 
 mysqli_free_result($columnQuery);
