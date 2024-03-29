@@ -89,7 +89,11 @@ public class DatabaseManager : MonoBehaviour
         GameObject contentListManager = GameObject.FindGameObjectWithTag("Scene Document");
         if (contentListManager != null)
         {
-            contentListManager.GetComponent<ContentListGUIManager>().LoadIconData(element.name);
+            StartCoroutine(contentListManager.GetComponent<ContentListGUIManager>().LoadIconData(element.name));
+        }
+        else
+        {
+            Debug.Log("No Scene Document");
         }
 
     }

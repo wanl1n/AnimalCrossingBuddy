@@ -1,0 +1,74 @@
+#TransparentBG {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+}
+
+#PopUpBG {
+    position: absolute;
+    height: 75%;
+    width: 60%;
+    background-image: url("project://database/Assets/Sprites/UI/PopUpBG.png?fileID=2800000&guid=007c5b45498e2e04ab4d9e8dbeabef68&type=3#PopUpBG");
+
+    top: 11.5%;
+    bottom: 11.5%;
+    left: 20%;
+    right: 20%;
+}
+
+#IconSprite {
+    position: absolute;
+    height: 50%;
+    width: 35%;
+
+    background-color: rgb(255, 255, 255);
+
+    left: 10%;
+    top: 22.5%;
+}
+
+
+#IconName {
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
+    font-size: 60px;
+    color: rgb(114, 93, 66);
+
+    top: 10%;
+}
+
+#DetailsContainer {
+    position: relative;
+    height: 47%;
+    top: 15%;
+}
+
+#Details {
+    width: 50%;
+    left: 46%;
+
+    -unity-text-align: middle-left;
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
+    font-size: 50px;
+    color: rgb(114, 93, 66);
+
+    flex-wrap: wrap;
+    white-space: normal;
+    -unity-paragraph-spacing: -100px;
+}
+
+#LongDetails {
+    position: relative;
+    -unity-text-align: upper-left;
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
+    font-size: 30px;
+    color: rgb(114, 93, 66);
+    width: 80%;
+    flex-wrap: wrap;
+    white-space: normal;
+    -unity-paragraph-spacing: -100px;
+
+    left: 10%;
+    top: 16%;
+}

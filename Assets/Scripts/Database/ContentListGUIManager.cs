@@ -19,6 +19,8 @@ public class ContentListGUIManager : MonoBehaviour
     private VisualElement _listParent;
     // List<FishModel> _fishList = new();
 
+    [SerializeField]
+    private GameObject _iconPopUpDocument;
 
     // Start is called before the first frame update
     public void Start()
@@ -58,14 +60,18 @@ public class ContentListGUIManager : MonoBehaviour
         yield return handler.SendWebRequest();
 
         Debug.Log(handler.downloadHandler.text);
+
         string[] result = handler.downloadHandler.text.Split('\t');
 
         if (result[0] == "0")
         {
-            Debug.Log("Success");
+            VisualElement popupRoot = this._iconPopUpDocument.GetComponent<UIDocument>().rootVisualElement;
+            VisualElement transparentBG = popupRoot.Q<VisualElement>("TransparentBG");
+            transparentBG.style.display = DisplayStyle.Flex;
+
+            Label iconName = transparentBG.Q<Label>("IconName");
+            iconName.text = result[1].ToUpper();
         }
-        else { 
-            Debug.LogError("GetIconData failed. [ERROR] : " + handler.error); 
-        }
+        else { Debug.LogError("GetIconData failed. [ERROR] : " + handler.error); }
     }
 }
