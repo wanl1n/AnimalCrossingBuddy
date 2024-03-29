@@ -59,7 +59,8 @@ public class TimeDisplayGUIManager : MonoBehaviour
         if (this._resetButton != null)
             this._resetButton.RegisterCallback<PointerDownEvent>(this.OnResetClick);
 
-        this.UpdateSeasons();
+        if (this._springIcon != null && this._summerIcon != null && this._autumnIcon != null && this._winterIcon != null)
+            this.UpdateSeasons();
     }
 
     void OnTimeClick(PointerDownEvent e)
@@ -136,35 +137,39 @@ public class TimeDisplayGUIManager : MonoBehaviour
 
     private void UpdateSeasons()
     {
-        switch (TimeManager.GetInstance().GetCurrentSeason())
+        if (this._springIcon != null && this._summerIcon != null && this._autumnIcon != null && this._winterIcon != null)
         {
-            case TimeManager.Seasons.SPRING:
-                this._springIcon.style.display = DisplayStyle.Flex;
-                this._summerIcon.style.display = DisplayStyle.None;
-                this._autumnIcon.style.display = DisplayStyle.None;
-                this._winterIcon.style.display = DisplayStyle.None;
-                break;
 
-            case TimeManager.Seasons.SUMMER:
-                this._springIcon.style.display = DisplayStyle.None;
-                this._summerIcon.style.display = DisplayStyle.Flex;
-                this._autumnIcon.style.display = DisplayStyle.None;
-                this._winterIcon.style.display = DisplayStyle.None;
-                break;
+            switch (TimeManager.GetInstance().GetCurrentSeason())
+            {
+                case TimeManager.Seasons.SPRING:
+                    this._springIcon.style.display = DisplayStyle.Flex;
+                    this._summerIcon.style.display = DisplayStyle.None;
+                    this._autumnIcon.style.display = DisplayStyle.None;
+                    this._winterIcon.style.display = DisplayStyle.None;
+                    break;
 
-            case TimeManager.Seasons.FALL:
-                this._springIcon.style.display = DisplayStyle.None;
-                this._summerIcon.style.display = DisplayStyle.None;
-                this._autumnIcon.style.display = DisplayStyle.Flex;
-                this._winterIcon.style.display = DisplayStyle.None;
-                break;
+                case TimeManager.Seasons.SUMMER:
+                    this._springIcon.style.display = DisplayStyle.None;
+                    this._summerIcon.style.display = DisplayStyle.Flex;
+                    this._autumnIcon.style.display = DisplayStyle.None;
+                    this._winterIcon.style.display = DisplayStyle.None;
+                    break;
 
-            case TimeManager.Seasons.WINTER:
-                this._springIcon.style.display = DisplayStyle.None;
-                this._summerIcon.style.display = DisplayStyle.None;
-                this._autumnIcon.style.display = DisplayStyle.None;
-                this._winterIcon.style.display = DisplayStyle.Flex;
-                break;
+                case TimeManager.Seasons.FALL:
+                    this._springIcon.style.display = DisplayStyle.None;
+                    this._summerIcon.style.display = DisplayStyle.None;
+                    this._autumnIcon.style.display = DisplayStyle.Flex;
+                    this._winterIcon.style.display = DisplayStyle.None;
+                    break;
+
+                case TimeManager.Seasons.WINTER:
+                    this._springIcon.style.display = DisplayStyle.None;
+                    this._summerIcon.style.display = DisplayStyle.None;
+                    this._autumnIcon.style.display = DisplayStyle.None;
+                    this._winterIcon.style.display = DisplayStyle.Flex;
+                    break;
+            }
         }
     }
 }

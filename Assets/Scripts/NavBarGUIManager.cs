@@ -12,23 +12,33 @@ public class NavBarGUIManager : MonoBehaviour
      // Start is called before the first frame update
      void Start()
      {
-          this._root = GetComponent<UIDocument>().rootVisualElement;
-          this._navButtons.Add(this._root.Q<RadioButton>("NBVillagersButton"));
-          this._navButtons.Add(this._root.Q<RadioButton>("NBFishButton"));
-          this._navButtons.Add(this._root.Q<RadioButton>("NBBugsButton"));
-          this._navButtons.Add(this._root.Q<RadioButton>("NBSeasButton"));
-          this._navButtons.Add(this._root.Q<RadioButton>("NBHomeButton"));
-          this._navButtons.Add(this._root.Q<RadioButton>("NBUserButton"));
+        this._root = GetComponent<UIDocument>().rootVisualElement;
+        this._navButtons.Add(this._root.Q<RadioButton>("NBVillagersButton"));
+        this._navButtons.Add(this._root.Q<RadioButton>("NBFishButton"));
+        this._navButtons.Add(this._root.Q<RadioButton>("NBBugsButton"));
+        this._navButtons.Add(this._root.Q<RadioButton>("NBSeasButton"));
+        this._navButtons.Add(this._root.Q<RadioButton>("NBHomeButton"));
+        this._navButtons.Add(this._root.Q<RadioButton>("NBUserButton"));
 
-          if (this.gameObject.name.Contains("Home"))
-               this._navButtons.Find(x => x.name == "NBHomeButton").value = true;
+        if (this.gameObject.name.Contains("Home"))
+            this._navButtons.Find(x => x.name == "NBHomeButton").value = true;
+        else if (this.gameObject.name.Contains("Fish"))
+            this._navButtons.Find(x => x.name == "NBFishButton").value = true;
+        else if (this.gameObject.name.Contains("Bugs"))
+            this._navButtons.Find(x => x.name == "NBBugsButton").value = true;
+        else if (this.gameObject.name.Contains("Seas"))
+            this._navButtons.Find(x => x.name == "NBSeasButton").value = true;
+        else if (this.gameObject.name.Contains("Villager"))
+            this._navButtons.Find(x => x.name == "NBVillagersButton").value = true;
+        else if (this.gameObject.name.Contains("User"))
+            this._navButtons.Find(x => x.name == "NBUserButton").value = true;
 
-          this._navButtons.Find(x => x.name == "NBVillagersButton").RegisterValueChangedCallback(evt => { if (evt.newValue) this.LoadVillagersScene(); });
-          this._navButtons.Find(x => x.name == "NBFishButton").RegisterValueChangedCallback(evt => { if (evt.newValue) this.LoadFishScene(); });
-          this._navButtons.Find(x => x.name == "NBBugsButton").RegisterValueChangedCallback(evt => { if (evt.newValue) this.LoadBugsScene(); });
-          this._navButtons.Find(x => x.name == "NBSeasButton").RegisterValueChangedCallback(evt => { if (evt.newValue) this.LoadSeasScene(); });
-          this._navButtons.Find(x => x.name == "NBHomeButton").RegisterValueChangedCallback(evt => { if (evt.newValue) this.LoadHomeScene(); });
-          this._navButtons.Find(x => x.name == "NBUserButton").RegisterValueChangedCallback(evt => { if (evt.newValue) this.LoadUserScene(); });
+        this._navButtons.Find(x => x.name == "NBVillagersButton").RegisterValueChangedCallback(evt => { if (evt.newValue) this.LoadVillagersScene(); });
+        this._navButtons.Find(x => x.name == "NBFishButton").RegisterValueChangedCallback(evt => { if (evt.newValue) this.LoadFishScene(); });
+        this._navButtons.Find(x => x.name == "NBBugsButton").RegisterValueChangedCallback(evt => { if (evt.newValue) this.LoadBugsScene(); });
+        this._navButtons.Find(x => x.name == "NBSeasButton").RegisterValueChangedCallback(evt => { if (evt.newValue) this.LoadSeasScene(); });
+        this._navButtons.Find(x => x.name == "NBHomeButton").RegisterValueChangedCallback(evt => { if (evt.newValue) this.LoadHomeScene(); });
+        this._navButtons.Find(x => x.name == "NBUserButton").RegisterValueChangedCallback(evt => { if (evt.newValue) this.LoadUserScene(); });
      }
 
      private void LoadScene(string sceneName)
