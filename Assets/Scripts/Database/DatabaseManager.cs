@@ -73,16 +73,17 @@ public class DatabaseManager : MonoBehaviour
             // newIcon.RegisterCallback<MouseOverEvent>(Hover, newIcon);
             newIcon.RegisterCallback<ClickEvent, string>(Clicked, table);
             parent.Add(newIcon);
+            
         }
     }
 
     private void Clicked(ClickEvent evt, string table)
     {
         VisualElement target = evt.target as VisualElement;
-        StartCoroutine(StartGetModelData(target.name, table));
+        StartCoroutine(StartShowModelData(target.name, table));
     }
 
-    private IEnumerator StartGetModelData(string id, string table)
+    private IEnumerator StartShowModelData(string id, string table)
     {
         // get data 
         // query using evt.target name as the Id, and table parameter
@@ -109,9 +110,16 @@ public class DatabaseManager : MonoBehaviour
         
         // show the popup
         // evt.target is the visualelement that was clicked
+        GameObject contentListManager = GameObject.FindGameObjectWithTag("Scene Document");
+        if (contentListManager != null)
+        {
+            StartCoroutine(contentListManager.GetComponent<ContentListGUIManager>().LoadIconData(element.name));
+        }
+        else
+        {
+            Debug.Log("No Scene Document");
+        }
     }
-
-
 
     private void Awake()
     {

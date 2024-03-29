@@ -1,0 +1,13 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/IconPopUp/IconPopUpStyle.uss?fileID=7433441132597879392&amp;guid=e6e48cefab2c54942ab05e850dde47cb&amp;type=3#IconPopUpStyle" />
+    <engine:VisualElement name="TransparentBG">
+        <engine:VisualElement name="PopUpBG">
+            <engine:Label text="NAME" name="IconName" />
+            <engine:VisualElement name="IconSprite" />
+            <engine:VisualElement name="DetailsContainer">
+                <engine:Label text="Labelaaaaaa&#10;aaaaaa" name="Details" />
+            </engine:VisualElement>
+            <engine:Label text="LONG DETAILS" name="LongDetails" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

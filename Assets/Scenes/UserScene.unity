@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 1625697973}
   m_Layer: 5
   m_Name: UserDocument
-  m_TagString: Untagged
+  m_TagString: Scene Document
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timePopup: {fileID: 2051905951}
-  _datePopup: {fileID: 0}
+  _datePopup: {fileID: 35988002}
 --- !u!1 &1789607976
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,8 +574,8 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1625697971}
   - {fileID: 1004514511}
+  - {fileID: 1625697971}
   - {fileID: 2051905954}
   - {fileID: 908785055}
   - {fileID: 35988005}
