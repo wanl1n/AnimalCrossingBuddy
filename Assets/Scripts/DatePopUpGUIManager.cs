@@ -205,7 +205,7 @@ public class DatePopUpGUIManager : MonoBehaviour
         this._daySlider.ScrollTo(moveTo);
     }
 
-    void OnTransparentBGClick(PointerDownEvent e)
+    private void OnTransparentBGClick(PointerDownEvent e)
     {
         this._transparentBG.style.display = DisplayStyle.None;
 
@@ -214,10 +214,31 @@ public class DatePopUpGUIManager : MonoBehaviour
         DateTime dateTime = TimeManager.GetInstance().PlayerTime;
         TimeManager.GetInstance().PlayerTime =
             new System.DateTime(dateTime.Year, this._activeMonth, dateTime.Day, dateTime.Hour, dateTime.Minute, dateTime.Second);
+        
         dateTime = TimeManager.GetInstance().PlayerTime;
+        this.CheckDay();
         TimeManager.GetInstance().PlayerTime =
             new System.DateTime(dateTime.Year, dateTime.Month, this._activeDay, dateTime.Hour, dateTime.Minute, dateTime.Second);
 
         this.timeDisplayGUIManager.UpdateDisplay();
+    }
+
+    private void CheckDay()
+    {
+        switch (this._activeMonth)
+        {
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (this._activeDay >= 30)
+                    this._activeDay = 30;
+                break;
+
+            case 2:
+                if (this._activeDay >= 29)
+                    this._activeDay = 29;
+                break;
+        }
     }
 }
