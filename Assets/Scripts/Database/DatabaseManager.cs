@@ -87,23 +87,29 @@ public class DatabaseManager : MonoBehaviour
     {
         // get data 
         // query using evt.target name as the Id, and table parameter
+        BaseModel model = new();
+
         switch (table)
         {
             case "fish":
-                FishModel fish;
+                FishModel fish = new();
                 yield return StartCoroutine(FishModel.GetFish(id, table, c => fish = c));
+                model = fish;
                 break;
             case "insect":
-                InsectModel insect;
+                InsectModel insect = new();
                 yield return StartCoroutine(InsectModel.GetInsect(id, table, c => insect = c));
+                model = insect;
                 break;
             case "sea_creatures":
-                SeaCreatureModel seaCreature;
+                SeaCreatureModel seaCreature = new();
                 yield return StartCoroutine(SeaCreatureModel.GetSeaCreature(id, table, c => seaCreature = c));
+                model = seaCreature;
                 break;
             case "Villager":
-                VillagerModel villager;
+                VillagerModel villager = new();
                 yield return StartCoroutine(VillagerModel.GetVillager(id, table, c => villager = c));
+                model = villager;
                 break;
         }
 
@@ -113,7 +119,7 @@ public class DatabaseManager : MonoBehaviour
         GameObject contentListManager = GameObject.FindGameObjectWithTag("Scene Document");
         if (contentListManager != null)
         {
-            StartCoroutine(contentListManager.GetComponent<ContentListGUIManager>().LoadIconData(element.name));
+            StartCoroutine(contentListManager.GetComponent<ContentListGUIManager>().LoadIconData(model.Name));
         }
         else
         {

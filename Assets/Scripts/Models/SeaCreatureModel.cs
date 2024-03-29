@@ -7,15 +7,6 @@ using UnityEngine.Networking;
 
 public class SeaCreatureModel : AvailabilityModel
 {
-    [JsonProperty("Id")]
-    public string Id { get; set; }
-
-    [JsonProperty("Name")]
-    public string Name { get; set; }
-
-    [JsonProperty("Icon Image Link")]
-    public string IconImage { get; set; }
-
     [JsonProperty("Critterpedia Image Link")]
     public string CritterpediaImage { get; set; }
 

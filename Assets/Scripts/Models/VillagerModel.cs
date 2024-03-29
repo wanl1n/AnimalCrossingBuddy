@@ -5,17 +5,9 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UIElements;
 
-public class VillagerModel
+public class VillagerModel : BaseModel
 {
-    [JsonProperty("Id")]
-    public string Id { get; set; }
-
-    [JsonProperty("Name")]
-    public string Name { get; set; }
-
-    [JsonProperty("Icon Image Link")]
-    public string IconImage { get; set; }
-
+    
     [JsonProperty("Photo Image Link")]
     public string PhotoImage { get; set; }
 

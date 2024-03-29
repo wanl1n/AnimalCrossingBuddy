@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-public class AvailabilityModel
+public class AvailabilityModel : BaseModel
 {
     [JsonProperty("NH Jan")]
     public string NHJan { get; set; }
