@@ -24,9 +24,7 @@ public class TimePopUpGUIManager : MonoBehaviour
     private Label _minuteOffset3;
     private Label _minuteOffset4;
 
-    [SerializeField]
     private int _activeHour = -1;
-    [SerializeField] 
     private int _activeMin = -1;
 
     [SerializeField]
@@ -364,8 +362,6 @@ public class TimePopUpGUIManager : MonoBehaviour
     void OnTransparentBGClick(PointerDownEvent e)
     {
         this._transparentBG.style.display = DisplayStyle.None;
-
-        TimeManager.GetInstance().IsCustomTimeSet = true;
 
         TimeManager.GetInstance().IsCustomTimeSet = true;
 

@@ -18,6 +18,9 @@ public class TimeDisplayGUIManager : MonoBehaviour
     [SerializeField]
     private GameObject _timePopup;
 
+    [SerializeField]
+    private GameObject _datePopup;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -36,6 +39,9 @@ public class TimeDisplayGUIManager : MonoBehaviour
 
         if (this._AMPMLabel != null)
             this._AMPMLabel.RegisterCallback<PointerDownEvent>(this.OnAMPMClick);
+
+        if (this._dateLabel != null)
+            this._dateLabel.RegisterCallback<PointerDownEvent>(this.OnDateClick);
 
         if (this._resetButton != null)
             this._resetButton.RegisterCallback<PointerDownEvent>(this.OnResetClick);
@@ -70,6 +76,18 @@ public class TimeDisplayGUIManager : MonoBehaviour
             new System.DateTime(dateTime.Year, dateTime.Month, dateTime.Day, hour, dateTime.Minute, dateTime.Second);
 
         this.UpdateDisplay();
+    }
+
+    void OnDateClick(PointerDownEvent e) 
+    {
+        VisualElement popupRoot = this._datePopup.GetComponent<UIDocument>().rootVisualElement;
+        VisualElement transparentBG = popupRoot.Q<VisualElement>("TransparentBG");
+        transparentBG.style.display = DisplayStyle.Flex;
+
+        Image popUpBG = transparentBG.Q<Image>("PopUpBG");
+        popUpBG.style.display = DisplayStyle.Flex;
+
+        this._datePopup.GetComponent<DatePopUpGUIManager>().ScrollToDate();
     }
 
     void OnResetClick(PointerDownEvent e)

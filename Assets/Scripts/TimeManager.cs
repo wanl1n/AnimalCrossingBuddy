@@ -75,7 +75,7 @@ public class TimeManager : MonoBehaviour
     // date string ("26 March")
     public string GetDateString()
     {
-        return PlayerTime.ToString("M MMMM");
+        return PlayerTime.ToString("d MMMM");
     }
 
     // day string ("Tue.")
