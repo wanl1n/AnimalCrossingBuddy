@@ -76,6 +76,7 @@ Scroller {
     background-color: rgb(253, 147, 3);
     opacity: 0.05;
     position-top: 10px;
+    scale: 2 1;
 }
 
 #unity-slider {
@@ -83,7 +84,7 @@ Scroller {
 }
 
 #MinuteSlider #unity-dragger {
-    scale: 1 7;
+    scale: 2 7;
 }
 
 #MinuteSlider {

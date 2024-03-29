@@ -61,6 +61,7 @@ Scroller {
     background-color: rgb(253, 147, 3);
     opacity: 0.05;
     position-top: 10px;
+    scale: 2 1;
 }
 
 #unity-slider {
@@ -68,8 +69,13 @@ Scroller {
 }
 
 #DaySlider #unity-dragger {
-    scale: 1 7;
+    scale: 2 7;
 }
+
+#MonthSlider Scroller {
+    scale: 15.5 1;
+}
+
 
 .left-slider-list {
     margin: 10% 0 10% 0;
@@ -78,5 +84,4 @@ Scroller {
     margin-bottom: 8%;
 }
 
-#MonthSlider #unity-slider {
-}
+

@@ -8,6 +8,12 @@ public class TimeDisplayGUIManager : MonoBehaviour
 {
 
     private VisualElement _root;
+
+    private Image _springIcon;
+    private Image _summerIcon;
+    private Image _autumnIcon;
+    private Image _winterIcon;
+
     private Label _timeLabel;
     private Label _AMPMLabel;
     private Label _dayLabel;
@@ -18,15 +24,25 @@ public class TimeDisplayGUIManager : MonoBehaviour
     [SerializeField]
     private GameObject _timePopup;
 
+    [SerializeField]
+    private GameObject _datePopup;
+
     // Start is called before the first frame update
     public void Start()
     {
         this._root = GetComponent<UIDocument>().rootVisualElement;
-        this._timeLabel = _root.Q<Label>("TimeLabel");
-        this._AMPMLabel = _root.Q<Label>("AMPMLabel");
-        this._dayLabel = _root.Q<Label>("DayLabel");
-        this._dateLabel = _root.Q<Label>("DateLabel");
-        this._resetButton = _root.Q<VisualElement>("ResetButton");
+
+        this._springIcon = this._root.Q<Image>("SpringIcon");
+        this._summerIcon = this._root.Q<Image>("SummerIcon");
+        this._autumnIcon = this._root.Q<Image>("AutumnIcon");
+        this._winterIcon = this._root.Q<Image>("WinterIcon");
+
+        this._timeLabel = this._root.Q<Label>("TimeLabel");
+        this._AMPMLabel = this._root.Q<Label>("AMPMLabel");
+        this._dayLabel = this._root.Q<Label>("DayLabel");
+        this._dateLabel = this._root.Q<Label>("DateLabel");
+        this._resetButton = this._root.Q<VisualElement>("ResetButton");
+
     
         if (this._timeLabel != null)
         {
@@ -37,8 +53,13 @@ public class TimeDisplayGUIManager : MonoBehaviour
         if (this._AMPMLabel != null)
             this._AMPMLabel.RegisterCallback<PointerDownEvent>(this.OnAMPMClick);
 
+        if (this._dateLabel != null)
+            this._dateLabel.RegisterCallback<PointerDownEvent>(this.OnDateClick);
+
         if (this._resetButton != null)
             this._resetButton.RegisterCallback<PointerDownEvent>(this.OnResetClick);
+
+        this.UpdateSeasons();
     }
 
     void OnTimeClick(PointerDownEvent e)
@@ -72,6 +93,18 @@ public class TimeDisplayGUIManager : MonoBehaviour
         this.UpdateDisplay();
     }
 
+    void OnDateClick(PointerDownEvent e) 
+    {
+        VisualElement popupRoot = this._datePopup.GetComponent<UIDocument>().rootVisualElement;
+        VisualElement transparentBG = popupRoot.Q<VisualElement>("TransparentBG");
+        transparentBG.style.display = DisplayStyle.Flex;
+
+        Image popUpBG = transparentBG.Q<Image>("PopUpBG");
+        popUpBG.style.display = DisplayStyle.Flex;
+
+        this._datePopup.GetComponent<DatePopUpGUIManager>().ScrollToDate();
+    }
+
     void OnResetClick(PointerDownEvent e)
     {
         TimeManager.GetInstance().IsCustomTimeSet = false;
@@ -96,5 +129,41 @@ public class TimeDisplayGUIManager : MonoBehaviour
         this._AMPMLabel.text = TimeManager.GetInstance().GetAMPMString();
         this._dayLabel.text = TimeManager.GetInstance().GetDayString();
         this._dateLabel.text = TimeManager.GetInstance().GetDateString();
+     
+        this.UpdateSeasons();
+    }
+
+    private void UpdateSeasons()
+    {
+        switch (TimeManager.GetInstance().GetCurrentSeason())
+        {
+            case TimeManager.Seasons.SPRING:
+                this._springIcon.style.display = DisplayStyle.Flex;
+                this._summerIcon.style.display = DisplayStyle.None;
+                this._autumnIcon.style.display = DisplayStyle.None;
+                this._winterIcon.style.display = DisplayStyle.None;
+                break;
+
+            case TimeManager.Seasons.SUMMER:
+                this._springIcon.style.display = DisplayStyle.None;
+                this._summerIcon.style.display = DisplayStyle.Flex;
+                this._autumnIcon.style.display = DisplayStyle.None;
+                this._winterIcon.style.display = DisplayStyle.None;
+                break;
+
+            case TimeManager.Seasons.FALL:
+                this._springIcon.style.display = DisplayStyle.None;
+                this._summerIcon.style.display = DisplayStyle.None;
+                this._autumnIcon.style.display = DisplayStyle.Flex;
+                this._winterIcon.style.display = DisplayStyle.None;
+                break;
+
+            case TimeManager.Seasons.WINTER:
+                this._springIcon.style.display = DisplayStyle.None;
+                this._summerIcon.style.display = DisplayStyle.None;
+                this._autumnIcon.style.display = DisplayStyle.None;
+                this._winterIcon.style.display = DisplayStyle.Flex;
+                break;
+        }
     }
 }

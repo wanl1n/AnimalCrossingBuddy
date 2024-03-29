@@ -1,6 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/USS/DatePopUpStyle.uss?fileID=7433441132597879392&amp;guid=16235d95385083841a13808ee9e09bd4&amp;type=3#DatePopUpStyle" />
-    <engine:VisualElement name="TransparentBG">
+    <engine:VisualElement name="TransparentBG" >
         <engine:Image name="PopUpBG">
             <engine:VisualElement name="Highlight" />
             <engine:ScrollView name="MonthSlider" class="number-sliders">
