@@ -38,6 +38,36 @@ Label {
     top: 180px;
 }
 
+#SeasonIcons {
+    flex-direction: row;
+    justify-content: flex-start;
+    position: absolute;
+    margin-top: 15px;
+}
+
+#AutumnIcon {
+    display: flex;
+    background-image: url("project://database/Assets/Sprites/UI/128279.png?fileID=-802975789&guid=75faedde1d0439048b64367b5e2156d1&type=3#128279_65");
+}
+
+#SummerIcon {
+    background-image: url("project://database/Assets/Sprites/UI/128279.png?fileID=911446716&guid=75faedde1d0439048b64367b5e2156d1&type=3#128279_136");
+}
+
+#SpringIcon {
+    background-image: url("project://database/Assets/Sprites/UI/128279.png?fileID=-114384443&guid=75faedde1d0439048b64367b5e2156d1&type=3#128279_95");
+}
+
+#WinterIcon {
+    background-image: url("project://database/Assets/Sprites/UI/128279.png?fileID=-2059856415&guid=75faedde1d0439048b64367b5e2156d1&type=3#128279_101");
+}
+
+.season-icon {
+    width: 141px;
+    height: 150px;
+    display: none;
+}
+
 #DateTimeScreen {
     margin: auto;
     width: 362px;

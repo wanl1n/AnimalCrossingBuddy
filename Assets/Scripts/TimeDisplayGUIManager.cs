@@ -129,7 +129,8 @@ public class TimeDisplayGUIManager : MonoBehaviour
         this._AMPMLabel.text = TimeManager.GetInstance().GetAMPMString();
         this._dayLabel.text = TimeManager.GetInstance().GetDayString();
         this._dateLabel.text = TimeManager.GetInstance().GetDateString();
-     
+
+        // the error is cuz on the other scenes there's no season indicator
         this.UpdateSeasons();
     }
 

@@ -5,6 +5,12 @@
     <engine:VisualElement name="Root">
         <engine:Instance template="NavigationBarContainer" />
         <engine:Label text="Bugs" name="Banner" />
+        <engine:VisualElement name="SeasonIcons">
+            <engine:Image name="AutumnIcon" class="season-icon" />
+            <engine:Image name="SummerIcon" class="season-icon" />
+            <engine:Image name="SpringIcon" class="season-icon" />
+            <engine:Image name="WinterIcon" class="season-icon" />
+        </engine:VisualElement>
         <engine:VisualElement name="DateTimeScreen">
             <engine:VisualElement name="TimeContainer" class="TextRightContainer text-right-container">
                 <engine:Label text="12:45" name="TimeLabel" />

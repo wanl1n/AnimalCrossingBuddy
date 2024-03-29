@@ -15,6 +15,12 @@
                 <engine:Label text="5 February" name="DateLabel" />
             </engine:VisualElement>
         </engine:VisualElement>
+        <engine:VisualElement name="SeasonIcons">
+            <engine:Image name="AutumnIcon" class="season-icon" />
+            <engine:Image name="SummerIcon" class="season-icon" />
+            <engine:Image name="SpringIcon" class="season-icon" />
+            <engine:Image name="WinterIcon" class="season-icon" />
+        </engine:VisualElement>
         <engine:ScrollView name="ContentPage">
             <engine:TextField placeholder-text="NAME" name="Username" />
             <engine:VisualElement name="TablesContainer">
