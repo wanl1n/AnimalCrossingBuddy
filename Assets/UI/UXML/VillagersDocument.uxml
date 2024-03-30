@@ -25,7 +25,7 @@
         <engine:ScrollView name="ContentPage">
             <engine:VisualElement name="CurrentScreen" focusable="true" class="content-group content-page">
                 <engine:Label name="CurrentLabel" text="Today&apos;s Birthdays" class="subheader" />
-                <engine:Label name="CurrentText" text="No Birthdays Today"  />
+                <engine:Label name="CurrentText" text="No Birthdays Today" />
                 <engine:VisualElement name="CurrentList" />
             </engine:VisualElement>
             <engine:VisualElement name="AllScreen" class="content-group content-page">
