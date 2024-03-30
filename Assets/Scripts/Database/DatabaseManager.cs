@@ -75,12 +75,29 @@ public class DatabaseManager : MonoBehaviour
 
             if (parent != null)
             {
-                parent.Add(newIcon);
 
                 if (parent.name.Contains("CurrentList"))
-                    Debug.Log(newIcon.name);
+                {
+                    bool alreadyAdded = false;
+                    foreach (var child in parent.Children())
+                    {
+                        if (child.name == newIcon.name)
+                        {
+                            Debug.Log(newIcon.name);
+                            alreadyAdded = true;
+                            break;
+                        }
+                    }
+                    if (!alreadyAdded)
+                        parent.Add(newIcon);
+
+                }
+                else
+                {
+                    parent.Add(newIcon);
+                }
             }
-            
+
         }
     }
 
