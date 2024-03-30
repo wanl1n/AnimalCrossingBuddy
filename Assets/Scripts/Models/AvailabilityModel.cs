@@ -89,7 +89,6 @@ public class AvailabilityModel : BaseModel
                         if (property.GetValue(this).ToString() != "NA")
                         {
                             return property.GetValue(this).ToString();
-                            break;
                         }
                     }
                 }
