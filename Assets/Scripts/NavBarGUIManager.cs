@@ -26,7 +26,7 @@ public class NavBarGUIManager : MonoBehaviour
             this._navButtons.Find(x => x.name == "NBFishButton").value = true;
         else if (this.gameObject.name.Contains("Bug"))
             this._navButtons.Find(x => x.name == "NBBugsButton").value = true;
-        else if (this.gameObject.name.Contains("Seas"))
+        else if (this.gameObject.name.Contains("Sea"))
             this._navButtons.Find(x => x.name == "NBSeasButton").value = true;
         else if (this.gameObject.name.Contains("Villager"))
             this._navButtons.Find(x => x.name == "NBVillagersButton").value = true;
