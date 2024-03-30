@@ -16,7 +16,7 @@ public class DatabaseManager : MonoBehaviour
         form.AddField("column", column);
         form.AddField("table", table);
 
-        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getIdAndColumnData.php", form);
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getIdNameColumnData.php", form);
         yield return handler.SendWebRequest();
 
         // Debug.Log(handler.downloadHandler.text);
@@ -28,9 +28,8 @@ public class DatabaseManager : MonoBehaviour
 
             for (int i = 1; i < result.Length - 1; i++)
             {
-                StringModel idAndData = JsonConvert.DeserializeObject<StringModel>(result[i]);
-                strings.Add(idAndData);
-                // Debug.Log(result[i]);
+                StringModel data = JsonConvert.DeserializeObject<StringModel>(result[i]);
+                strings.Add(data);
             }
 
             callback(strings);
@@ -57,7 +56,6 @@ public class DatabaseManager : MonoBehaviour
     public IEnumerator CreatePortraits(List<StringModel> urls, VisualElement parent, string table, string className = "portraits")
     {
 
-
         foreach (var link in urls)
         {
             Texture2D icon = new(0, 0);
@@ -66,7 +64,7 @@ public class DatabaseManager : MonoBehaviour
 
             VisualElement newIcon = new()
             {
-                name = link.Id
+                name = link.Id + "\t" + link.Name
             };
             newIcon.AddToClassList(className);
             newIcon.style.backgroundImage = new StyleBackground(icon);
@@ -83,7 +81,6 @@ public class DatabaseManager : MonoBehaviour
                     {
                         if (child.name == newIcon.name)
                         {
-                            Debug.Log(newIcon.name);
                             alreadyAdded = true;
                             break;
                         }
@@ -166,18 +163,47 @@ public class DatabaseManager : MonoBehaviour
                 List<VillagerModel> villagerModels = new List<VillagerModel>();
                 yield return StartCoroutine(VillagerModel.GetVillagerBirthday(TimeManager.GetInstance().GetMDString(), v => villagerModels = v));
                 
-                List<StringModel> urls = new List<StringModel>();
+                List<StringModel> stringModels = new List<StringModel>();
 
                 foreach (var model in villagerModels)
                 {   
                     if (parent != null)
                     {
-                        urls.Add(new StringModel(model.Id, model.PhotoImage));
+                        stringModels.Add(new StringModel(model.Id, model.Name, model.PhotoImage));
                     }
 
                 }
 
-                yield return StartCoroutine(CreatePortraits(urls, parent, table, "nowPortraits"));
+                if (parent != null)
+                {
+                    bool inStringModel = false;
+
+                    List<VisualElement> childToRemove = new List<VisualElement>(); 
+
+                    foreach (var child in parent.Children())
+                    {
+                        foreach (var model in stringModels)
+                        {
+                            string modelIdName = model.Id + "\t" + model.Name;
+                            if (child.name == modelIdName)
+                            {
+                                inStringModel = true;
+                                break;
+                            }
+                        }
+                        if (!inStringModel)
+                        {
+                            childToRemove.Add(child);
+                        }
+                    }
+
+                    foreach (var child in childToRemove)
+                    {
+                        parent.Remove(child);  
+                    }
+                }
+
+                yield return StartCoroutine(CreatePortraits(stringModels, parent, table, "nowPortraits"));
 
 
                 break;

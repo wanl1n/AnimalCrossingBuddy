@@ -32,7 +32,9 @@ public class FishModel : AvailabilityModel
     {
         WWWForm form = new();
 
-        form.AddField("id", id);
+        string[] idOnly = id.Split('\t');
+
+        form.AddField("id", idOnly[0]);
         form.AddField("table", table.ToLower());
 
         using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getModelData.php", form);

@@ -23,7 +23,9 @@ public class DatePopUpGUIManager : MonoBehaviour
     private Label _dayOffset3;
     private Label _dayOffset4;
 
+    [SerializeField]
     private int _activeMonth = -1;
+    [SerializeField]
     private int _activeDay = -1;
 
     [SerializeField]
@@ -184,6 +186,7 @@ public class DatePopUpGUIManager : MonoBehaviour
         }
         
         this._monthSlider.ScrollTo(moveTo);
+        this._activeMonth = TimeManager.GetInstance().PlayerTime.Month;
     }
 
     private void UpdateDayList(GeometryChangedEvent e)
@@ -203,6 +206,8 @@ public class DatePopUpGUIManager : MonoBehaviour
         }
 
         this._daySlider.ScrollTo(moveTo);
+        this._activeDay = TimeManager.GetInstance().PlayerTime.Day;
+
     }
 
     private void CheckDay()
@@ -230,14 +235,12 @@ public class DatePopUpGUIManager : MonoBehaviour
 
         TimeManager.GetInstance().IsCustomTimeSet = true;
 
+        this.CheckDay();
         DateTime dateTime = TimeManager.GetInstance().PlayerTime;
-        TimeManager.GetInstance().PlayerTime =
-            new System.DateTime(dateTime.Year, this._activeMonth, dateTime.Day, dateTime.Hour, dateTime.Minute, dateTime.Second);
         
         dateTime = TimeManager.GetInstance().PlayerTime;
-        this.CheckDay();
         TimeManager.GetInstance().PlayerTime =
-            new System.DateTime(dateTime.Year, dateTime.Month, this._activeDay, dateTime.Hour, dateTime.Minute, dateTime.Second);
+            new System.DateTime(dateTime.Year, this._activeMonth, this._activeDay, dateTime.Hour, dateTime.Minute, dateTime.Second);
 
 
         this.timeDisplayGUIManager.UpdateDisplay();

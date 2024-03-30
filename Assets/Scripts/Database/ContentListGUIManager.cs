@@ -43,9 +43,9 @@ public class ContentListGUIManager : MonoBehaviour
         LoadingGUIManager.GetInstance().ShowLoading();
 
         yield return StartCoroutine(DatabaseManager.GetInstance().GetColumnData("Icon Image Link", this._table.ToLower(), c => iconLinks = c)); 
-        LoadingGUIManager.GetInstance().HideLoading();
 
-        StartCoroutine(this.LoadNowPortrait());
+        yield return StartCoroutine(this.LoadNowPortrait());
+        LoadingGUIManager.GetInstance().HideLoading();
 
         yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(iconLinks, this._listParent, this._table));
     }
@@ -57,10 +57,16 @@ public class ContentListGUIManager : MonoBehaviour
         {   
             this._currentText.style.display = DisplayStyle.None;
         }
+        else
+        {
+            this._currentText.style.display = DisplayStyle.Flex;
+        }
     }
 
     public IEnumerator LoadFishData(FishModel fish)
     {
+        Texture2D iconTex = new(0, 0);
+        yield return StartCoroutine(DatabaseManager.GetInstance().DownloadTexture(fish.IconImage, (tex) => iconTex = tex));
         VisualElement popupRoot = this._iconPopUpDocument.GetComponent<UIDocument>().rootVisualElement;
         VisualElement transparentBG = popupRoot.Q<VisualElement>("TransparentBG");
         transparentBG.style.display = DisplayStyle.Flex;
@@ -69,8 +75,6 @@ public class ContentListGUIManager : MonoBehaviour
         iconName.text = "<b><line-height=65%>" + fish.Name.ToUpper() + "</line-height></b>";
 
         VisualElement iconSprite = popupRoot.Q<VisualElement>("IconSprite");
-        Texture2D iconTex = new(0, 0);
-        yield return StartCoroutine(DatabaseManager.GetInstance().DownloadTexture(fish.IconImage, (tex) => iconTex = tex));
         iconSprite.style.backgroundImage = new StyleBackground(iconTex);
 
         Label details = transparentBG.Q<Label>("Details");
@@ -116,6 +120,8 @@ public class ContentListGUIManager : MonoBehaviour
 
     public IEnumerator LoadInsectData(InsectModel insect)
     {
+        Texture2D iconTex = new(0, 0);
+        yield return StartCoroutine(DatabaseManager.GetInstance().DownloadTexture(insect.IconImage, (tex) => iconTex = tex));
         VisualElement popupRoot = this._iconPopUpDocument.GetComponent<UIDocument>().rootVisualElement;
         VisualElement transparentBG = popupRoot.Q<VisualElement>("TransparentBG");
         transparentBG.style.display = DisplayStyle.Flex;
@@ -124,8 +130,6 @@ public class ContentListGUIManager : MonoBehaviour
         iconName.text = "<b><line-height=65%>" + insect.Name.ToUpper() + "</line-height></b>";
 
         VisualElement iconSprite = popupRoot.Q<VisualElement>("IconSprite");
-        Texture2D iconTex = new(0, 0);
-        yield return StartCoroutine(DatabaseManager.GetInstance().DownloadTexture(insect.IconImage, (tex) => iconTex = tex));
         iconSprite.style.backgroundImage = new StyleBackground(iconTex);
 
         Label details = transparentBG.Q<Label>("Details");
@@ -167,6 +171,8 @@ public class ContentListGUIManager : MonoBehaviour
 
     public IEnumerator LoadSeaCreatureData(SeaCreatureModel seaCreature)
     {
+        Texture2D iconTex = new(0, 0);
+        yield return StartCoroutine(DatabaseManager.GetInstance().DownloadTexture(seaCreature.IconImage, (tex) => iconTex = tex));
         VisualElement popupRoot = this._iconPopUpDocument.GetComponent<UIDocument>().rootVisualElement;
         VisualElement transparentBG = popupRoot.Q<VisualElement>("TransparentBG");
         transparentBG.style.display = DisplayStyle.Flex;
@@ -175,8 +181,6 @@ public class ContentListGUIManager : MonoBehaviour
         iconName.text = "<b><line-height=65%>" + seaCreature.Name.ToUpper() + "</line-height></b>";
 
         VisualElement iconSprite = popupRoot.Q<VisualElement>("IconSprite");
-        Texture2D iconTex = new(0, 0);
-        yield return StartCoroutine(DatabaseManager.GetInstance().DownloadTexture(seaCreature.IconImage, (tex) => iconTex = tex));
         iconSprite.style.backgroundImage = new StyleBackground(iconTex);
 
         Label details = transparentBG.Q<Label>("Details");
@@ -218,6 +222,8 @@ public class ContentListGUIManager : MonoBehaviour
 
     public IEnumerator LoadVillagerData(VillagerModel villager)
     {
+        Texture2D iconTex = new(0, 0);
+        yield return StartCoroutine(DatabaseManager.GetInstance().DownloadTexture(villager.PhotoImage, (tex) => iconTex = tex));
         VisualElement popupRoot = this._iconPopUpDocument.GetComponent<UIDocument>().rootVisualElement;
         VisualElement transparentBG = popupRoot.Q<VisualElement>("TransparentBG");
         transparentBG.style.display = DisplayStyle.Flex;
@@ -226,8 +232,6 @@ public class ContentListGUIManager : MonoBehaviour
         iconName.text = "<b><line-height=65%>" + villager.Name.ToUpper() + "</line-height></b>";
 
         VisualElement iconSprite = popupRoot.Q<VisualElement>("IconSprite");
-        Texture2D iconTex = new(0, 0);
-        yield return StartCoroutine(DatabaseManager.GetInstance().DownloadTexture(villager.PhotoImage, (tex) => iconTex = tex));
         iconSprite.style.backgroundImage = new StyleBackground(iconTex);
 
         Label details = transparentBG.Q<Label>("Details");

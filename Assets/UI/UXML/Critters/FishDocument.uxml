@@ -26,7 +26,7 @@
             <engine:VisualElement name="CurrentScreen" focusable="true" class="content-group content-page">
                 <engine:Label name="CurrentLabel" text="Catchable Now" class="subheader" />
                 <engine:VisualElement name="CurrentList" />
-                <engine:Label name="CurrentText" text="Catchable Now" class="subheader" />
+                <engine:Label name="CurrentText" text="No Fish Catchable Now" class="subheader" />
             </engine:VisualElement>
             <engine:VisualElement name="AllScreen" class="content-group content-page">
                 <engine:VisualElement name="ListHeaderContainer" style="flex-grow: 1;">

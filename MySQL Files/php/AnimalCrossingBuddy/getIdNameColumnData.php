@@ -25,3 +25,5 @@ while ($row = mysqli_fetch_assoc($columnQuery)) {
 
 mysqli_free_result($columnQuery);
 mysqli_close($connection);
+
+?>

@@ -25,11 +25,8 @@
         <engine:ScrollView name="ContentPage">
             <engine:VisualElement name="CurrentScreen" focusable="true" class="content-group content-page">
                 <engine:Label name="CurrentLabel" text="Catchable Now" class="subheader" />
-                <engine:VisualElement name="CurrentList">
-                    <engine:Image name="Portrait1" class="villager-portrait portraits" />
-                    <engine:Image name="Portrait2" class="villager-portrait portraits" />
-                    <engine:Image name="Portrait3" class="villager-portrait portraits" />
-                </engine:VisualElement>
+                <engine:VisualElement name="CurrentList" />
+                <engine:Label name="CurrentText" text="No Bugs Catchable Now" class="subheader" />
             </engine:VisualElement>
             <engine:VisualElement name="AllScreen" class="content-group content-page">
                 <engine:VisualElement name="ListHeaderContainer" style="flex-grow: 1;">
