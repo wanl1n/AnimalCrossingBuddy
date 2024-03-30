@@ -23,7 +23,7 @@
     width: 35%;
 
     left: 10%;
-    top: 22.5%;
+    top: 25%;
 }
 
 
@@ -34,12 +34,14 @@
     color: rgb(114, 93, 66);
 
     top: 10%;
+    flex-wrap: wrap;
+    white-space: normal;
 }
 
 #DetailsContainer {
     position: relative;
-    height: 55%;
-    top: 12%;
+    height: 65%;
+    top: 12.5%;
 }
 
 #Details {
@@ -55,19 +57,4 @@
     flex-wrap: wrap;
     white-space: normal;
     -unity-paragraph-spacing: -60px;
-}
-
-#LongDetails {
-    position: relative;
-    -unity-text-align: upper-left;
-    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
-    font-size: 40px;
-    color: rgb(114, 93, 66);
-    width: 80%;
-    flex-wrap: wrap;
-    white-space: normal;
-    -unity-paragraph-spacing: -60px;
-
-    left: 10%;
-    top: 12%;
 }

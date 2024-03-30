@@ -35,11 +35,14 @@ public class SeaCreatureModel : AvailabilityModel
         // Debug.Log(handler.downloadHandler.text);
         string[] result = handler.downloadHandler.text.Split('\t');
 
-        if (result[0] == "0")
+        if (result[0].Contains("0"))
         {
             SeaCreatureModel returnSeaCreature = JsonConvert.DeserializeObject<SeaCreatureModel>(result[1]);
             seaCreature(returnSeaCreature);
         }
-        else { Debug.LogError("GetModelData failed. [ERROR] : " + handler.error); }
+        else 
+        { 
+            Debug.LogError("GetModelData failed. [ERROR] : " + handler.error); 
+        }
     }
 }

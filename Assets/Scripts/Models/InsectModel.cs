@@ -38,7 +38,7 @@ public class InsectModel : AvailabilityModel
         // Debug.Log(handler.downloadHandler.text);
         string[] result = handler.downloadHandler.text.Split('\t');
 
-        if (result[0] == "0")
+        if (result[0].Contains("0"))
         {
             InsectModel returnInsect = JsonConvert.DeserializeObject<InsectModel>(result[1]);
             insect(returnInsect);

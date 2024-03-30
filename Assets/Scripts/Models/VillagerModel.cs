@@ -57,7 +57,7 @@ public class VillagerModel : BaseModel
         // Debug.Log(handler.downloadHandler.text);
         string[] result = handler.downloadHandler.text.Split('\t');
 
-        if (result[0] == "0")
+        if (result[0].Contains("0"))
         {
             VillagerModel returnVillager = JsonConvert.DeserializeObject<VillagerModel>(result[1]);
             villager(returnVillager);

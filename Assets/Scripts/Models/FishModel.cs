@@ -33,19 +33,21 @@ public class FishModel : AvailabilityModel
         WWWForm form = new();
 
         form.AddField("id", id);
-        form.AddField("table", table);
+        form.AddField("table", table.ToLower());
 
         using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getModelData.php", form);
         yield return handler.SendWebRequest();
 
-        // Debug.Log(handler.downloadHandler.text);
         string[] result = handler.downloadHandler.text.Split('\t');
 
-        if (result[0] == "0")
+        if (result[0].Contains("0"))
         {
             FishModel returnFish = JsonConvert.DeserializeObject<FishModel>(result[1]);
             fish(returnFish);
         }
-        else { Debug.LogError("GetModelData failed. [ERROR] : " + handler.error); }
+        else 
+        { 
+            Debug.LogError("GetModelData failed. [ERROR] : " + handler.error); 
+        }
     }
 }

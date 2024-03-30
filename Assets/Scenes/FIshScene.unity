@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 1519163927}
   - component: {fileID: 1519163929}
   m_Layer: 5
-  m_Name: Fish Pop Up Document
+  m_Name: Icon Pop Up Document
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
