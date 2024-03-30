@@ -40,8 +40,9 @@ public class ContentListGUIManager : MonoBehaviour
 
         yield return StartCoroutine(DatabaseManager.GetInstance().GetColumnData("Icon Image Link", this._table.ToLower(), c => iconLinks = c)); ;
         LoadingGUIManager.GetInstance().HideLoading();
-
-        yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(iconLinks, _listParent));
+        
+        yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(iconLinks, _listParent, _table));
+        
 
         // foreach (var icon in icons)
         // {

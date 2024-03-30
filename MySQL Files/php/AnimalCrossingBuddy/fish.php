@@ -6,21 +6,25 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-
-$column = $_POST["column"];
-$table = $_POST["table"];
-
-$query = "SELECT Id, `" . $column . "` FROM `" . $table . "`;";
+$query = "SELECT * FROM `fish`;";
 
 $columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 
+// if (mysqli_num_rows($usernameCheck) != 1) {
+//     echo "[4] : Username doesn't exist.";
+//     exit();
+// }
+
 echo "0\t";
+// foreach ($fishQuery as $row)
+// {
+//     array_push($a, $row);
+// }
+
+// print_r($a);
 
 while ($row = mysqli_fetch_assoc($columnQuery)) {
-    $data = array(
-        'Id' => $row["Id"],
-        'Data' => $row[$column]);
-    echo json_encode($data, JSON_FORCE_OBJECT) . "\t";
+    echo json_encode($row) . "\t";
 }
 
 mysqli_free_result($columnQuery);

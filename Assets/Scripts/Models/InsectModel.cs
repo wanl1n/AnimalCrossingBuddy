@@ -1,11 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.UIElements;
 
-public class FishModel : AvailabilityModel
+public class InsectModel : AvailabilityModel
 {
     [JsonProperty("Critterpedia Image Link")]
     public string CritterpediaImage { get; set; }
@@ -16,11 +16,8 @@ public class FishModel : AvailabilityModel
     [JsonProperty("Location")]
     public string Location { get; set; }
 
-    [JsonProperty("Shadow Size")]
-    public string ShadowSize { get; set; }
-
-    [JsonProperty("Catch Difficulty")]
-    public string CatchDifficulty { get; set; }
+    [JsonProperty("Weather")]
+    public string Weather { get; set; }
 
     [JsonProperty("Total Catches")]
     public int TotalCatches { get; set; }
@@ -28,7 +25,7 @@ public class FishModel : AvailabilityModel
     [JsonProperty("Description")]
     public string Description { get; set; }
 
-    public static IEnumerator GetFish(string id, string table, System.Action<FishModel> fish)
+    public static IEnumerator GetInsect(string id, string table, System.Action<InsectModel> insect)
     {
         WWWForm form = new();
 
@@ -43,8 +40,8 @@ public class FishModel : AvailabilityModel
 
         if (result[0] == "0")
         {
-            FishModel returnFish = JsonConvert.DeserializeObject<FishModel>(result[1]);
-            fish(returnFish);
+            InsectModel returnInsect = JsonConvert.DeserializeObject<InsectModel>(result[1]);
+            insect(returnInsect);
         }
         else { Debug.LogError("GetModelData failed. [ERROR] : " + handler.error); }
     }
