@@ -131,6 +131,9 @@ public class AvailabilityModel : BaseModel
             if (monthAvailabilty == "Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec | ")
                 monthAvailabilty = "All Months";
 
+            else 
+                monthAvailabilty = monthAvailabilty.Substring(0, monthAvailabilty.Length - 2);
+
             return monthAvailabilty;
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UIElements;
@@ -63,5 +64,29 @@ public class VillagerModel : BaseModel
             villager(returnVillager);
         }
         else { Debug.LogError("GetModelData failed. [ERROR] : " + handler.error); }
+    }
+    public static IEnumerator GetVillagerBirthday(string birthday, System.Action<List<VillagerModel>> villagers)
+    {
+        WWWForm form = new();
+
+        form.AddField("birthday", birthday);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getBirthdayData.php", form);
+        yield return handler.SendWebRequest();
+
+        string[] result = handler.downloadHandler.text.Split('\t');
+
+        if (result[0].Contains("0"))
+        {
+            List<VillagerModel> returnedVillagers = new();
+
+            for (int i = 1; i < result.Length - 1; i++)
+            {
+                VillagerModel returnedVillager = JsonConvert.DeserializeObject<VillagerModel>(result[i]);
+                returnedVillagers.Add(returnedVillager);
+            }
+
+            villagers(returnedVillagers);
+        }
     }
 }

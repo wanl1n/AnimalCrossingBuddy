@@ -12,4 +12,10 @@ public class StringModel
     [JsonProperty("Data")]
     public string Data { get; set; }
 
+    public StringModel(string Id, string Data)
+    {
+        this.Id = Id;
+        this.Data = Data;
+    }
+
 }

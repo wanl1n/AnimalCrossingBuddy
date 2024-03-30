@@ -258,3 +258,14 @@ Label {
     height: 200px;
     background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%206.png?fileID=2800000&guid=ba1b49cd7444c2242aac3b8a310424df&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 6");
 }
+
+#CurrentText {
+    position: absolute;
+    top: 15%;
+    font-size: 80px;
+}
+
+.nowPortraits {
+    width: 400px;
+    height: 400px;
+}

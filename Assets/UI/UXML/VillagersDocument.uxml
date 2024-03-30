@@ -25,14 +25,11 @@
         <engine:ScrollView name="ContentPage">
             <engine:VisualElement name="CurrentScreen" focusable="true" class="content-group content-page">
                 <engine:Label name="CurrentLabel" text="Today&apos;s Birthdays" class="subheader" />
-                <engine:VisualElement name="CurrentList">
-                    <engine:Image name="Portrait1" class="villager-portrait portraits" />
-                    <engine:Image name="Portrait2" class="villager-portrait portraits" />
-                    <engine:Image name="Portrait3" class="villager-portrait portraits" />
-                </engine:VisualElement>
+                <engine:Label name="CurrentText" text="No Birthdays Today"  />
+                <engine:VisualElement name="CurrentList" />
             </engine:VisualElement>
             <engine:VisualElement name="AllScreen" class="content-group content-page">
-                <engine:VisualElement name="ListHeaderContainer" style="flex-grow: 1;">
+                <engine:VisualElement name="ListHeaderContainer">
                     <engine:Label text="All Villagers" name="AllLabel" class="subheader" />
                     <engine:TextField placeholder-text="Search by name..." />
                 </engine:VisualElement>

@@ -131,8 +131,14 @@ public class TimeDisplayGUIManager : MonoBehaviour
         this._dayLabel.text = TimeManager.GetInstance().GetDayString();
         this._dateLabel.text = TimeManager.GetInstance().GetDateString();
 
-        // the error is cuz on the other scenes there's no season indicator
         this.UpdateSeasons();
+
+        GameObject sceneDocument = GameObject.FindGameObjectWithTag("Scene Document");
+        ContentListGUIManager contentListGUIManager = sceneDocument.GetComponent<ContentListGUIManager>();
+        if (contentListGUIManager != null)
+        {
+            StartCoroutine(contentListGUIManager.LoadNowPortrait());
+        }
     }
 
     private void UpdateSeasons()

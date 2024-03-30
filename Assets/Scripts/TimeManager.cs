@@ -113,6 +113,11 @@ public class TimeManager : MonoBehaviour
         return PlayerTime.ToString("tt");
     }
 
+    public string GetMDString()
+    {
+        return PlayerTime.ToString("M/d");
+    }
+
     private void Update()
     {
         if (this._isCustomTimeSet)

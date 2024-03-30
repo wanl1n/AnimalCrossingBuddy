@@ -17,7 +17,9 @@ public class ContentListGUIManager : MonoBehaviour
 
     private VisualElement _root;
     private VisualElement _listParent;
-    // List<FishModel> _fishList = new();
+
+    private VisualElement _currentParent;
+    private Label _currentText;
 
     [SerializeField]
     private GameObject _iconPopUpDocument;
@@ -27,6 +29,9 @@ public class ContentListGUIManager : MonoBehaviour
     {
         this._root = this.GetComponent<UIDocument>().rootVisualElement;
         this._listParent = _root.Q<VisualElement>(className: "catchable-list");
+        
+        this._currentParent = this._root.Q<VisualElement>("CurrentList");
+        this._currentText = this._root.Q<Label>("CurrentText");
 
         StartCoroutine(LoadIcons());
     }
@@ -37,10 +42,21 @@ public class ContentListGUIManager : MonoBehaviour
         
         LoadingGUIManager.GetInstance().ShowLoading();
 
-        yield return StartCoroutine(DatabaseManager.GetInstance().GetColumnData("Icon Image Link", this._table.ToLower(), c => iconLinks = c)); ;
+        yield return StartCoroutine(DatabaseManager.GetInstance().GetColumnData("Icon Image Link", this._table.ToLower(), c => iconLinks = c)); 
         LoadingGUIManager.GetInstance().HideLoading();
-        
-        yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(iconLinks, _listParent, _table));
+
+        StartCoroutine(this.LoadNowPortrait());
+
+        yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(iconLinks, this._listParent, this._table));
+    }
+
+    public IEnumerator LoadNowPortrait()
+    {
+        yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._currentParent, this._table));
+        if (this._currentParent.childCount != 0)
+        {   
+            this._currentText.style.display = DisplayStyle.None;
+        }
     }
 
     public IEnumerator LoadFishData(FishModel fish)

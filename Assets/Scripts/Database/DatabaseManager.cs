@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -53,9 +54,9 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    public IEnumerator CreatePortraits(List<StringModel> urls, VisualElement parent, string table)
+    public IEnumerator CreatePortraits(List<StringModel> urls, VisualElement parent, string table, string className = "portraits")
     {
-        // List<VisualElement> list = new();
+
 
         foreach (var link in urls)
         {
@@ -67,13 +68,36 @@ public class DatabaseManager : MonoBehaviour
             {
                 name = link.Id
             };
-            newIcon.AddToClassList("portraits");
+            newIcon.AddToClassList(className);
             newIcon.style.backgroundImage = new StyleBackground(icon);
 
-            // newIcon.RegisterCallback<MouseOverEvent>(Hover, newIcon);
             newIcon.RegisterCallback<ClickEvent, string>(Clicked, table);
-            parent.Add(newIcon);
-            
+
+            if (parent != null)
+            {
+
+                if (parent.name.Contains("CurrentList"))
+                {
+                    bool alreadyAdded = false;
+                    foreach (var child in parent.Children())
+                    {
+                        if (child.name == newIcon.name)
+                        {
+                            Debug.Log(newIcon.name);
+                            alreadyAdded = true;
+                            break;
+                        }
+                    }
+                    if (!alreadyAdded)
+                        parent.Add(newIcon);
+
+                }
+                else
+                {
+                    parent.Add(newIcon);
+                }
+            }
+
         }
     }
 
@@ -133,6 +157,34 @@ public class DatabaseManager : MonoBehaviour
         
 
     }
+
+    public IEnumerator CreateNowPortraits(VisualElement parent, string table)
+    {
+        switch (table)
+        {
+            case "Villagers":
+                List<VillagerModel> villagerModels = new List<VillagerModel>();
+                yield return StartCoroutine(VillagerModel.GetVillagerBirthday(TimeManager.GetInstance().GetMDString(), v => villagerModels = v));
+                
+                List<StringModel> urls = new List<StringModel>();
+
+                foreach (var model in villagerModels)
+                {   
+                    if (parent != null)
+                    {
+                        urls.Add(new StringModel(model.Id, model.PhotoImage));
+                    }
+
+                }
+
+                yield return StartCoroutine(CreatePortraits(urls, parent, table, "nowPortraits"));
+
+
+                break;
+        }
+
+    }
+
 
     private void Awake()
     {
