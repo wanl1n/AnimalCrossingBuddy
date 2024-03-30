@@ -38,7 +38,7 @@ public class ContentListGUIManager : MonoBehaviour
         
         LoadingGUIManager.GetInstance().ShowLoading();
 
-        yield return StartCoroutine(DatabaseManager.GetInstance().GetColumnData("Icon Image Link", _table, c => iconLinks = c));
+        yield return StartCoroutine(DatabaseManager.GetInstance().GetColumnData("Icon Image Link", this._table.ToLower(), c => iconLinks = c)); ;
         LoadingGUIManager.GetInstance().HideLoading();
 
         yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(iconLinks, _listParent));
@@ -56,10 +56,8 @@ public class ContentListGUIManager : MonoBehaviour
         form.AddField("table", _table);
         form.AddField("iconID", Int32.Parse(icon));
 
-        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getIconData.php", form);
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/get" + this._table + "IconData.php", form);
         yield return handler.SendWebRequest();
-
-        Debug.Log(handler.downloadHandler.text);
 
         string[] result = handler.downloadHandler.text.Split('\t');
 
@@ -70,8 +68,28 @@ public class ContentListGUIManager : MonoBehaviour
             transparentBG.style.display = DisplayStyle.Flex;
 
             Label iconName = transparentBG.Q<Label>("IconName");
-            iconName.text = result[1].ToUpper();
+            iconName.text = "<b>" + result[1].ToUpper() + "</b>";
+
+            VisualElement iconSprite = popupRoot.Q<VisualElement>("IconSprite");
+            Texture2D iconTex = new(0, 0);
+            yield return StartCoroutine(DatabaseManager.GetInstance().DownloadTexture(result[2], (tex) => iconTex = tex));
+            iconSprite.style.backgroundImage = new StyleBackground(iconTex);
+
+            Label details = transparentBG.Q<Label>("Details");
+            details.text = "";
+
+            Debug.Log(result.Length);
+
+            for (int i = 3; i < result.Length; i++)
+            {
+                details.text += "<line-height=65%>" + result[i] + "</line-height>\n";
+            }
+
+            Debug.Log(handler.downloadHandler.text);
         }
-        else { Debug.LogError("GetIconData failed. [ERROR] : " + handler.error); }
+        else 
+        { 
+            Debug.Log(handler.downloadHandler.text); 
+        }
     }
 }

@@ -389,6 +389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1519163928}
   - component: {fileID: 1519163927}
+  - component: {fileID: 1519163929}
   m_Layer: 5
   m_Name: Fish Pop Up Document
   m_TagString: Untagged
@@ -427,6 +428,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1519163929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519163926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f307a292dca13b04481975f0c8830479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1793599036
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50d106f6f8e32d4281517b78e5c5740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _table: fish
+  _table: Fish
+  _iconPopUpDocument: {fileID: 1519163926}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

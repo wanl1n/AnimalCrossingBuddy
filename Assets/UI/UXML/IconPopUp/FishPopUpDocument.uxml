@@ -5,9 +5,9 @@
             <engine:Label text="NAME" name="IconName" />
             <engine:VisualElement name="IconSprite" />
             <engine:VisualElement name="DetailsContainer">
-                <engine:Label text="Labelaaaaaa&#10;aaaaaa" name="Details" />
+                <engine:Label text="" name="Details" />
             </engine:VisualElement>
-            <engine:Label text="LONG DETAILS" name="LongDetails" />
+            <engine:Label text="Long Details" name="LongDetails" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

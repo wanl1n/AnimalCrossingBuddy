@@ -22,8 +22,6 @@
     height: 50%;
     width: 35%;
 
-    background-color: rgb(255, 255, 255);
-
     left: 10%;
     top: 22.5%;
 }
@@ -40,35 +38,36 @@
 
 #DetailsContainer {
     position: relative;
-    height: 47%;
-    top: 15%;
+    height: 55%;
+    top: 12%;
 }
 
 #Details {
     width: 50%;
     left: 46%;
+    top: 5%;
 
     -unity-text-align: middle-left;
     -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
-    font-size: 50px;
+    font-size: 40px;
     color: rgb(114, 93, 66);
 
     flex-wrap: wrap;
     white-space: normal;
-    -unity-paragraph-spacing: -100px;
+    -unity-paragraph-spacing: -60px;
 }
 
 #LongDetails {
     position: relative;
     -unity-text-align: upper-left;
     -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
-    font-size: 30px;
+    font-size: 40px;
     color: rgb(114, 93, 66);
     width: 80%;
     flex-wrap: wrap;
     white-space: normal;
-    -unity-paragraph-spacing: -100px;
+    -unity-paragraph-spacing: -60px;
 
     left: 10%;
-    top: 16%;
+    top: 12%;
 }
