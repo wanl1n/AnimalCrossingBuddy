@@ -201,6 +201,11 @@ Label {
     font-size: 74px;
 }
 
+#Filler {
+    width: 100%;
+    height: 7%;
+}
+
 #ListHeaderContainer {
     flex-direction: row;
     width: 100%;
@@ -253,6 +258,7 @@ Label {
     color: rgb(253, 147, 3);
 }
 
+
 .portraits {
     width: 200px;
     height: 200px;
@@ -265,13 +271,17 @@ Label {
     font-size: 80px;
 }
 
+
 #CurrentList {
     overflow: visible;
     flex-direction: row;
     flex-wrap: wrap;
+    height: auto;
+    margin: 0px;
 }
 
 .nowPortraits {
     width: 450px;
     height: 450px;
 }
+

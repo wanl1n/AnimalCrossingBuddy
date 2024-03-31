@@ -43,6 +43,7 @@ public class TimeManager : MonoBehaviour
         return dt >= start && dt <= end;
     }
 
+
     public void ResetDateTime()
     {
         this._playerTime = DateTime.Now;

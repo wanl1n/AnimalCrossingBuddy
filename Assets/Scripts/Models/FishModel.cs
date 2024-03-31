@@ -52,4 +52,6 @@ public class FishModel : AvailabilityModel
             Debug.LogError("GetModelData failed. [ERROR] : " + handler.error); 
         }
     }
+
+    
 }

@@ -243,7 +243,8 @@ public class DatePopUpGUIManager : MonoBehaviour
             new System.DateTime(dateTime.Year, this._activeMonth, this._activeDay, dateTime.Hour, dateTime.Minute, dateTime.Second);
 
 
-        this.timeDisplayGUIManager.UpdateDisplay();
+        if (this.timeDisplayGUIManager != null)
+            this.timeDisplayGUIManager.UpdateDisplay();
     }
 
 }

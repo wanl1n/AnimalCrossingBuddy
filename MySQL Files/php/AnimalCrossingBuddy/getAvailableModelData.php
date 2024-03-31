@@ -6,25 +6,18 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-
-$column = $_POST["column"];
 $table = $_POST["table"];
+$currentMonth = $_POST["currentMonth"];
 
-$query = "SELECT Id, Name, `" . $column . "` FROM `" . $table . "`;";
+$query = "SELECT * FROM `" . $table . "` WHERE `" .$currentMonth . "` != \"NA\";";
 
 $columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 
-echo "0\t";
+echo "0 \t";
 
 while ($row = mysqli_fetch_assoc($columnQuery)) {
-    $data = array(
-        'Id' => $row["Id"],
-        'Name' => $row['Name'],
-        'Data' => $row[$column]);
-    echo json_encode($data, JSON_FORCE_OBJECT) . "\t";
+    echo json_encode($row) . "\t";
 }
 
 mysqli_free_result($columnQuery);
 mysqli_close($connection);
-
-?>

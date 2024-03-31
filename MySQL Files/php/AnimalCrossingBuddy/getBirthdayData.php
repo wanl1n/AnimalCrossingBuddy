@@ -9,7 +9,7 @@ if (mysqli_connect_errno()) {
 
 $birthday = $_POST["birthday"];
 
-$query = "SELECT * FROM villagers WHERE Birthday = ".$birthday.";";
+$query = "SELECT * FROM villagers WHERE Birthday = \"$birthday\";";
 
 $columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 

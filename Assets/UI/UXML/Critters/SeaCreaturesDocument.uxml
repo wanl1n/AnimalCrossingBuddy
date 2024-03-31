@@ -28,6 +28,7 @@
                 <engine:VisualElement name="CurrentList" />
                 <engine:Label name="CurrentText" text="No Sea Creatures Catchable Now" class="subheader" />
             </engine:VisualElement>
+            <engine:VisualElement name="Filler"/>
             <engine:VisualElement name="AllScreen" class="content-group content-page">
                 <engine:VisualElement name="ListHeaderContainer" style="flex-grow: 1;">
                     <engine:Label text="All Sea Creatures" name="AllLabel" class="subheader" />

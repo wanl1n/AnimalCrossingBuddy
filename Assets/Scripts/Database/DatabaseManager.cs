@@ -150,9 +150,6 @@ public class DatabaseManager : MonoBehaviour
                 }
                 break;
         }
-
-        
-
     }
 
     public IEnumerator CreateNowPortraits(VisualElement parent, string table)
@@ -163,13 +160,13 @@ public class DatabaseManager : MonoBehaviour
                 List<VillagerModel> villagerModels = new List<VillagerModel>();
                 yield return StartCoroutine(VillagerModel.GetVillagerBirthday(TimeManager.GetInstance().GetMDString(), v => villagerModels = v));
                 
-                List<StringModel> stringModels = new List<StringModel>();
+                List<StringModel> villagerStringModels = new List<StringModel>();
 
                 foreach (var model in villagerModels)
                 {   
                     if (parent != null)
                     {
-                        stringModels.Add(new StringModel(model.Id, model.Name, model.PhotoImage));
+                        villagerStringModels.Add(new StringModel(model.Id, model.Name, model.PhotoImage));
                     }
 
                 }
@@ -182,7 +179,7 @@ public class DatabaseManager : MonoBehaviour
 
                     foreach (var child in parent.Children())
                     {
-                        foreach (var model in stringModels)
+                        foreach (var model in villagerStringModels)
                         {
                             string modelIdName = model.Id + "\t" + model.Name;
                             if (child.name == modelIdName)
@@ -203,14 +200,105 @@ public class DatabaseManager : MonoBehaviour
                     }
                 }
 
-                yield return StartCoroutine(CreatePortraits(stringModels, parent, table, "nowPortraits"));
+                yield return StartCoroutine(CreatePortraits(villagerStringModels, parent, table, "nowPortraits"));
 
+
+                break;
+
+            case "Fish":
+            case "Insects":
+            case "Sea_creatures":
+                List<StringModel> stringModels = new List<StringModel>();
+                yield return StartCoroutine(this.GetAvailableModelData(table, c => stringModels = c));
+
+                if (parent != null)
+                {
+                    bool inStringModel = false;
+
+                    List<VisualElement> childToRemove = new List<VisualElement>();
+
+                    foreach (var child in parent.Children())
+                    {
+                        foreach (var model in stringModels)
+                        {
+                            string modelIdName = model.Id + "\t" + model.Name;
+                            if (child.name == modelIdName)
+                            {
+                                Debug.Log(child.name);
+                                inStringModel = true;
+                                break;
+                            }
+                        }
+                        if (!inStringModel)
+                        {
+                            childToRemove.Add(child);
+                        }
+                    }
+
+                    foreach (var child in childToRemove)
+                    {
+                        parent.Remove(child);
+                    }
+                }
+
+                yield return StartCoroutine(CreatePortraits(stringModels, parent, table));
 
                 break;
         }
 
     }
 
+    private IEnumerator GetAvailableModelData(string table, System.Action<List<StringModel>> models)
+    {
+        WWWForm form = new();
+
+        form.AddField("table", table.ToLower());
+
+        string currentMonth = "";
+
+        if (TimeManager.GetInstance().IsInSouthernHemisphere)
+        {
+            currentMonth = "SH ";
+        }
+        else
+        {
+            currentMonth = "NH ";
+        }
+
+        currentMonth += TimeManager.GetInstance().PlayerTime.ToString("MMM");
+
+        form.AddField("currentMonth", currentMonth);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getAvailableModelData.php", form);
+        yield return handler.SendWebRequest();
+
+        //Debug.Log(handler.downloadHandler.text);
+        string[] result = handler.downloadHandler.text.Split('\t');
+
+        if (result[0].Contains("0"))
+        {
+            List<StringModel> strings = new();
+
+            for (int i = 1; i < result.Length - 1; i++)
+            {
+                AvailabilityModel data = JsonConvert.DeserializeObject<AvailabilityModel>(result[i]);
+
+                string timeAvailability = (string)data.GetType().GetProperty(currentMonth.Replace(" ", "")).GetValue(data);
+
+                if (data.isAvailableNow(timeAvailability))
+                    strings.Add(new StringModel(data.Id, data.Name, data.IconImage));
+
+            }
+
+            models(strings);
+
+
+        }
+        else 
+        { 
+            Debug.LogError("GetAvailableData failed. [ERROR] : " + handler.error); 
+        }
+    }
 
     private void Awake()
     {
