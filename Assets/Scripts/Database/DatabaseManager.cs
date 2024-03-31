@@ -173,12 +173,11 @@ public class DatabaseManager : MonoBehaviour
 
                 if (parent != null)
                 {
-                    bool inStringModel = false;
-
                     List<VisualElement> childToRemove = new List<VisualElement>(); 
 
                     foreach (var child in parent.Children())
                     {
+                        bool inStringModel = false;
                         foreach (var model in villagerStringModels)
                         {
                             string modelIdName = model.Id + "\t" + model.Name;
@@ -201,8 +200,6 @@ public class DatabaseManager : MonoBehaviour
                 }
 
                 yield return StartCoroutine(CreatePortraits(villagerStringModels, parent, table, "nowPortraits"));
-
-
                 break;
 
             case "Fish":
@@ -213,18 +210,17 @@ public class DatabaseManager : MonoBehaviour
 
                 if (parent != null)
                 {
-                    bool inStringModel = false;
-
                     List<VisualElement> childToRemove = new List<VisualElement>();
 
                     foreach (var child in parent.Children())
                     {
+                        bool inStringModel = false;
                         foreach (var model in stringModels)
                         {
                             string modelIdName = model.Id + "\t" + model.Name;
                             if (child.name == modelIdName)
                             {
-                                Debug.Log(child.name);
+                                Debug.Log(child.name + ": " + modelIdName);
                                 inStringModel = true;
                                 break;
                             }
