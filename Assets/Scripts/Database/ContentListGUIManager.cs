@@ -21,17 +21,27 @@ public class ContentListGUIManager : MonoBehaviour
     private VisualElement _currentParent;
     private Label _currentText;
 
+    private TextField _searchBarText;
+    public string SearchBarText
+    {
+        get { return this._searchBarText.value.Trim();  }
+    }
+
     [SerializeField]
     private GameObject _iconPopUpDocument;
 
     // Start is called before the first frame update
-    public void Start()
+    private void Start()
     {
         this._root = this.GetComponent<UIDocument>().rootVisualElement;
-        this._listParent = _root.Q<VisualElement>(className: "catchable-list");
+        this._listParent = this._root.Q<VisualElement>(className: "catchable-list");
         
         this._currentParent = this._root.Q<VisualElement>("CurrentList");
         this._currentText = this._root.Q<Label>("CurrentText");
+
+        this._searchBarText = this._root.Q<TextField>("SearchBar");
+
+        this._searchBarText.RegisterValueChangedCallback(this.OnSearchBarValueChanged);
 
         StartCoroutine(LoadIcons());
     }
@@ -267,4 +277,47 @@ public class ContentListGUIManager : MonoBehaviour
                         "</line-height>\n";
 
     }
+
+    private IEnumerator LoadSearchedName()
+    {
+        List<StringModel> iconLinks = new();
+        yield return StartCoroutine(DatabaseManager.GetInstance().GetModelData(this._table.ToLower(), c => iconLinks = c));
+        yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(iconLinks, this._listParent, this._table));
+
+        List<VisualElement> childToRemove = new List<VisualElement>();
+
+        foreach (var child in this._listParent.Children())
+        {
+            bool inStringModel = false;
+            foreach (var model in iconLinks)
+            {
+                string modelIdName = model.Id + "\t" + model.Name;
+                if (child.name == modelIdName)
+                {
+                    inStringModel = true;
+                    break;
+                }
+            }
+            if (!inStringModel)
+            {
+                childToRemove.Add(child);
+            }
+        }
+
+        foreach (var child in childToRemove)
+        {
+            this._listParent.Remove(child);
+        }
+
+    }
+
+    private void OnSearchBarValueChanged(ChangeEvent<string> e)
+    {
+        this._listParent.Clear();
+        StopCoroutine(LoadIcons());
+        DatabaseManager.GetInstance().StopAllCoroutines();
+        StartCoroutine(LoadSearchedName());
+    }
+
+
 }

@@ -37,7 +37,7 @@ public class DatabaseManager : MonoBehaviour
         else { Debug.LogError("GetColumnData failed. [ERROR] : " + handler.error); }
     }
 
-    public IEnumerator DownloadTexture(string url, System.Action<Texture2D> callback)
+    public IEnumerator DownloadTexture(string url, System.Action<Texture2D> callback = null)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
         yield return request.SendWebRequest();
@@ -73,28 +73,18 @@ public class DatabaseManager : MonoBehaviour
 
             if (parent != null)
             {
-
-                if (parent.name.Contains("CurrentList"))
+                bool alreadyAdded = false;
+                foreach (var child in parent.Children())
                 {
-                    bool alreadyAdded = false;
-                    foreach (var child in parent.Children())
+                    if (child.name == newIcon.name)
                     {
-                        if (child.name == newIcon.name)
-                        {
-                            alreadyAdded = true;
-                            break;
-                        }
+                        alreadyAdded = true;
+                        break;
                     }
-                    if (!alreadyAdded)
-                        parent.Add(newIcon);
-
                 }
-                else
-                {
-                    parent.Add(newIcon);
-                }
+                if (!alreadyAdded)
+                   parent.Add(newIcon);
             }
-
         }
     }
 
@@ -220,7 +210,6 @@ public class DatabaseManager : MonoBehaviour
                             string modelIdName = model.Id + "\t" + model.Name;
                             if (child.name == modelIdName)
                             {
-                                Debug.Log(child.name + ": " + modelIdName);
                                 inStringModel = true;
                                 break;
                             }
@@ -295,6 +284,51 @@ public class DatabaseManager : MonoBehaviour
             Debug.LogError("GetAvailableData failed. [ERROR] : " + handler.error); 
         }
     }
+
+    public IEnumerator GetModelData(string table, System.Action<List<StringModel>> models)
+    {
+        GameObject contentListManager = GameObject.FindGameObjectWithTag("Scene Document");
+        if (contentListManager != null)
+        {
+            WWWForm form = new();
+
+            string name = contentListManager.GetComponent<ContentListGUIManager>().SearchBarText;
+
+            form.AddField("table", table.ToLower());
+
+            form.AddField("condition", "name LIKE \"%" + name + "%\"");
+
+            using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getModelData.php", form);
+            yield return handler.SendWebRequest();
+
+            string[] result = handler.downloadHandler.text.Split('\t');
+
+
+            Debug.Log(handler.downloadHandler.text);
+
+            if (result[0].Contains("0"))
+            {
+                List<StringModel> strings = new();
+
+                for (int i = 1; i < result.Length; i++)
+                {
+                    BaseModel model = JsonConvert.DeserializeObject<BaseModel>(result[i]);
+
+                    if (model != null)
+                        strings.Add(new StringModel(model.Id, model.Name, model.IconImage));
+                }
+
+                models(strings);
+            }
+            else
+            {
+                Debug.LogError("GetModelData failed. [ERROR] : " + handler.error);
+            }
+
+        }
+
+    }
+
 
     private void Awake()
     {
