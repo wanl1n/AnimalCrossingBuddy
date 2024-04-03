@@ -139,6 +139,11 @@ public class TimeDisplayGUIManager : MonoBehaviour
         {
             StartCoroutine(contentListGUIManager.LoadNowPortrait());
         }
+        HomeGUIManager homeGUIManager = sceneDocument.GetComponent<HomeGUIManager>();
+        if (homeGUIManager != null)
+        {
+            StartCoroutine(homeGUIManager.LoadAllCatchable());
+        }
     }
 
     private void UpdateSeasons()
