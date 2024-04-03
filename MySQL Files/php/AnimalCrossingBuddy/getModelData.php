@@ -6,10 +6,13 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$id = $_POST["id"];
 $table = $_POST["table"];
 
-$query = "SELECT * FROM `" . $table . "` WHERE Id = ". $id . ";";
+$condition = $_POST["condition"];
+
+// Id = ".$id.";";
+
+$query = "SELECT * FROM `" . $table . "` WHERE ". $condition . ";";
 
 $columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 

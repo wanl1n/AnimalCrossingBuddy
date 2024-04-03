@@ -32,7 +32,7 @@
             <engine:VisualElement name="AllScreen" class="content-group content-page">
                 <engine:VisualElement name="ListHeaderContainer" style="flex-grow: 1;">
                     <engine:Label text="All Bugs" name="AllLabel" class="subheader" />
-                    <engine:TextField placeholder-text="Search by name..." />
+                    <engine:TextField placeholder-text="Search by name..." name="SearchBar" />
                 </engine:VisualElement>
                 <engine:VisualElement name="VisualElement" class="catchable-list" />
             </engine:VisualElement>
