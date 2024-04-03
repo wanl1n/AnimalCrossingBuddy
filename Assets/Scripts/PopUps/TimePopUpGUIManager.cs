@@ -371,5 +371,6 @@ public class TimePopUpGUIManager : MonoBehaviour
             new System.DateTime(dateTime.Year, dateTime.Month, dateTime.Day, dateTime.Hour, this._activeMin, dateTime.Second);
 
         this.timeDisplayGUIManager.UpdateDisplay();
+        this.timeDisplayGUIManager.UpdateNowList();
     }
 }

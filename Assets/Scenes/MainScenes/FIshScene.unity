@@ -243,7 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _activeMonth: -1
   _activeDay: -1
-  timeDisplayGUIManager: {fileID: 0}
+  timeDisplayGUIManager: {fileID: 2051520036}
 --- !u!114 &571837511
 MonoBehaviour:
   m_ObjectHideFlags: 0

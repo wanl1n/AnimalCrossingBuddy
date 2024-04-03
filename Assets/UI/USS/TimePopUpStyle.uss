@@ -59,7 +59,7 @@
 }
 
 .unity-base-slider__tracker {
-    visibility: visible;
+    visibility: hidden;
 }
 
 Scroller {

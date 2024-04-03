@@ -259,10 +259,12 @@ public class DatabaseManager : MonoBehaviour
 
         form.AddField("currentMonth", currentMonth);
 
+        form.AddField("currentTime", TimeManager.GetInstance().PlayerTime.ToString("yyyy-MM-dd HH:mm:ss")); 
+
         using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getAvailableModelData.php", form);
         yield return handler.SendWebRequest();
 
-        //Debug.Log(handler.downloadHandler.text);
+        Debug.Log(handler.downloadHandler.text);
         string[] result = handler.downloadHandler.text.Split('\t');
 
         if (result[0].Contains("0"))
@@ -275,7 +277,7 @@ public class DatabaseManager : MonoBehaviour
 
                 string timeAvailability = (string)data.GetType().GetProperty(currentMonth.Replace(" ", "")).GetValue(data);
 
-                if (data.isAvailableNow(timeAvailability))
+                if (data.IsAvailableNow(timeAvailability))
                     strings.Add(new StringModel(data.Id, data.Name, data.IconImage));
 
             }

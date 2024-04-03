@@ -46,6 +46,7 @@ public class TimeDisplayGUIManager : MonoBehaviour
     
         if (this._timeLabel != null)
         {
+            StartCoroutine(UpdateTime());
             this._timeLabel.RegisterCallback<PointerDownEvent>(this.OnTimeClick);
         }
 
@@ -91,6 +92,7 @@ public class TimeDisplayGUIManager : MonoBehaviour
             new System.DateTime(dateTime.Year, dateTime.Month, dateTime.Day, hour, dateTime.Minute, dateTime.Second);
 
         this.UpdateDisplay();
+        this.UpdateNowList();
     }
 
     void OnDateClick(PointerDownEvent e) 
@@ -111,8 +113,18 @@ public class TimeDisplayGUIManager : MonoBehaviour
         TimeManager.GetInstance().PlayerTime = DateTime.Now;
 
         this.UpdateDisplay();
+        this.UpdateNowList();
     }
 
+    private IEnumerator UpdateTime()
+    {
+        while (true)
+        {
+            this.UpdateDisplay();
+
+            yield return new WaitForSeconds(30);
+        }
+    }
 
     public void UpdateDisplay()
     {
@@ -123,6 +135,15 @@ public class TimeDisplayGUIManager : MonoBehaviour
 
         this.UpdateSeasons();
 
+
+        if (TimeManager.GetInstance().PlayerTime.Minute == 1)
+        {
+            this.UpdateNowList();
+        } 
+    }
+
+    public void UpdateNowList()
+    {
         GameObject sceneDocument = GameObject.FindGameObjectWithTag("Scene Document");
         ContentListGUIManager contentListGUIManager = sceneDocument.GetComponent<ContentListGUIManager>();
         if (contentListGUIManager != null)

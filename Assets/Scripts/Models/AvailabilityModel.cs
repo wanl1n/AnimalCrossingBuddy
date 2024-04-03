@@ -266,7 +266,7 @@ public class AvailabilityModel : BaseModel
 
     }
 
-    public bool isAvailableNow(string timeAvailability)
+    public bool IsAvailableNow(string timeAvailability)
     {
         System.DateTime playerTime = TimeManager.GetInstance().PlayerTime;
             
@@ -308,15 +308,25 @@ public class AvailabilityModel : BaseModel
                     endHour = 0;
             }
 
-            System.DateTime startTime = new DateTime(playerTime.Year, playerTime.Month, playerTime.Day,
-                                                     startHour, 0, 0);
-            System.DateTime endTime = new DateTime(playerTime.Year, playerTime.Month, playerTime.Day,
-                                                   endHour, 0, 0);
+            TimeSpan startTime = TimeSpan.Parse(startHour + ":00");
+            TimeSpan endTime = TimeSpan.Parse(endHour + ":00");
 
-            if (TimeManager.IsBetweenTwoDates(playerTime, startTime, endTime))
+            TimeSpan currentTime = playerTime.TimeOfDay;
+
+            Debug.Log(startTime.ToString() + " | " + endTime.ToString());
+
+
+            if (endTime < startTime)
             {
-                return true;
+                if ((currentTime >= startTime || currentTime <= endTime))
+                    return true;
             }
+            else
+            {
+               if (currentTime >= startTime && currentTime <= endTime)
+                    return true;
+            }
+
 
         }
         return false;
