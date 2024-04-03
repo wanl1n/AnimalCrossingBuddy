@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: cac13426b5cc6b54a9fc0790342a2669
+  - enabled: 1
     path: Assets/Scenes/HomeScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -15,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/VillagerScene.unity
     guid: b4495eb94de16d849aa26872e3097f56
   - enabled: 1
-    path: Assets/Scenes/FishScene.unity
+    path: Assets/Scenes/FIshScene.unity
     guid: 1670fec689f384541b92c24fe5f07afd
   - enabled: 1
     path: Assets/Scenes/SeasScene.unity

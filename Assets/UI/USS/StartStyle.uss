@@ -1,0 +1,44 @@
+#Background {
+	height: 100%;
+	width: 100%;
+	background-image: url("project://database/Assets/Sprites/UI/Start Screen BG.png");
+}
+
+#StartButton {
+    border-radius: 20px;
+
+    background-color: rgb(231, 221, 185);
+    color: rgb(114, 93, 66);
+    
+    font-size: 50px;
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&amp;guid=8491b401751bd5f45abf09288c66e4a2&amp;type=3#FOT-Seurat Pro B"); 
+    -unity-font-style: bold; 
+
+    padding: 8px 16px; 
+
+    width: 20%;
+    height: 10%;
+
+    margin: auto;
+    margin-top: 45%;
+}
+
+#StartButton:hover {
+    color: rgb(253, 147, 3);
+}
+
+#AdminButton {
+    width: 10%;
+    height: 10%;
+    display: flex;
+
+    background-image: url("project://database/Assets/Sprites/UI/Icons/AdminIcon.png");
+    -unity-background-image-tint-color: rgba(0, 0, 0, 0.5);
+
+    margin-left: auto;
+    margin-top: auto;
+}
+
+#AdminButton:hover {
+    -unity-background-image-tint-color: rgb(253, 147, 3);
+}

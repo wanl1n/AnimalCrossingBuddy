@@ -1,3 +1,7 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement name="Background"/>
+    <Style src="project://database/Assets/UI/USS/StartStyle.uss?fileID=7433441132597879392&amp;guid=625475fcdbcd5cd4ca756bb162e34101&amp;type=3#StartStyle" />
+    <engine:VisualElement name="Background">
+        <engine:Button text="START" name="StartButton" />
+        <engine:Image name="AdminButton" />
+    </engine:VisualElement>
 </engine:UXML>
