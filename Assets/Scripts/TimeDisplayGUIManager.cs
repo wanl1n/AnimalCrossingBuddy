@@ -46,7 +46,6 @@ public class TimeDisplayGUIManager : MonoBehaviour
     
         if (this._timeLabel != null)
         {
-            StartCoroutine(UpdateTime());
             this._timeLabel.RegisterCallback<PointerDownEvent>(this.OnTimeClick);
         }
 
@@ -114,15 +113,6 @@ public class TimeDisplayGUIManager : MonoBehaviour
         this.UpdateDisplay();
     }
 
-    private IEnumerator UpdateTime()
-    {
-        while (true)
-        {
-            this.UpdateDisplay();
-
-            yield return new WaitForSeconds(5);
-        }
-    }
 
     public void UpdateDisplay()
     {

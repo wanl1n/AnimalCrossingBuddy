@@ -60,16 +60,10 @@ public class DatabaseManager : MonoBehaviour
         {
             Texture2D icon = new(0, 0);
 
-            yield return StartCoroutine(DownloadTexture(link.Data, (tex) => icon = tex));
-
             VisualElement newIcon = new()
             {
                 name = link.Id + "\t" + link.Name
             };
-            newIcon.AddToClassList(className);
-            newIcon.style.backgroundImage = new StyleBackground(icon);
-
-            newIcon.RegisterCallback<ClickEvent, string>(Clicked, table);
 
             if (parent != null)
             {
@@ -84,9 +78,16 @@ public class DatabaseManager : MonoBehaviour
                 }
                 if (!alreadyAdded)
                 {
+                   yield return StartCoroutine(DownloadTexture(link.Data, (tex) => icon = tex));
+                    newIcon.AddToClassList(className);
+                    newIcon.style.backgroundImage = new StyleBackground(icon);
+
+                    newIcon.RegisterCallback<ClickEvent, string>(Clicked, table);
                    parent.Add(newIcon);
                 }
             }
+
+
 
            
         }

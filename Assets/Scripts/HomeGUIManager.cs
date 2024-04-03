@@ -54,21 +54,24 @@ public class HomeGUIManager : MonoBehaviour
 
         this._hemisphereToggle.value = TimeManager.GetInstance().IsInSouthernHemisphere;
 
-        StartCoroutine(LoadAllCatchable());
+        StartCoroutine(Load());
+
+    }
+
+    private IEnumerator Load()
+    {
+        LoadingGUIManager.GetInstance().ShowLoading();
+        yield return StartCoroutine(LoadAllCatchable());
+        LoadingGUIManager.GetInstance().HideLoading();
 
     }
 
     public IEnumerator LoadAllCatchable()
     {
-        this._catchableFish.Clear();
-        this._catchableBugs.Clear();
-        this._catchableSeas.Clear();
 
-        LoadingGUIManager.GetInstance().ShowLoading();
         yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableFish, "Fish"));
         yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableBugs, "Insects"));
         yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableSeas, "Sea_creatures"));
-        LoadingGUIManager.GetInstance().HideLoading();
 
         if (this._catchableFish.childCount != 0)
         {

@@ -22,12 +22,17 @@
             <engine:Image name="WinterIcon" class="season-icon" />
         </engine:VisualElement>
         <engine:ScrollView name="ContentPage">
-            <engine:TextField placeholder-text="NAME" name="Username" />
+            <engine:TextField placeholder-text="NAME" name="Username" class="textField" />
+            <engine:VisualElement name="ButtonContainer">
+                <engine:Button text="LoadData" name="LoadData" class="userButton" />
+                <engine:Button text="SaveData" name="SaveData" class="userButton" />
+                <engine:Button text="DeleteData" name="DeleteData" class="userButton" />
+            </engine:VisualElement>
             <engine:VisualElement name="TablesContainer">
                 <engine:VisualElement name="Table1" class="tables">
                     <engine:VisualElement name="ListHeaderContainer">
                         <engine:Label text="Collected Villagers" name="AllLabel" class="subheader" />
-                        <engine:TextField placeholder-text="Search by name..." />
+                        <engine:TextField placeholder-text="Search by name..." class="textField" />
                     </engine:VisualElement>
                     <engine:VisualElement name="AllList">
                         <engine:ListView name="List" header-title="Collected Villagers" />
@@ -36,7 +41,7 @@
                 <engine:VisualElement name="Table2" class="tables">
                     <engine:VisualElement name="ListHeaderContainer">
                         <engine:Label text="Caught Critters" name="AllLabel" class="subheader" />
-                        <engine:TextField placeholder-text="Search by name..." />
+                        <engine:TextField placeholder-text="Search by name..." class="textField" />
                     </engine:VisualElement>
                     <engine:VisualElement name="AllList">
                         <engine:ListView name="List" header-title="Caught Critters" />

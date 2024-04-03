@@ -31,7 +31,7 @@
                 </engine:VisualElement>
                 <engine:VisualElement name="AllScreen" class="content-group content-page">
                     <engine:VisualElement name="ListHeaderContainer">
-                        <engine:Label text="All Villagers" name="AllLabel" class="subheader" />
+                        <engine:Label text="All Bugs" name="AllLabel" class="subheader" />
                         <engine:TextField placeholder-text="Search by name..." name="SearchBar" />
                     </engine:VisualElement>
                     <engine:ScrollView name="AllList" mode="Vertical" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden">
