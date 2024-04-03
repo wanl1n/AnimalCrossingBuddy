@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 2051520033}
   - component: {fileID: 2051520035}
   m_Layer: 5
-  m_Name: Home Document
+  m_Name: Start Document
   m_TagString: Scene Document
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
