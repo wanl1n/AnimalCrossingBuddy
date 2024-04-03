@@ -23,17 +23,18 @@
                 </engine:VisualElement>
                 <engine:Image text="Reset Date and Time" name="ResetButton" />
             </engine:VisualElement>
-            <engine:VisualElement name="CatchableScreen" class="content-group">
+            <engine:VisualElement name="FeaturedScreen" class="content-group">
                 <engine:Label text="Catchable Now" name="CatchableNowLabel" />
                 <engine:VisualElement name="CatchableLists">
-                    <engine:ListView name="CatchableFishList" header-title="Fish" class="catchable-list" />
-                    <engine:ListView name="CatchableBugsList" header-title="Bugs" class="catchable-list" />
-                </engine:VisualElement>
-            </engine:VisualElement>
-            <engine:VisualElement name="EventsScreen" class="content-group">
-                <engine:Label text="Ongoing Events" name="OngoingEventsLabel" />
-                <engine:VisualElement name="OngoingEventsList">
-                    <engine:ListView name="EventsList" header-title="Fish" class="catchable-list" />
+                    <engine:Label name="CatchableFishLabel" text="Catchable Fish" class="catchableLabel" />
+                    <engine:VisualElement name="CatchableFishList" clase="catchableList" class="catchableList" />
+                    <engine:Label name="CatchableFishText" text="No Fish Catchable Now" class="catchableText" />
+                    <engine:Label name="CatchableBugsLabel" text="Catchable Bugs" class="catchableLabel" />
+                    <engine:VisualElement name="CatchableBugsList" clase="catchableList" class="catchableList" />
+                    <engine:Label name="CatchableBugsText" text="No Bugs  Catchable Now" class="catchableText" />
+                    <engine:Label name="CatchableSeasLabel" text="Catchable Bugs" class="catchableLabel" />
+                    <engine:VisualElement name="CatchableSeasList" clase="catchableList" class="catchableList" />
+                    <engine:Label name="CatchableSeasText" text="No Bugs  Catchable Now" class="catchableText" />
                 </engine:VisualElement>
             </engine:VisualElement>
         </engine:ScrollView>

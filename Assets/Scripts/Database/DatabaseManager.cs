@@ -83,8 +83,12 @@ public class DatabaseManager : MonoBehaviour
                     }
                 }
                 if (!alreadyAdded)
+                {
                    parent.Add(newIcon);
+                }
             }
+
+           
         }
     }
 
@@ -99,7 +103,7 @@ public class DatabaseManager : MonoBehaviour
         // get data 
         // query using evt.target name as the Id, and table parameter
         BaseModel model = new();
-        GameObject contentListManager = GameObject.FindGameObjectWithTag("Scene Document");
+        GameObject iconPopUpManager = GameObject.FindGameObjectWithTag("Icon Manager");
 
         switch (table)
         {
@@ -107,36 +111,36 @@ public class DatabaseManager : MonoBehaviour
                 FishModel fish = new();
                 yield return StartCoroutine(FishModel.GetFish(id, table, c => fish = c));
                 // show the popup
-                if (contentListManager != null)
+                if (iconPopUpManager != null)
                 {
-                    StartCoroutine(contentListManager.GetComponent<ContentListGUIManager>().LoadFishData(fish));
+                    StartCoroutine(iconPopUpManager.GetComponent<IconPopUpGUIManager>().LoadFishData(fish));
                 }
                 break;
             case "Insects":
                 InsectModel insect = new();
                 yield return StartCoroutine(InsectModel.GetInsect(id, table, c => insect = c));
                 // show the popup
-                if (contentListManager != null)
+                if (iconPopUpManager != null)
                 {
-                    StartCoroutine(contentListManager.GetComponent<ContentListGUIManager>().LoadInsectData(insect));
+                    StartCoroutine(iconPopUpManager.GetComponent<IconPopUpGUIManager>().LoadInsectData(insect));
                 }
                 break;
             case "Sea_creatures":
                 SeaCreatureModel seaCreature = new();
                 yield return StartCoroutine(SeaCreatureModel.GetSeaCreature(id, table, c => seaCreature = c));
                 // show the popup
-                if (contentListManager != null)
+                if (iconPopUpManager != null)
                 {
-                    StartCoroutine(contentListManager.GetComponent<ContentListGUIManager>().LoadSeaCreatureData(seaCreature));
+                    StartCoroutine(iconPopUpManager.GetComponent<IconPopUpGUIManager>().LoadSeaCreatureData(seaCreature));
                 }
                 break;
             case "Villagers":
                 VillagerModel villager = new();
                 yield return StartCoroutine(VillagerModel.GetVillager(id, table, c => villager = c));
                 // show the popup
-                if (contentListManager != null)
+                if (iconPopUpManager != null)
                 {
-                    StartCoroutine(contentListManager.GetComponent<ContentListGUIManager>().LoadVillagerData(villager));
+                    StartCoroutine(iconPopUpManager.GetComponent<IconPopUpGUIManager>().LoadVillagerData(villager));
                 }
                 break;
         }

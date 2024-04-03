@@ -241,6 +241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac1646f29964c94c9c8b2b74114c748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _activeMonth: -1
+  _activeDay: -1
   timeDisplayGUIManager: {fileID: 0}
 --- !u!114 &571837511
 MonoBehaviour:
@@ -392,7 +394,7 @@ GameObject:
   - component: {fileID: 1519163929}
   m_Layer: 5
   m_Name: Icon Pop Up Document
-  m_TagString: Untagged
+  m_TagString: Icon Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -645,7 +647,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _table: Fish
-  _iconPopUpDocument: {fileID: 1519163926}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -201,11 +201,6 @@ Label {
     font-size: 74px;
 }
 
-#Filler {
-    width: 100%;
-    height: 7%;
-}
-
 #ListHeaderContainer {
     flex-direction: row;
     width: 100%;
@@ -241,6 +236,8 @@ Label {
 }
 
 #AllList {
+    margin-top: -10px;
+    height: auto;
     align-self: center;
     align-items: center;
     justify-content: center;
@@ -265,6 +262,10 @@ Label {
     background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%206.png?fileID=2800000&guid=ba1b49cd7444c2242aac3b8a310424df&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 6");
 }
 
+.portraits:hover {
+    background-color: rgb(247, 248, 230);
+}
+
 #CurrentText {
     position: absolute;
     top: 15%;
@@ -277,10 +278,12 @@ Label {
     flex-direction: row;
     flex-wrap: wrap;
     height: auto;
-    margin: 0px;
+    margin-top: -10px;
+    margin-left: 100px;
 }
 
 .nowPortraits {
+    margin-top: 30px;
     width: 450px;
     height: 450px;
 }
