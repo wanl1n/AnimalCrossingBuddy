@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class HomeGUIManager : MonoBehaviour
@@ -20,6 +21,7 @@ public class HomeGUIManager : MonoBehaviour
     private Label _catchableBugsText;
     private Label _catchableSeasText;
 
+    private Image _adminButton;
 
     private Toggle _hemisphereToggle;
 
@@ -27,6 +29,8 @@ public class HomeGUIManager : MonoBehaviour
     void Start()
     {
         this._root = this.GetComponent<UIDocument>().rootVisualElement;
+
+        this._adminButton = this._root.Q<Image>("AdminButton");
 
         this._navBar = this._root.Q<VisualElement>("NaviBar");
         this._dateTimeScreen = this._root.Q<VisualElement>("DateTimeScren");
@@ -40,10 +44,13 @@ public class HomeGUIManager : MonoBehaviour
         this._catchableBugsText = this._featuredScreen.Q<Label>("CatchableBugsText");
         this._catchableSeasText = this._featuredScreen.Q<Label>("CatchableSeasText");
 
-
         this._eventsScreen = this._root.Q<VisualElement>("EventsScreen");
 
         this._hemisphereToggle = this._root.Q<Toggle>("HemisphereToggle");
+
+
+        this._adminButton.RegisterCallback<ClickEvent>(this.OnAdminButtonClick);
+
         this._hemisphereToggle.RegisterValueChangedCallback(
             evt =>
             {
@@ -53,11 +60,14 @@ public class HomeGUIManager : MonoBehaviour
 
             }
         );
-
         this._hemisphereToggle.value = TimeManager.GetInstance().IsInSouthernHemisphere;
 
         StartCoroutine(Load());
 
+    }
+    private void OnAdminButtonClick(ClickEvent e)
+    {
+        SceneManager.LoadScene("AdminLoginScene");
     }
 
     private IEnumerator Load()

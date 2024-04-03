@@ -2,7 +2,9 @@
     <engine:Template name="NavigationBarContainer" src="project://database/Assets/UI/UXML/Templates/NavigationBarContainer.uxml?fileID=9197481963319205126&amp;guid=025586f9277da634c80f8cbe014ae0eb&amp;type=3#NavigationBarContainer" />
     <Style src="project://database/Assets/UI/USS/HomeStyle.uss?fileID=7433441132597879392&amp;guid=3a6d156e7e3a3df408d88423080dda91&amp;type=3#HomeStyle" />
     <engine:VisualElement name="Root">
-        <engine:Instance template="NavigationBarContainer" />
+        <engine:Instance template="NavigationBarContainer">
+            <UnityEngine.UIElements.Image name="AdminButton" />
+        </engine:Instance>
         <engine:ScrollView name="ContentPage">
             <engine:VisualElement name="DateTimeScreen" class="content-group">
                 <engine:VisualElement name="SeasonIcons">

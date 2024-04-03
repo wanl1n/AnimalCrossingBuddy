@@ -390,3 +390,24 @@ Label {
 .portraits:hover {
     background-color: rgb(247, 248, 230);
 }
+
+#AdminButton {
+    position: absolute;
+
+    width: 10%;
+    height: 75%;
+    display: flex;
+
+    background-image: url("project://database/Assets/Sprites/UI/Icons/AdminIcon.png");
+    -unity-background-image-tint-color: rgba(0, 0, 0, 0.5);
+
+    margin-top: 2%;
+    margin-left: 1%;
+
+    opacity: 0.25;
+}
+
+#AdminButton:hover {
+    -unity-background-image-tint-color: rgb(253, 147, 3);
+    opacity: 1;
+}
