@@ -1,0 +1,83 @@
+#Background {
+	height: 100%;
+	width: 100%;
+	background-image: url("project://database/Assets/Sprites/UI/Start Screen BG.png");
+}
+
+.unity-base-text-field__input {
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
+    -unity-font-style: normal;
+    font-size: 39px;
+    background-color: rgb(247, 248, 230);
+    border-top-width: 1px;
+    border-right-width: 184px;
+    border-bottom-width: 1px;
+    border-left-width: 30px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    color: rgb(114, 93, 66);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+}
+
+.unity-base-text-field__input:hover {
+    -unity-font-style: bold;
+    font-size: 39px;
+    color: rgb(114, 93, 66);
+}
+
+#AdminAccessCode {
+    height: 10%;
+    width: 50%;
+
+    margin: auto;
+    margin-top: 41%;
+}
+
+#BackButton {
+
+    border-radius: 20px;
+
+    background-color: rgb(231, 221, 185);
+    color: rgb(114, 93, 66);
+    
+    font-size: 30px;
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&amp;guid=8491b401751bd5f45abf09288c66e4a2&amp;type=3#FOT-Seurat Pro B"); 
+    -unity-font-style: bold; 
+
+
+    width: 10%;
+    height: 5%;
+
+    margin-top: 1%;
+    margin-left: 1%;
+    
+    opacity: 0.5;
+}
+
+#BackButton:hover {
+    color: rgb(253, 147, 3);
+    opacity: 1;
+}
+
+#LoginButton {
+    border-radius: 20px;
+
+    background-color: rgb(231, 221, 185);
+    color: rgb(114, 93, 66);
+    
+    font-size: 30px;
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&amp;guid=8491b401751bd5f45abf09288c66e4a2&amp;type=3#FOT-Seurat Pro B"); 
+    -unity-font-style: bold; 
+
+    width: 10%;
+    height: 5%;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+}

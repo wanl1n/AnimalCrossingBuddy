@@ -41,4 +41,5 @@
 
 #AdminButton:hover {
     -unity-background-image-tint-color: rgb(253, 147, 3);
+    opacity: 1;
 }

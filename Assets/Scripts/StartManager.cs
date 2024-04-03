@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 
 public class StartManager : MonoBehaviour
 {
-
     private VisualElement _root;
     private Button _startButton;
     private Image _adminButton;
@@ -20,10 +19,18 @@ public class StartManager : MonoBehaviour
 
 
         this._startButton.clickable.clicked += this.OnStartButtonClick;
+        this._adminButton.RegisterCallback<ClickEvent>(this.OnAdminButtonClick);
     }
 
-    void OnStartButtonClick()
+    private void OnStartButtonClick()
     {
         SceneManager.LoadScene("HomeScene");
-    }    
+    }
+
+    private void OnAdminButtonClick(ClickEvent e)
+    {
+        SceneManager.LoadScene("AdminLoginScene");
+    }
+
+
 }
