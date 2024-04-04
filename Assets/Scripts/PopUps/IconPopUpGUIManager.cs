@@ -24,6 +24,8 @@ public class IconPopUpGUIManager : MonoBehaviour
         get { return this._lastLoadedName; }
     }
 
+    private string _lastLoadedLink;
+
     private void Start()
     {
         this._root = this.GetComponent<UIDocument>().rootVisualElement;
@@ -42,7 +44,7 @@ public class IconPopUpGUIManager : MonoBehaviour
 
     private void OnToggleChangeValue(EventBase evt)
     {
-        StartCoroutine(DatabaseManager.GetInstance().UpdateUserData(this._lastLoadedName, this._collectedToggle.value));
+        StartCoroutine(DatabaseManager.GetInstance().UpdateUserData(this._lastLoadedName, this._lastLoadedLink, this._collectedToggle.value));
     }
 
     public void Close()
@@ -104,6 +106,7 @@ public class IconPopUpGUIManager : MonoBehaviour
 
         this._lastLoadedType = "Fish";
         this._lastLoadedName = fish.Name;
+        this._lastLoadedLink = fish.IconImage;
     }
 
 
@@ -156,6 +159,7 @@ public class IconPopUpGUIManager : MonoBehaviour
 
         this._lastLoadedType = "Insects";
         this._lastLoadedName = insect.Name;
+        this._lastLoadedLink = insect.IconImage;
     }
 
     public IEnumerator LoadSeaCreatureData(SeaCreatureModel seaCreature)
@@ -207,6 +211,7 @@ public class IconPopUpGUIManager : MonoBehaviour
 
         this._lastLoadedType = "Sea Creatures";
         this._lastLoadedName = seaCreature.Name;
+        this._lastLoadedLink = seaCreature.IconImage;
     }
 
     public IEnumerator LoadVillagerData(VillagerModel villager)
@@ -255,6 +260,7 @@ public class IconPopUpGUIManager : MonoBehaviour
 
         this._lastLoadedType = "Villagers";
         this._lastLoadedName = villager.Name;
+        this._lastLoadedLink = villager.IconImage;
     }
 
 }

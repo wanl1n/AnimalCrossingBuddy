@@ -12,9 +12,9 @@ $username = $_POST["username"];
 
 $query = "SELECT Id, Name, `" . $column . "` FROM `" . $table . "` AS t WHERE 
         (SELECT COUNT(*) FROM `main_database` WHERE Name = t.Name) != 0 AND 
-        Username = `" . $username . "`;";
+        Username = '" . $username . "';";
 
-$columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
+$columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed. " . $query);
 
 echo "0\t";
 

@@ -65,7 +65,7 @@ public class DatabaseManager : MonoBehaviour
         form.AddField("table", table);
         form.AddField("username", this._username);
 
-        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/accounts/getUserData.php", form);
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getUserData.php", form);
         yield return handler.SendWebRequest();
 
         string[] result = handler.downloadHandler.text.Split('\t');
@@ -385,7 +385,7 @@ public class DatabaseManager : MonoBehaviour
 
     }
 
-    public IEnumerator UpdateUserData(string name, bool toggle)
+    public IEnumerator UpdateUserData(string name, string iconLink, bool toggle)
     {
         WWWForm form = new();
 
@@ -395,6 +395,7 @@ public class DatabaseManager : MonoBehaviour
 
         form.AddField("username", this._username);
         form.AddField("name", name);
+        form.AddField("iconLink", iconLink);
         form.AddField("toggle", toggleVal);
 
         using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/accounts/updateUser.php", form);

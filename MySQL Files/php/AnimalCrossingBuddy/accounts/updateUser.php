@@ -8,6 +8,7 @@
 
 	$username = $_POST["username"];
 	$name = $_POST["name"];
+	$iconLink = $_POST["iconLink"];
 	$toggle = $_POST["toggle"];
 
 	$getTypeQuery = "SELECT * FROM `main_database` WHERE Name = '" . $name . "';";
@@ -32,12 +33,19 @@
 		exit();
 	}
 
+	$dupeCheckQuery = "SELECT * FROM `" . $table . "` WHERE Name = '" . $name . "' AND Username = '" . $username . "';";
+	$dupeChecker = mysqli_query($connection, $dupeCheckQuery) or die("[3] : DUPE SELECT QUERY failed.");
+	if (mysqli_num_rows($dupeChecker) > 0) {
+        echo "[3] : Entry already exists.";
+        exit();
+    }
+
 	if ($toggle) {
 		if ($tableType == 1) {
-			$insertIntoUserStatsQuery = "INSERT INTO `" . $table . "` (Username, Name) VALUES ('" . $username . "', '" . $name . "');";
+			$insertIntoUserStatsQuery = "INSERT INTO `" . $table . "` (`Icon Image Link`, Username, Name) VALUES ('" . $iconLink . "', '" . $username . "', '" . $name . "');";
 		}
 		else if ($tableType == 2) {
-			$insertIntoUserStatsQuery = "INSERT INTO `" . $table . "` (Username, Name, Type) VALUES ('" . $username . "', '" . $name . "', '" . $type . "');";
+			$insertIntoUserStatsQuery = "INSERT INTO `" . $table . "` (`Icon Image Link`, Username, Name, Type) VALUES ('" . $iconLink . "', '" . $username . "', '" . $name . "', '" . $type . "');";
 		}
 
 		mysqli_query($connection, $insertIntoUserStatsQuery) or die("[4] : INSERT QUERY " . $insertIntoUserStatsQuery . " failed.");

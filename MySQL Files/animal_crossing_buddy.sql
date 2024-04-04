@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `caught_critters` (
   `Id` int(4) UNIQUE AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  `Icon Image Link` varchar(100) DEFAULT NULL,
   `Username` varchar(20) DEFAULT NULL,
   `Name` varchar(50) NOT NULL,
   `Type` varchar(20) NOT NULL
@@ -42,6 +43,7 @@ CREATE TABLE `caught_critters` (
 
 CREATE TABLE `collected_villagers` (
   `Id` int(4) UNIQUE AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  `Icon Image Link` varchar(100) DEFAULT NULL,
   `Username` varchar(20) DEFAULT NULL,
   `Name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

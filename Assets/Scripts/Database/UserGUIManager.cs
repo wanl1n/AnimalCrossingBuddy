@@ -8,6 +8,8 @@ using UnityEngine.UIElements;
 
 public class UserGUIManager : MonoBehaviour
 {
+    private static UserGUIManager Instance;
+
     [SerializeField]
     private string _collectedTable;
     [SerializeField]
@@ -40,13 +42,12 @@ public class UserGUIManager : MonoBehaviour
         get { return this._searchBarRightText.value.Trim(); }
     }
 
-
     // Start is called before the first frame update
     private void Start()
     {
         this._root = this.GetComponent<UIDocument>().rootVisualElement;
-        this._collectedListParent = this._root.Q<VisualElement>("Table1");
-        this._caughtListParent = this._root.Q<VisualElement>("Table2");
+        this._collectedListParent = this._root.Q<VisualElement>("CollectedList");
+        this._caughtListParent = this._root.Q<VisualElement>("CaughtList");
 
         this._usernameLabel = this._root.Q<Button>("Username");
         this._usernameOptions = this._root.Q<Button>("UserOptions");
@@ -122,15 +123,17 @@ public class UserGUIManager : MonoBehaviour
     {
         this.CloseUserOptions();
         DatabaseManager.GetInstance().LogOut();
+        StartCoroutine(this.LoadIcons());
     }
 
     private void DeleteData(EventBase evt)
     {
         this.CloseUserOptions();
         StartCoroutine(DatabaseManager.GetInstance().DeleteUserData());
+        StartCoroutine(this.LoadIcons());
     }
 
-    private IEnumerator LoadIcons()
+    public IEnumerator LoadIcons()
     {
         List<StringModel> collectedIconLinks = new();
         List<StringModel> caughtIconLinks = new();
@@ -261,4 +264,20 @@ public class UserGUIManager : MonoBehaviour
         yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(stringModels, this._caughtListParent, this._caughtTable));
     }
 
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this.gameObject);
+    }
+
+    public static UserGUIManager GetInstance()
+    {
+        if (Instance == null)
+        {
+            Instance = new UserGUIManager();
+        }
+        return Instance;
+    }
 }
