@@ -83,10 +83,6 @@ public class HomeGUIManager : MonoBehaviour
 
         yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableFish, "Fish"));
         LoadingGUIManager.GetInstance().HideLoading();
-
-        yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableBugs, "Insects"));
-        yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableSeas, "Sea_creatures"));
-
         if (this._catchableFish.childCount != 0)
         {
             this._catchableFishText.style.display = DisplayStyle.None;
@@ -96,6 +92,7 @@ public class HomeGUIManager : MonoBehaviour
             this._catchableFishText.style.display = DisplayStyle.Flex;
         }
 
+        yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableBugs, "Insects"));
         if (this._catchableBugs.childCount != 0)
         {
             this._catchableBugsText.style.display = DisplayStyle.None;
@@ -105,6 +102,7 @@ public class HomeGUIManager : MonoBehaviour
             this._catchableBugsText.style.display = DisplayStyle.Flex;
         }
 
+        yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableSeas, "Sea_creatures"));
         if (this._catchableSeas.childCount != 0)
         {
             this._catchableSeasText.style.display = DisplayStyle.None;
@@ -113,5 +111,8 @@ public class HomeGUIManager : MonoBehaviour
         {
             this._catchableSeasText.style.display = DisplayStyle.Flex;
         }
+
+
+
     }
 }
