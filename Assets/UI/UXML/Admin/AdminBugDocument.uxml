@@ -1,0 +1,44 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Template name="NavigationBarContainer" src="project://database/Assets/UI/UXML/Templates/NavigationBarContainer.uxml?fileID=9197481963319205126&amp;guid=025586f9277da634c80f8cbe014ae0eb&amp;type=3#NavigationBarContainer" />
+    <Style src="project://database/Assets/UI/USS/Critters/CategoryPageStyle.uss?fileID=7433441132597879392&amp;guid=cde8dc80b26dc054cae1836a81a7ac8b&amp;type=3#CategoryPageStyle" />
+    <Style src="project://database/Assets/UI/USS/Critters/BugStyle.uss?fileID=7433441132597879392&amp;guid=6b806466d77918b47b0d04812c88c74f&amp;type=3#BugStyle" />
+    <engine:VisualElement name="Root">
+        <engine:Instance template="NavigationBarContainer" />
+        <engine:Label text="Bugs" name="Banner" />
+        <engine:VisualElement name="SeasonIcons">
+            <engine:Image name="AutumnIcon" class="season-icon" />
+            <engine:Image name="SummerIcon" class="season-icon" />
+            <engine:Image name="SpringIcon" class="season-icon" />
+            <engine:Image name="WinterIcon" class="season-icon" />
+        </engine:VisualElement>
+        <engine:VisualElement name="DateTimeScreen">
+            <engine:VisualElement name="TimeContainer" class="TextRightContainer text-right-container">
+                <engine:Label text="12:45" name="TimeLabel" />
+                <engine:Label text="AM" name="AMPMLabel" />
+            </engine:VisualElement>
+            <engine:Image name="HorizontalLine" />
+            <engine:VisualElement name="DateContainer" class="TextRightContainer text-right-container">
+                <engine:Label text="Mon." name="DayLabel" />
+                <engine:Label text="5 February" name="DateLabel" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:ScrollView name="ContentPage">
+            <engine:VisualElement name="ScreenContainer" style="flex-grow: 1;">
+                <engine:VisualElement name="CurrentScreen" focusable="true" class="content-group content-page">
+                    <engine:Label name="CurrentLabel" text="Catchable Now" class="subheader" />
+                    <engine:Label name="CurrentText" text="No Bugs Catchable Now" />
+                    <engine:VisualElement name="CurrentList" />
+                </engine:VisualElement>
+                <engine:VisualElement name="AllScreen" class="content-group content-page">
+                    <engine:VisualElement name="ListHeaderContainer">
+                        <engine:Label text="All Bugs" name="AllLabel" class="subheader" />
+                        <engine:TextField placeholder-text="Search by name..." name="SearchBar" />
+                    </engine:VisualElement>
+                    <engine:ScrollView name="AllList" mode="Vertical" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden">
+                        <engine:VisualElement name="VisualElement" class="catchable-list" />
+                    </engine:ScrollView>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:ScrollView>
+    </engine:VisualElement>
+</engine:UXML>

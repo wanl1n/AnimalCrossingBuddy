@@ -19,8 +19,10 @@ public class DatabaseManager : MonoBehaviour
         using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getIdNameColumnData.php", form);
         yield return handler.SendWebRequest();
 
-        // Debug.Log(handler.downloadHandler.text);
+        Debug.Log(handler.downloadHandler.text);
         string[] result = handler.downloadHandler.text.Split('\t');
+
+        Debug.Log(handler.downloadHandler.text);
 
         if (result[0] == "0")
         {
@@ -34,7 +36,10 @@ public class DatabaseManager : MonoBehaviour
 
             callback(strings);
         }
-        else { Debug.LogError("GetColumnData failed. [ERROR] : " + handler.error); }
+        else 
+        { 
+            Debug.LogError("GetColumnData failed. [ERROR] : " + handler.error); 
+        }
     }
 
     public IEnumerator DownloadTexture(string url, System.Action<Texture2D> callback = null)
@@ -264,7 +269,7 @@ public class DatabaseManager : MonoBehaviour
         using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getAvailableModelData.php", form);
         yield return handler.SendWebRequest();
 
-        Debug.Log(handler.downloadHandler.text);
+        //Debug.Log(handler.downloadHandler.text);
         string[] result = handler.downloadHandler.text.Split('\t');
 
         if (result[0].Contains("0"))

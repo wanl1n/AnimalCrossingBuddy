@@ -9,7 +9,8 @@ if (mysqli_connect_errno()) {
 
 $birthday = $_POST["birthday"];
 
-$query = "SELECT * FROM villagers WHERE Birthday = \"$birthday\";";
+$query = "SELECT * FROM villagers AS v WHERE Birthday = \"$birthday\" AND 
+        (SELECT COUNT(*) FROM `main_database` WHERE Name = v.Name) != 0;";
 
 $columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 

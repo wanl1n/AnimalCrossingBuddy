@@ -10,9 +10,8 @@ $table = $_POST["table"];
 
 $condition = $_POST["condition"];
 
-// Id = ".$id.";";
-
-$query = "SELECT * FROM `" . $table . "` WHERE ". $condition . ";";
+$query = "SELECT * FROM `" . $table . "` AS t WHERE ". $condition . " AND 
+(SELECT COUNT(*) FROM `main_database` WHERE Name = t.Name) != 0;";
 
 $columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 

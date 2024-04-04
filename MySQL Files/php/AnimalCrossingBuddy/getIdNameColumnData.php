@@ -10,7 +10,8 @@ if (mysqli_connect_errno()) {
 $column = $_POST["column"];
 $table = $_POST["table"];
 
-$query = "SELECT Id, Name, `" . $column . "` FROM `" . $table . "`;";
+$query = "SELECT Id, Name, `" . $column . "` FROM `" . $table . "` AS t WHERE 
+        (SELECT COUNT(*) FROM `main_database` WHERE Name = t.Name) != 0;";
 
 $columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 

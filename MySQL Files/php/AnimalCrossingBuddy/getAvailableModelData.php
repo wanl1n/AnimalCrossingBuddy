@@ -9,7 +9,8 @@ if (mysqli_connect_errno()) {
 $table = $_POST["table"];
 $currentMonth = $_POST["currentMonth"];
 
-$query = "SELECT * FROM `" . $table . "` WHERE `" .$currentMonth . "` != \"NA\";";
+$query = "SELECT * FROM `" . $table . "` AS t WHERE `" .$currentMonth . "` != \"NA\"" . "AND 
+          (SELECT COUNT(*) FROM `main_database` WHERE Name = t.Name) != 0;";
 
 $columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 

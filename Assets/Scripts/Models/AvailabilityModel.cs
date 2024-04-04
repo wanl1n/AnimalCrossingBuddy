@@ -313,8 +313,6 @@ public class AvailabilityModel : BaseModel
 
             TimeSpan currentTime = playerTime.TimeOfDay;
 
-            Debug.Log(startTime.ToString() + " | " + endTime.ToString());
-
 
             if (endTime < startTime)
             {

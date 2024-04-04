@@ -34,9 +34,9 @@
                     <engine:Label name="CatchableBugsLabel" text="Catchable Bugs" class="catchableLabel" />
                     <engine:VisualElement name="CatchableBugsList" clase="catchableList" class="catchableList" />
                     <engine:Label name="CatchableBugsText" text="No Bugs  Catchable Now" class="catchableText" />
-                    <engine:Label name="CatchableSeasLabel" text="Catchable Bugs" class="catchableLabel" />
+                    <engine:Label name="CatchableSeasLabel" text="Catchable Sea Creatures" class="catchableLabel" />
                     <engine:VisualElement name="CatchableSeasList" clase="catchableList" class="catchableList" />
-                    <engine:Label name="CatchableSeasText" text="No Bugs  Catchable Now" class="catchableText" />
+                    <engine:Label name="CatchableSeasText" text="No Sea Creatures  Catchable Now" class="catchableText" />
                 </engine:VisualElement>
             </engine:VisualElement>
         </engine:ScrollView>
