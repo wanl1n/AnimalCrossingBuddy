@@ -111,9 +111,8 @@ public class ContentListGUIManager : MonoBehaviour
 
     public IEnumerator ReloadAll()
     {
-        this._listParent.Clear();
-
         List<StringModel> stringModels = new();
+        DatabaseManager.GetInstance().StopAllCoroutines();
         yield return StartCoroutine(DatabaseManager.GetInstance().GetModelData(this._table.ToLower(), c => stringModels = c));
 
         if (this._listParent != null)

@@ -91,7 +91,7 @@ public class DatabaseManager : MonoBehaviour
                 bool alreadyAdded = false;
                 foreach (var child in parent.Children())
                 {
-                    if (child.name == newIcon.name)
+                    if (child.name.Contains(newIcon.name))
                     {
                         alreadyAdded = true;
                         break;
@@ -104,7 +104,7 @@ public class DatabaseManager : MonoBehaviour
                     newIcon.style.backgroundImage = new StyleBackground(icon);
 
                     newIcon.RegisterCallback<ClickEvent, string>(Clicked, table);
-                   parent.Add(newIcon);
+                    parent.Add(newIcon);
                 }
             }
 
@@ -400,6 +400,24 @@ public class DatabaseManager : MonoBehaviour
 
     }
 
+    public IEnumerator RestoreModels(string table)
+    {
+        WWWForm form = new();
+
+        form.AddField("table", table);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/insertToMainDatabase.php", form);
+        yield return handler.SendWebRequest();
+
+        string result = handler.downloadHandler.text;
+
+        if (result.Contains("0"))
+            Debug.Log("Success");
+        else if (!result.Contains("0"))
+        {
+            Debug.Log("Insert models failed. [ERROR] : " + handler.error);
+        }
+    }
     private void Awake()
     {
         if (_instance == null)
