@@ -323,8 +323,8 @@ Label {
 
 #LogOutButton {
     position: absolute;
-    width: 10%;
-    height: 75%;
+    width: 200px;
+    height: 200px;
     display: flex;
     background-image: url("project://database/Assets/Sprites/UI/Icons/AdminLogOut.png?fileID=-7219867970607311204&guid=57c8607b0f928334a81efc719ecd9fec&type=3#AdminLogOut_0");
     -unity-background-image-tint-color: rgba(0, 0, 0, 0.5);
