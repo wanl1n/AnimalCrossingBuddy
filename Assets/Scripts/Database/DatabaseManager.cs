@@ -10,6 +10,23 @@ public class DatabaseManager : MonoBehaviour
 {
     private static DatabaseManager _instance;
 
+    private string _username;
+    public string Username
+    {
+        get { return this._username; }
+        set { this._username = value; }
+    }
+
+    public bool LoggedIn()
+    {
+        return this._username != null;
+    }
+
+    public void LogOut()
+    {
+        _username = null;
+    }
+
     public IEnumerator GetColumnData(string column, string table, System.Action<List<StringModel>> callback)
     {
         WWWForm form = new();

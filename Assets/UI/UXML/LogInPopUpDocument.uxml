@@ -1,0 +1,13 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/AccountPopUpStyle.uss?fileID=7433441132597879392&amp;guid=58ccfcda2f22b034fa5ed2ebee7d7f77&amp;type=3#AccountPopUpStyle" />
+    <engine:VisualElement name="TransparentBG">
+        <engine:Image name="PopUpBG">
+            <engine:Label text="Log In" />
+            <engine:TextField placeholder-text="Enter username here..." name="Username" class="text-fields" />
+            <engine:TextField placeholder-text="Enter password here..." name="Password" class="text-fields" />
+            <engine:Button name="CloseButton" text="X" />
+            <engine:Button name="ConfirmButton" text="Confirm" />
+            <engine:Button text="Don&apos;t have an account? Sign up." name="FineTextButton" />
+        </engine:Image>
+    </engine:VisualElement>
+</engine:UXML>

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 57c8607b0f928334a81efc719ecd9fec
+guid: a0f72874fe2c8654c9fd3239520205bc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7219867970607311204
-    second: AdminLogOut_0
+      213: 1196457451817484290
+    second: CancelButton_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,30 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AdminLogOut_0
+      name: CancelButton_0
       rect:
         serializedVersion: 2
-        x: 570
-        y: 150
-        width: 780
-        height: 780
+        x: 0
+        y: 0
+        width: 161
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c961bbe4550edcb90800000000000000
-      internalID: -7219867970607311204
+      spriteID: 200437c96bbaa9010800000000000000
+      internalID: 1196457451817484290
       vertices: []
       indices: 
       edges: []
@@ -156,8 +143,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      AdminLogOut_0: -7219867970607311204
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
