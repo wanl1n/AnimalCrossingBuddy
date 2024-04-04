@@ -1,7 +1,6 @@
 #Username {
-    margin-top: 15%;
     width: 80%;
-    height: 10%;
+    height: 168px;
     font-size: 95px;
     -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
 }
