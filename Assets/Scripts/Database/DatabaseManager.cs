@@ -338,6 +338,26 @@ public class DatabaseManager : MonoBehaviour
 
     }
 
+    public IEnumerator CreateMainDatabase()
+    {
+        WWWForm form = new();
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/createMainDatabase.php", form);
+        yield return handler.SendWebRequest();
+
+        string result = handler.downloadHandler.text;
+
+        Debug.Log(result);
+
+        if (result.Contains("0"))
+            Debug.Log("Success");
+        else if (!result.Contains("0"))
+        {
+            Debug.Log("Create Database failed. [ERROR] : " + handler.error);
+        }
+
+    }
+
 
     private void Awake()
     {

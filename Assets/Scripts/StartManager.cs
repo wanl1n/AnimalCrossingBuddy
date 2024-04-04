@@ -21,7 +21,7 @@ public class StartManager : MonoBehaviour
         this._startButton.clickable.clicked += this.OnStartButtonClick;
         this._adminButton.RegisterCallback<ClickEvent>(this.OnAdminButtonClick);
 
-        //StartCoroutine(this.CreateMainDatabase());
+        StartCoroutine(DatabaseManager.GetInstance().CreateMainDatabase());
     }
 
     private void OnStartButtonClick()
@@ -34,10 +34,7 @@ public class StartManager : MonoBehaviour
         SceneManager.LoadScene("AdminLoginScene");
     }
 
-    //private IEnumerator CreateMainDatabase()
-    //{
 
-    //}
 
 
 }
