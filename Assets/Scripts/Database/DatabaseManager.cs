@@ -19,12 +19,12 @@ public class DatabaseManager : MonoBehaviour
 
     public bool LoggedIn()
     {
-        return this._username != null;
+        return this._username != "Guest";
     }
 
     public void LogOut()
     {
-        _username = null;
+        _username = "Guest";
     }
 
     public IEnumerator GetColumnData(string column, string table, System.Action<List<StringModel>> callback)
@@ -55,6 +55,38 @@ public class DatabaseManager : MonoBehaviour
         else 
         { 
             Debug.LogError("GetColumnData failed. [ERROR] : " + handler.error); 
+        }
+    }
+
+    public IEnumerator GetUserColumnData(string column, string table, System.Action<List<StringModel>> callback)
+    {
+        WWWForm form = new();
+        form.AddField("column", column);
+        form.AddField("table", table);
+        form.AddField("username", this._username);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getUserData.php", form);
+        yield return handler.SendWebRequest();
+
+        string[] result = handler.downloadHandler.text.Split('\t');
+
+        Debug.Log(handler.downloadHandler.text);
+
+        if (result[0] == "0")
+        {
+            List<StringModel> strings = new();
+
+            for (int i = 1; i < result.Length - 1; i++)
+            {
+                StringModel data = JsonConvert.DeserializeObject<StringModel>(result[i]);
+                strings.Add(data);
+            }
+
+            callback(strings);
+        }
+        else
+        {
+            Debug.LogError("GetUserColumnData failed. [ERROR] : " + handler.error);
         }
     }
 
@@ -107,10 +139,6 @@ public class DatabaseManager : MonoBehaviour
                     parent.Add(newIcon);
                 }
             }
-
-
-
-           
         }
     }
 
@@ -426,6 +454,11 @@ public class DatabaseManager : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        this._username = "Guest";
     }
 
     public static DatabaseManager GetInstance()

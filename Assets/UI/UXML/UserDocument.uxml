@@ -22,17 +22,12 @@
             <engine:Image name="WinterIcon" class="season-icon" />
         </engine:VisualElement>
         <engine:ScrollView name="ContentPage">
-            <engine:TextField placeholder-text="NAME" name="Username" class="textField" />
-            <engine:VisualElement name="ButtonContainer">
-                <engine:Button text="LoadData" name="LoadData" class="userButton" />
-                <engine:Button text="SaveData" name="SaveData" class="userButton" />
-                <engine:Button text="DeleteData" name="DeleteData" class="userButton" />
-            </engine:VisualElement>
+            <engine:Button text="Your name here." name="Username" />
             <engine:VisualElement name="TablesContainer">
                 <engine:VisualElement name="Table1" class="tables">
                     <engine:VisualElement name="ListHeaderContainer">
                         <engine:Label text="Collected Villagers" name="AllLabel" class="subheader" />
-                        <engine:TextField placeholder-text="Search by name..." class="textField" />
+                        <engine:TextField placeholder-text="Search by name..." name="SearchBarLeft" class="textField" />
                     </engine:VisualElement>
                     <engine:VisualElement name="AllList">
                         <engine:ListView name="List" header-title="Collected Villagers" />
@@ -41,7 +36,7 @@
                 <engine:VisualElement name="Table2" class="tables">
                     <engine:VisualElement name="ListHeaderContainer">
                         <engine:Label text="Caught Critters" name="AllLabel" class="subheader" />
-                        <engine:TextField placeholder-text="Search by name..." class="textField" />
+                        <engine:TextField placeholder-text="Search by name..." name="SearchBarRight" class="textField" />
                     </engine:VisualElement>
                     <engine:VisualElement name="AllList">
                         <engine:ListView name="List" header-title="Caught Critters" />
@@ -49,6 +44,27 @@
                 </engine:VisualElement>
             </engine:VisualElement>
         </engine:ScrollView>
+        <engine:VisualElement name="LoggedInButtonContainer" class="userButtonsContainer" style="flex-grow: 1;">
+            <engine:VisualElement name="LogOutContainer" class="dropdown-item-container">
+                <engine:Image name="LogOutIcon" class="dropdown-icons" />
+                <engine:Button text="Log Out" name="LogOutButton" class="userButton" />
+            </engine:VisualElement>
+            <engine:VisualElement name="DeleteContainer" class="dropdown-item-container">
+                <engine:Image name="DeleteIcon" class="dropdown-icons" style="background-image: url(&quot;project://database/Assets/Sprites/UI/trash.png?fileID=2800000&amp;guid=78520403b8ae2864e9b80b79bedec173&amp;type=3#trash&quot;);" />
+                <engine:Button text="Delete Data" name="DeleteButton" class="userButton" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="LoggedOutButtonContainer" class="userButtonsContainer" style="flex-grow: 1;">
+            <engine:VisualElement name="LogInContainer" class="dropdown-item-container">
+                <engine:Image name="LoginIcon" class="dropdown-icons" style="background-image: url(&quot;project://database/Assets/Sprites/UI/Buttons/LogInIcon.png?fileID=2800000&amp;guid=1dc26c49c87a7904c9986a92ad805a0b&amp;type=3#LogInIcon&quot;);" />
+                <engine:Button text="Log In" name="LogInButton" class="userButton" />
+            </engine:VisualElement>
+            <engine:VisualElement name="RegisterContainer" class="dropdown-item-container">
+                <engine:Image name="RegisterIcon" class="dropdown-icons" style="background-image: url(&quot;project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&amp;%20Icons%204.png?fileID=2800000&amp;guid=4d82d335a1b5e334c818224207eed6bb&amp;type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons &amp; Icons 4&quot;);" />
+                <engine:Button text="Register" name="RegisterButton" class="userButton" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:Button name="UserOptions" />
         <engine:Label text="User Profile" name="Banner" />
     </engine:VisualElement>
 </engine:UXML>

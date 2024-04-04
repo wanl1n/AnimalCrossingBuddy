@@ -8,14 +8,10 @@ if (mysqli_connect_errno()) {
 
 $table = $_POST["table"];
 
-$type = $table;
-if ($table == "sea_creatures")
-    $type = "Sea Creatures";
-
 $condition = $_POST["condition"];
 
 $query = "SELECT * FROM `" . $table . "` AS t WHERE ". $condition . " AND 
-(SELECT COUNT(*) FROM `main_database` WHERE Name = t.Name AND Type =  \"" . $type . "\") != 0;";
+(SELECT COUNT(*) FROM `main_database` WHERE Name = t.Name) != 0;";
 
 $columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 

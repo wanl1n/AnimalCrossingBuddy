@@ -1203,5 +1203,6 @@ COMMIT;
 CREATE TABLE `users` (
   `Id` int(4) UNIQUE AUTO_INCREMENT NOT NULL PRIMARY KEY,
   `Username` varchar(20) UNIQUE NOT NULL,
-  `Password` varchar(50) NOT NULL
+  `Hash` varchar(100) NOT NULL,
+  `Salt` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

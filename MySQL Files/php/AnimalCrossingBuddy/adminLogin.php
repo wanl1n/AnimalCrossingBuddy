@@ -15,7 +15,7 @@ $query = "CREATE TABLE IF NOT EXISTS `admin_access_codes` (
 $createQuery = mysqli_query($connection, $query) or die("[2] : CREATE QUERY failed.");
 
 $query = "INSERT IGNORE INTO `admin_access_codes` (Id, `Access Code`)
-          VALUES (NULL, 'zachary8888'), (NULL, '31874106'), (NULL, 'jpjrr/SAsLCZNunpFnccg0hWQ9Rn4PEc4M5yGHLFEol48AJvnibdyk5vG93F/iYdJPlKCyop/4PeRlFBZB7dHw==');";
+          VALUES (NULL, 'zachary8888');";
 
 $insertQuery = mysqli_query($connection, $query) or die("[2] : INSERT QUERY failed.");
 

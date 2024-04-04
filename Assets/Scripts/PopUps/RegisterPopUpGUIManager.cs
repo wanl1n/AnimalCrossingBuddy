@@ -42,10 +42,10 @@ public class RegisterPopUpGUIManager : MonoBehaviour
         this._passwordField = this._root.Q<TextField>("Password");
 
         this._closeButton = this._root.Q<Button>("CloseButton");
-        this._confirmButton = this._root.Q<Button>("LogInButton");
+        this._confirmButton = this._root.Q<Button>("ConfirmButton");
         this._fineTextButton = this._root.Q<Button>("FineTextButton");
 
-        this._transparentBG.RegisterCallback<ClickEvent>(this.ClosePopUp);
+        //this._transparentBG.RegisterCallback<ClickEvent>(this.ClosePopUp);
         this._closeButton.RegisterCallback<ClickEvent>(ClosePopUp);
         this._confirmButton.RegisterCallback<ClickEvent>(OnRegisterClick);
         this._fineTextButton.RegisterCallback<ClickEvent>(OnLoginClick);
@@ -61,6 +61,7 @@ public class RegisterPopUpGUIManager : MonoBehaviour
     {
         Debug.Log("LOGIN");
         LogInPopUpGUIManager.GetInstance().OpenPopUp();
+        this.ClosePopUp();
     }
 
     public void ClosePopUp(EventBase evt)
@@ -71,6 +72,10 @@ public class RegisterPopUpGUIManager : MonoBehaviour
     public void ClosePopUp()
     {
         this._transparentBG.style.display = DisplayStyle.None;
+    }
+    public void OpenPopUp(EventBase evt)
+    {
+        this.OpenPopUp();
     }
 
     public void OpenPopUp()
