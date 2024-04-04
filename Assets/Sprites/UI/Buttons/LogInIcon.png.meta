@@ -167,7 +167,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LogInIcon_0: -2007976145644366667
+      LogInIcon_1: -789248288285074850
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

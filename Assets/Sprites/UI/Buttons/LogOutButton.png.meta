@@ -167,7 +167,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LogOutButton_0: 5852137485762059089
+      LogOutButton_1: 7108082838232588112
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

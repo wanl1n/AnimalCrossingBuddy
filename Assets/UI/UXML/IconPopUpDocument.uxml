@@ -3,9 +3,11 @@
     <engine:VisualElement name="TransparentBG">
         <engine:VisualElement name="PopUpBG">
             <engine:Label text="NAME" name="IconName" />
-            <engine:VisualElement name="IconSprite" />
-            <engine:VisualElement name="DetailsContainer">
-                <engine:Label name="Details" />
+            <engine:VisualElement name="IconAndDetails" style="flex-grow: 1;">
+                <engine:VisualElement name="IconSprite" />
+                <engine:VisualElement name="DetailsContainer">
+                    <engine:Label name="Details" text="test details" />
+                </engine:VisualElement>
             </engine:VisualElement>
             <engine:Toggle label="In collection" name="CollectedToggle" value="false" />
         </engine:VisualElement>

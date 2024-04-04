@@ -18,11 +18,11 @@
 }
 
 #IconSprite {
-    position: absolute;
     height: 50%;
     width: 35%;
-    left: 10%;
-    top: 25%;
+    align-self: center;
+    background-image: url("project://database/Assets/Sprites/UI/Icons/AdminIcon.png?fileID=2800000&guid=5f385de2b79f64842be2a9597a76892b&type=3#AdminIcon");
+    -unity-background-scale-mode: scale-to-fit;
 }
 
 #IconName {
@@ -30,28 +30,23 @@
     -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
     font-size: 60px;
     color: rgb(114, 93, 66);
-    top: 10%;
     flex-wrap: wrap;
     white-space: normal;
+    margin-top: 60px;
 }
 
 #DetailsContainer {
     position: relative;
-    height: 65%;
     top: 12.5%;
 }
 
 #Details {
-    width: 50%;
-    left: 46%;
-    top: 5%;
     -unity-text-align: middle-left;
     -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
     font-size: 40px;
     color: rgb(114, 93, 66);
-    flex-wrap: wrap;
     white-space: normal;
-    -unity-paragraph-spacing: -60px;
+    align-self: center;
 }
 
 Toggle #unity-checkmark {
@@ -88,6 +83,7 @@ Label {
     -unity-text-align: middle-center;
     -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B%20SDF.asset?fileID=11400000&guid=264ea6ed0297cd441b2f52b79f6a7576&type=2#FOT-Seurat Pro B SDF");
     color: rgb(130, 113, 91);
+    -unity-paragraph-spacing: -60px;
 }
 
 #CollectedToggle {
@@ -106,4 +102,11 @@ Toggle:hover {
 
 Toggle:checked #unity-checkmark {
     background-image: url("project://database/Assets/UnityDefaultRuntimeTheme.tss?fileID=7433338533053954386&guid=aeff17bf6a27b4443aed99aba1df56d6&type=3#check@2x");
+}
+
+#IconAndDetails {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    border-bottom-width: 200px;
 }
