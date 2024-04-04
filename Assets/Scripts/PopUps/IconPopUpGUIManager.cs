@@ -37,8 +37,7 @@ public class IconPopUpGUIManager : MonoBehaviour
 
     private void OnTransparentBGClick(PointerDownEvent e)
     {
-        this._transparentBG.style.display = DisplayStyle.None;
-
+        this.Close();
     }
 
     private void OnToggleChangeValue(EventBase evt)
@@ -49,6 +48,7 @@ public class IconPopUpGUIManager : MonoBehaviour
     public void Close()
     {
         this._transparentBG.style.display = DisplayStyle.None;
+        this._collectedToggle.value = false;
     }
 
     public IEnumerator LoadFishData(FishModel fish)
