@@ -26,13 +26,14 @@ public class AdminIconPopUpManager : MonoBehaviour
 
     private IEnumerator DeleteModel()
     {
+        DatabaseManager.GetInstance().StopAllCoroutines();
         yield return StartCoroutine(DatabaseManager.GetInstance().DeleteModel(this.GetComponent<IconPopUpGUIManager>().LastLoadedName, this.GetComponent<IconPopUpGUIManager>().LastLoadedType));
         
-
         GameObject contentListGUIManager = GameObject.FindGameObjectWithTag("Scene Document");
         if (contentListGUIManager != null)
         {
             yield return StartCoroutine(contentListGUIManager.GetComponent<ContentListGUIManager>().ReloadAll());
         }
     }
+
 }

@@ -111,6 +111,8 @@ public class ContentListGUIManager : MonoBehaviour
 
     public IEnumerator ReloadAll()
     {
+        this._listParent.Clear();
+
         List<StringModel> stringModels = new();
         yield return StartCoroutine(DatabaseManager.GetInstance().GetModelData(this._table.ToLower(), c => stringModels = c));
 
@@ -144,8 +146,6 @@ public class ContentListGUIManager : MonoBehaviour
 
 
         yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(stringModels, this._listParent, this._table));
-
-
 
     }
 

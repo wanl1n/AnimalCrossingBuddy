@@ -27,12 +27,7 @@ public class AdminCritterButtonManager : MonoBehaviour
 
     private void OnRestoreButtonClicked()
     {
-
-    }
-
-    private IEnumerator RestoreTable()
-    {
-        yield return null;
+        StartCoroutine(RestoreModels());
     }
 
     private void OnClearButtonClicked()
@@ -61,6 +56,18 @@ public class AdminCritterButtonManager : MonoBehaviour
             if (iconPopUpGUIManager != null)
                 yield return StartCoroutine(DatabaseManager.GetInstance().DeleteModel(link.Name, type));
         }
+
+        GameObject contentListGUIManager = GameObject.FindGameObjectWithTag("Scene Document");
+        if (contentListGUIManager != null)
+        {
+            yield return StartCoroutine(contentListGUIManager.GetComponent<ContentListGUIManager>().ReloadAll());
+        }
+    }
+
+    private IEnumerator RestoreModels()
+    {
+        DatabaseManager.GetInstance().StopAllCoroutines();
+        yield return StartCoroutine(DatabaseManager.GetInstance().RestoreModels(this._table.ToLower()));
 
         GameObject contentListGUIManager = GameObject.FindGameObjectWithTag("Scene Document");
         if (contentListGUIManager != null)
