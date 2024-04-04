@@ -50,7 +50,7 @@ public class AdminLoginManager : MonoBehaviour
 
             if (result.Contains("0"))
             {
-                Debug.Log("User successfully logged in.");
+                SceneManager.LoadScene("AdminHomeScene");
             }
             else 
             {

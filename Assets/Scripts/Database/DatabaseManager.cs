@@ -338,6 +338,29 @@ public class DatabaseManager : MonoBehaviour
 
     }
 
+    public IEnumerator DeleteModel(string name, string type)
+    {
+        WWWForm form = new();
+
+        form.AddField("name", name);
+        form.AddField("type", type);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/deleteFromMainDatabase.php", form);
+        yield return handler.SendWebRequest();
+
+        string result = handler.downloadHandler.text;
+
+        Debug.Log(result);
+
+        if (result.Contains("0"))
+            Debug.Log("Success");
+        else if (!result.Contains("0"))
+        {
+            Debug.Log("Delete model failed. [ERROR] : " + handler.error);
+        }
+    }
+
+
     public IEnumerator CreateMainDatabase()
     {
         WWWForm form = new();
@@ -350,14 +373,13 @@ public class DatabaseManager : MonoBehaviour
         Debug.Log(result);
 
         if (result.Contains("0"))
-            Debug.Log("Success");
+            Debug.Log("Successfully Created Database");
         else if (!result.Contains("0"))
         {
             Debug.Log("Create Database failed. [ERROR] : " + handler.error);
         }
 
     }
-
 
     private void Awake()
     {

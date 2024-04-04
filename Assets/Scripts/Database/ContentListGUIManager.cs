@@ -109,5 +109,44 @@ public class ContentListGUIManager : MonoBehaviour
         StartCoroutine(LoadSearchedName());
     }
 
+    public IEnumerator ReloadAll()
+    {
+        List<StringModel> stringModels = new();
+        yield return StartCoroutine(DatabaseManager.GetInstance().GetModelData(this._table.ToLower(), c => stringModels = c));
+
+        if (this._listParent != null)
+        {
+            List<VisualElement> childToRemove = new List<VisualElement>();
+
+            foreach (var child in this._listParent.Children())
+            {
+                bool inStringModel = false;
+                foreach (var model in stringModels)
+                {
+                    string modelIdName = model.Id + "\t" + model.Name;
+                    if (child.name == modelIdName)
+                    {
+                        inStringModel = true;
+                        break;
+                    }
+                }
+                if (!inStringModel)
+                {
+                    childToRemove.Add(child);
+                }
+            }
+
+            foreach (var child in childToRemove)
+            {
+                this._listParent.Remove(child);
+            }
+        }
+
+
+        yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(stringModels, this._listParent, this._table));
+
+
+
+    }
 
 }

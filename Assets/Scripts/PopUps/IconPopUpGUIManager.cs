@@ -10,6 +10,18 @@ public class IconPopUpGUIManager : MonoBehaviour
     private VisualElement _root;
     private VisualElement _transparentBG;
 
+    private string _lastLoadedType;
+    public string LastLoadedType
+    {
+        get { return this._lastLoadedType; }
+    }
+
+    private string _lastLoadedName;
+    public string LastLoadedName
+    {
+        get { return this._lastLoadedName; }
+    }
+
     private void Start()
     {
         this._root = this.GetComponent<UIDocument>().rootVisualElement;
@@ -19,10 +31,15 @@ public class IconPopUpGUIManager : MonoBehaviour
 
     }
 
-    void OnTransparentBGClick(PointerDownEvent e)
+    private void OnTransparentBGClick(PointerDownEvent e)
     {
         this._transparentBG.style.display = DisplayStyle.None;
 
+    }
+
+    public void Close()
+    {
+        this._transparentBG.style.display = DisplayStyle.None;
     }
 
     public IEnumerator LoadFishData(FishModel fish)
@@ -76,6 +93,8 @@ public class IconPopUpGUIManager : MonoBehaviour
                         "<b>Months: </b>" + monthAvailability +
                         "</line-height>\n";
 
+        this._lastLoadedType = "Fish";
+        this._lastLoadedName = fish.Name;
     }
 
 
@@ -126,6 +145,8 @@ public class IconPopUpGUIManager : MonoBehaviour
                         "<b>Months: </b>" + monthAvailability +
                         "</line-height>\n";
 
+        this._lastLoadedType = "Insects";
+        this._lastLoadedName = insect.Name;
     }
 
     public IEnumerator LoadSeaCreatureData(SeaCreatureModel seaCreature)
@@ -175,6 +196,8 @@ public class IconPopUpGUIManager : MonoBehaviour
                         "<b>Months: </b>" + monthAvailability +
                         "</line-height>\n";
 
+        this._lastLoadedType = "Sea Creatures";
+        this._lastLoadedName = seaCreature.Name;
     }
 
     public IEnumerator LoadVillagerData(VillagerModel villager)
@@ -221,6 +244,8 @@ public class IconPopUpGUIManager : MonoBehaviour
                         "<b>Birthday: </b>" + villager.Birthday +
                         "</line-height>\n";
 
+        this._lastLoadedType = "Villagers";
+        this._lastLoadedName = villager.Name;
     }
 
 }

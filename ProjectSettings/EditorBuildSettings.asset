@@ -29,5 +29,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScenes/StartScene.unity
     guid: 32d5f37908cddba45ae0c8f25f7a2af3
+  - enabled: 1
+    path: Assets/Scenes/AdminScenes/AdminHomeScene.unity
+    guid: 7ed948cebd7225e4fb2ad5e4301434ba
+  - enabled: 1
+    path: Assets/Scenes/AdminScenes/AdminFIshScene.unity
+    guid: 68ca666ac0c28cc4da3a07009e5ea3e0
+  - enabled: 1
+    path: Assets/Scenes/AdminScenes/AdminBugScene.unity
+    guid: 1f9232ca18a8c3e40b0ca1da841acdb9
+  - enabled: 1
+    path: Assets/Scenes/AdminScenes/AdminSeasScene.unity
+    guid: cdd0749f09dc4cc4f8cffd09cc6bbdac
+  - enabled: 1
+    path: Assets/Scenes/AdminScenes/AdminVillagerScene.unity
+    guid: 552d74f89c0e197478ac5d6df566d65b
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

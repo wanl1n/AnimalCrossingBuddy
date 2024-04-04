@@ -1,9 +1,10 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <engine:Template name="NavigationBarContainer" src="project://database/Assets/UI/UXML/Templates/NavigationBarContainer.uxml?fileID=9197481963319205126&amp;guid=025586f9277da634c80f8cbe014ae0eb&amp;type=3#NavigationBarContainer" />
+    <Style src="project://database/Assets/UI/USS/VillagersStyle.uss?fileID=7433441132597879392&amp;guid=bbdc773eaee296644bf159e13bddb718&amp;type=3#VillagersStyle" />
     <Style src="project://database/Assets/UI/USS/Critters/CategoryPageStyle.uss?fileID=7433441132597879392&amp;guid=cde8dc80b26dc054cae1836a81a7ac8b&amp;type=3#CategoryPageStyle" />
     <engine:VisualElement name="Root">
         <engine:Instance template="NavigationBarContainer" />
-        <engine:Label text="Bugs" name="Banner" />
+        <engine:Label text="Villagers" name="Banner" />
         <engine:VisualElement name="SeasonIcons">
             <engine:Image name="AutumnIcon" class="season-icon" />
             <engine:Image name="SummerIcon" class="season-icon" />
@@ -25,7 +26,7 @@
             <engine:VisualElement name="ScreenContainer" style="flex-grow: 1;">
                 <engine:VisualElement name="AllScreen" class="content-group content-page">
                     <engine:VisualElement name="ListHeaderContainer">
-                        <engine:Label text="All Bugs" name="AllLabel" class="subheader" />
+                        <engine:Label text="All Villagers" name="AllLabel" class="subheader" />
                         <engine:TextField placeholder-text="Search by name..." name="SearchBar" />
                     </engine:VisualElement>
                     <engine:ScrollView name="AllList" mode="Vertical" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden">
