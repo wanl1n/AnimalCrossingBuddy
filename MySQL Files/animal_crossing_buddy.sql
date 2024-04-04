@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `caught_critters` (
   `Id` int(4) NOT NULL,
+  `Username` varchar(20) DEFAULT NULL,
   `Name` varchar(50) NOT NULL,
   `Type` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -41,6 +42,7 @@ CREATE TABLE `caught_critters` (
 
 CREATE TABLE `collected_villagers` (
   `Id` int(4) NOT NULL,
+  `Username` varchar(20) DEFAULT NULL,
   `Name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1199,3 +1201,10 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `users` (
+  `Id` int(4) UNIQUE AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  `Username` varchar(20) UNIQUE NOT NULL,
+  `Hash` varchar(100) NOT NULL,
+  `Salt` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

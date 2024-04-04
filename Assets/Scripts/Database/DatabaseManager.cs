@@ -10,6 +10,23 @@ public class DatabaseManager : MonoBehaviour
 {
     private static DatabaseManager _instance;
 
+    private string _username;
+    public string Username
+    {
+        get { return this._username; }
+        set { this._username = value; }
+    }
+
+    public bool LoggedIn()
+    {
+        return this._username != "Guest";
+    }
+
+    public void LogOut()
+    {
+        _username = "Guest";
+    }
+
     public IEnumerator GetColumnData(string column, string table, System.Action<List<StringModel>> callback)
     {
         WWWForm form = new();
@@ -20,6 +37,8 @@ public class DatabaseManager : MonoBehaviour
         yield return handler.SendWebRequest();
 
         string[] result = handler.downloadHandler.text.Split('\t');
+
+        Debug.Log(handler.downloadHandler.text);
 
         if (result[0] == "0")
         {
@@ -36,6 +55,38 @@ public class DatabaseManager : MonoBehaviour
         else 
         { 
             Debug.LogError("GetColumnData failed. [ERROR] : " + handler.error); 
+        }
+    }
+
+    public IEnumerator GetUserColumnData(string column, string table, System.Action<List<StringModel>> callback)
+    {
+        WWWForm form = new();
+        form.AddField("column", column);
+        form.AddField("table", table);
+        form.AddField("username", this._username);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getUserData.php", form);
+        yield return handler.SendWebRequest();
+
+        string[] result = handler.downloadHandler.text.Split('\t');
+
+        Debug.Log(handler.downloadHandler.text);
+
+        if (result[0] == "0")
+        {
+            List<StringModel> strings = new();
+
+            for (int i = 1; i < result.Length - 1; i++)
+            {
+                StringModel data = JsonConvert.DeserializeObject<StringModel>(result[i]);
+                strings.Add(data);
+            }
+
+            callback(strings);
+        }
+        else
+        {
+            Debug.LogError("GetUserColumnData failed. [ERROR] : " + handler.error);
         }
     }
 
@@ -72,7 +123,7 @@ public class DatabaseManager : MonoBehaviour
                 bool alreadyAdded = false;
                 foreach (var child in parent.Children())
                 {
-                    if (child.name == newIcon.name)
+                    if (child.name.Contains(newIcon.name))
                     {
                         alreadyAdded = true;
                         break;
@@ -85,13 +136,9 @@ public class DatabaseManager : MonoBehaviour
                     newIcon.style.backgroundImage = new StyleBackground(icon);
 
                     newIcon.RegisterCallback<ClickEvent, string>(Clicked, table);
-                   parent.Add(newIcon);
+                    parent.Add(newIcon);
                 }
             }
-
-
-
-           
         }
     }
 
@@ -338,6 +385,76 @@ public class DatabaseManager : MonoBehaviour
 
     }
 
+    public IEnumerator UpdateUserData(string name, bool toggle)
+    {
+        WWWForm form = new();
+
+        string toggleVal = "";
+        if (toggle) toggleVal = "1";
+        else toggleVal = "0";
+
+        form.AddField("username", this._username);
+        form.AddField("name", name);
+        form.AddField("toggle", toggleVal);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/accounts/updateUser.php", form);
+        yield return handler.SendWebRequest();
+
+        string result = handler.downloadHandler.text;
+
+        Debug.Log(result);
+        if (result.Contains("0"))
+        {
+            Debug.Log(toggleVal + " Updated User Data.");
+        }
+        else
+            Debug.Log("User Data not Updated. [ERROR] : " + handler.error);
+
+    }
+
+    public IEnumerator DeleteModel(string name, string type)
+    {
+        WWWForm form = new();
+
+        form.AddField("name", name);
+        form.AddField("type", type);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/deleteFromMainDatabase.php", form);
+        yield return handler.SendWebRequest();
+
+        string result = handler.downloadHandler.text;
+
+        Debug.Log(result);
+
+        if (result.Contains("0"))
+            Debug.Log("Success");
+        else if (!result.Contains("0"))
+        {
+            Debug.Log("Delete model failed. [ERROR] : " + handler.error);
+        }
+    }
+
+    public IEnumerator DeleteUserData()
+    {
+        WWWForm form = new();
+
+        form.AddField("username", this._username);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/accounts/deleteUserData.php", form);
+        yield return handler.SendWebRequest();
+
+        string result = handler.downloadHandler.text;
+
+        Debug.Log(result);
+
+        if (result.Contains("0"))
+            Debug.Log("Success");
+        else if (!result.Contains("0"))
+        {
+            Debug.Log("Delete user data failed. [ERROR] : " + handler.error);
+        }
+    }
+
     public IEnumerator CreateMainDatabase()
     {
         WWWForm form = new();
@@ -350,7 +467,7 @@ public class DatabaseManager : MonoBehaviour
         Debug.Log(result);
 
         if (result.Contains("0"))
-            Debug.Log("Success");
+            Debug.Log("Successfully Created Database");
         else if (!result.Contains("0"))
         {
             Debug.Log("Create Database failed. [ERROR] : " + handler.error);
@@ -358,7 +475,25 @@ public class DatabaseManager : MonoBehaviour
 
     }
 
+    public IEnumerator RestoreModels(string table)
+    {
+        WWWForm form = new();
 
+        form.AddField("table", table);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/insertToMainDatabase.php", form);
+        yield return handler.SendWebRequest();
+
+        string result = handler.downloadHandler.text;
+
+        if (result.Contains("0"))
+            Debug.Log("Success");
+        else if (!result.Contains("0"))
+        {
+            Debug.Log("Insert models failed. [ERROR] : " + handler.error);
+        }
+    }
+    
     private void Awake()
     {
         if (_instance == null)
@@ -367,6 +502,11 @@ public class DatabaseManager : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        this._username = "Guest";
     }
 
     public static DatabaseManager GetInstance()

@@ -1,0 +1,367 @@
+Button {
+    background-color: rgba(188, 188, 188, 0);
+    border-width: 0;
+    font-size: 27px;
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-RodinBokutoh%20Pro/FOT-RodinBokutoh%20Pro%20EB.otf?fileID=12800000&guid=c70dee4bea39a0b42a0c8f0c7e23973e&type=3#FOT-RodinBokutoh Pro EB");
+    -unity-font-style: normal;
+    color: rgb(114, 93, 66);
+}
+
+Label {
+    font-size: 65px;
+    align-self: center;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B%20SDF.asset?fileID=11400000&guid=264ea6ed0297cd441b2f52b79f6a7576&type=2#FOT-Seurat Pro B SDF");
+    color: rgb(114, 93, 66);
+}
+
+#Root {
+    background-color: rgb(231, 221, 185);
+    width: 100%;
+    height: 100%;
+}
+
+#NavigationBarContainer {
+    padding-top: 31px;
+    padding-right: 31px;
+    padding-bottom: 31px;
+    padding-left: 31px;
+    align-items: center;
+}
+
+#NaviBar {
+    flex-direction: row;
+    padding: 1%;
+    background-image: url("project://database/Assets/Sprites/UI/Icons/NaviBar_BG.png?fileID=2800000&guid=93ec7e3d9587122419067be38274040a&type=3#NaviBar_BG");
+    width: 667px;
+    height: 137px;
+    justify-content: space-between;
+}
+
+.navi-buttons {
+    width: 61px;
+    height: 70px;
+    margin-bottom: 13px;
+    -unity-background-image-tint-color: rgb(186, 183, 164);
+    margin-top: 13px;
+    justify-content: space-between;
+    overflow: visible;
+    transition-property: scale;
+    transition-duration: 50ms;
+    transition-timing-function: ease-out;
+}
+
+.navi-buttons VisualElement {
+    width: 160%;
+    height: 140%;
+    justify-content: space-between;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-color: rgba(114, 93, 66, 0);
+    align-self: center;
+    margin-left: -18px;
+}
+
+.navi-buttons:hover VisualElement {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgba(114, 93, 66, 0.12);
+}
+
+.navi-buttons:active {
+    width: 61px;
+    height: 70px;
+    margin-bottom: 13px;
+    margin-top: 13px;
+    justify-content: space-between;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    scale: 1.2 1.2;
+}
+
+.navi-buttons:checked {
+    width: 61px;
+    height: 70px;
+    margin-bottom: 13px;
+    -unity-background-image-tint-color: rgb(253, 147, 3);
+    margin-top: 13px;
+    justify-content: space-between;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+#NBHomeButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%201.png?fileID=2800000&guid=a0b26be245aecb348a697c1b8d606388&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 1");
+    margin-left: 17px;
+}
+
+#NBVillagersButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%205.png?fileID=2800000&guid=5c695254a018d5c4d895f4299456f775&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 5");
+}
+
+#NBFishButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%206.png?fileID=2800000&guid=ba1b49cd7444c2242aac3b8a310424df&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 6");
+}
+
+#NBBugsButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%203.png?fileID=2800000&guid=9b1647d1a540acc42b1a5c42ab0838eb&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 3");
+}
+
+#NBSeasButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Octopus.png?fileID=2800000&guid=613d7ed3a99e952488416ca9de10585c&type=3#Octopus");
+}
+
+#NBUserButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/Nintendo%20Switch%20-%20Animal%20Crossing%20New%20Horizons%20-%20Buttons%20&%20Icons%204.png?fileID=2800000&guid=4d82d335a1b5e334c818224207eed6bb&type=3#Nintendo Switch - Animal Crossing New Horizons - Buttons & Icons 4");
+    margin-right: 16px;
+}
+
+
+.unity-scroll-view__content-container {
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+#DateTimeScreen {
+    margin-top: 50px;
+    width: 100%;
+    align-items: center;
+    height: auto;
+}
+
+#SeasonIcons {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -72px;
+}
+
+#AutumnIcon {
+    display: flex;
+    background-image: url("project://database/Assets/Sprites/UI/128279.png?fileID=-802975789&guid=75faedde1d0439048b64367b5e2156d1&type=3#128279_65");
+}
+
+#SummerIcon {
+    background-image: url("project://database/Assets/Sprites/UI/128279.png?fileID=911446716&guid=75faedde1d0439048b64367b5e2156d1&type=3#128279_136");
+}
+
+#SpringIcon {
+    background-image: url("project://database/Assets/Sprites/UI/128279.png?fileID=-114384443&guid=75faedde1d0439048b64367b5e2156d1&type=3#128279_95");
+}
+
+#WinterIcon {
+    background-image: url("project://database/Assets/Sprites/UI/128279.png?fileID=-2059856415&guid=75faedde1d0439048b64367b5e2156d1&type=3#128279_101");
+}
+
+.season-icon {
+    width: 141px;
+    height: 150px;
+    display: none;
+}
+
+#TimeLabel {
+    font-size: 136px;
+}
+
+#AMPMLabel {
+    justify-content: flex-end;
+    align-self: flex-end;
+    font-size: 74px;
+    letter-spacing: 6px;
+    margin-bottom: 8px;
+}
+
+#HorizontalLine {
+    background-image: url("project://database/Assets/Sprites/UI/HorizontalLine.png?fileID=2800000&guid=26ed822ace3a1154b8b9a56a013ed1b5&type=3#HorizontalLine");
+    -unity-background-image-tint-color: rgb(114, 93, 66);
+    height: 11px;
+    background-color: rgba(0, 0, 0, 0);
+    width: 556px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+#DateContainer {
+    width: 556px;
+    justify-content: space-evenly;
+}
+
+#DayLabel {
+    font-size: 55px;
+    background-color: rgb(247, 248, 230);
+    border-top-width: 10px;
+    border-right-width: 25px;
+    border-bottom-width: 10px;
+    border-left-width: 25px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    color: rgb(114, 93, 66);
+    left: 0;
+}
+
+#DateLabel {
+    font-size: 60px;
+    margin-left: 20px;
+    right: 0;
+}
+
+#ResetButton {
+    padding: 2%;
+    align-self: center;
+    width: 519px;
+    margin: 20px;
+    background-image: url("project://database/Assets/Sprites/UI/Buttons/Button_Reset%20Date%20and%20Time.png?fileID=2800000&guid=94b5b17aec454874786a39ee021903e9&type=3#Button_Reset Date and Time");
+    width: 575px;
+    margin-top: 40px;
+}
+
+.text-right-container {
+    flex-direction: row;
+}
+
+
+#HemisphereToggle #unity-checkmark {
+    width: 90px;
+    height: 90px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    transition-property: translate, background-color, background-image, rotate, -unity-background-image-tint-color;
+    transition-duration: 0.25s, 0.1s, 0.25s, 0.25s, 0.1s;
+    background-image: url("project://database/Assets/Sprites/UI/Icons/NorthernHemisphere.png?fileID=2800000&guid=586d15c3c72c26047adc5f7111320d84&type=3#NorthernHemisphere");
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    transition-timing-function: ease-in-out, ease, ease, ease-out-cubic, ease;
+    -unity-background-scale-mode: scale-to-fit;
+    overflow: visible;
+    background-color: rgba(186, 183, 164, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+#HemisphereToggle > VisualElement:checked #unity-checkmark {
+    translate: 100% 0;
+    background-image: url("project://database/Assets/Sprites/UI/Icons/SouthernHemisphere.png?fileID=2800000&guid=b7efda16ad96cfe43a7da2b00bff7cc7&type=3#SouthernHemisphere");
+    rotate: 365deg;
+}
+
+#HemisphereToggle > VisualElement {
+    background-color: rgb(248, 244, 232);
+    overflow: visible;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    transition-property: background-color;
+    transition-duration: 0.1s;
+    padding-left: 10px;
+}
+
+#HemisphereToggle > VisualElement:hover #unity-checkmark {
+    -unity-background-image-tint-color: rgb(198, 195, 186);
+}
+
+#HemisphereToggle:active #unity-checkmark {
+    -unity-background-image-tint-color: rgb(198, 195, 186);
+}
+
+#HemisphereToggle > VisualElement:hover {
+    background-color: rgba(114, 93, 66, 0.12);
+}
+
+#HemisphereToggle:active > VisualElement {
+    background-color: rgba(114, 93, 66, 0.12);
+}
+
+#HemisphereToggle {
+    width: 200px;
+    height: 110px;
+    overflow: visible;
+    transition-property: background-color;
+    transition-duration: 0.1s;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+#HemisphereToggle Label {
+    width: 200px;
+    translate: -50% 0;
+}
+
+#TimeLabel:hover {
+    color: rgb(253, 147, 3);
+}
+
+#AMPMLabel:hover {
+    color: rgb(253, 147, 3);
+}
+
+#DateLabel:hover {
+    color: rgb(253, 147, 3);
+}
+
+#ResetButton:hover {
+    -unity-background-image-tint-color: rgb(198, 195, 186);
+}
+
+
+#LogOutButton {
+    position: absolute;
+
+    width: 10%;
+    height: 75%;
+    display: flex;
+
+    background-image: url("project://database/Assets/Sprites/UI/Icons/AdminLogOut.png");
+    -unity-background-image-tint-color: rgba(0, 0, 0, 0.5);
+
+    margin-top: 2%;
+    margin-left: 1%;
+
+    opacity: 0.25;
+}
+
+#LogOutButton:hover {
+    -unity-background-image-tint-color: rgb(253, 147, 3);
+    opacity: 1;
+}
+
+#ResetDatabase {
+    width: 50%;
+    height: 10%;
+
+    border-radius: 20px;
+    background-color: rgb(247, 248, 230);
+    font-size: 45px;
+
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-RodinBokutoh%20Pro/FOT-RodinBokutoh%20Pro%20B/FOT-RodinBokutoh%20Pro%20B.otf?fileID=12800000&amp;guid=86a8bae87d3c80b4085ae90978fa915d&amp;type=3#FOT-RodinBokutoh Pro B");
+    -unity-font-style: normal;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ResetDatabase:hover {
+    color: rgb(253, 147, 3);
+}

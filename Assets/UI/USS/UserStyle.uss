@@ -1,7 +1,9 @@
 #Username {
     margin-top: 15%;
-    width: 29%;
+    width: 80%;
     height: 10%;
+    font-size: 95px;
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
 }
 
 #NBUserButton {
@@ -25,21 +27,49 @@
     width: 50%;
 }
 
-#ButtonContainer {
-    flex-direction: row;
-}
-
 .userButton {
     height: 50px;
     border-radius: 10px;
-    background-color: rgb(247, 248, 230);
     font-size: 45px;
-    -unity-font-definition: url("project://database/Assets/Fonts/FOT-RodinBokutoh%20Pro/FOT-RodinBokutoh%20Pro%20B/FOT-RodinBokutoh%20Pro%20B.otf?fileID=12800000&guid=86a8bae87d3c80b4085ae90978fa915d&type=3#FOT-RodinBokutoh Pro B");
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-Seurat%20Pro%20B/FOT-Seurat%20Pro%20B.otf?fileID=12800000&guid=8491b401751bd5f45abf09288c66e4a2&type=3#FOT-Seurat Pro B");
     -unity-font-style: normal;
     margin-top: 50px;
     margin-bottom: 50px;
+    color: rgb(248, 244, 232);
 }
 
 .userButton:hover {
     color: rgb(253, 147, 3);
+}
+
+#UserOptions {
+    background-image: url("project://database/Assets/Sprites/UI/Buttons/DropdownArrow.png?fileID=2800000&guid=8f19021fd059090488c66c672c4b4397&type=3#DropdownArrow");
+    height: 99px;
+    position: absolute;
+    top: 68px;
+    left: 518px;
+    width: 104px;
+}
+
+.dropdown-item-container {
+    flex-direction: row;
+    width: 491px;
+}
+
+.dropdown-icons {
+    background-image: url("project://database/Assets/Sprites/UI/Buttons/LogOutButton.png?fileID=2800000&guid=f3be6bb4ec3df3749839a71066fc4731&type=3#LogOutButton");
+    width: 73px;
+    height: 73px;
+    margin-top: 40px;
+    margin-left: 47px;
+}
+
+.userButtonsContainer {
+    flex-direction: column;
+    position: absolute;
+    top: 107px;
+    left: 107px;
+    background-image: url("project://database/Assets/Sprites/UI/Buttons/Recipe%20Info%20Background.png?fileID=2800000&guid=dbd229efc26ba354e86a3a44a45fc0d9&type=3#Recipe Info Background");
+    padding-top: 46px;
+    display: none;
 }

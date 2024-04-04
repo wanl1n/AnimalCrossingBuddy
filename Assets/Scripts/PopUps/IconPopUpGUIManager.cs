@@ -10,19 +10,45 @@ public class IconPopUpGUIManager : MonoBehaviour
     private VisualElement _root;
     private VisualElement _transparentBG;
 
+    private Toggle _collectedToggle;
+
+    private string _lastLoadedType;
+    public string LastLoadedType
+    {
+        get { return this._lastLoadedType; }
+    }
+
+    private string _lastLoadedName;
+    public string LastLoadedName
+    {
+        get { return this._lastLoadedName; }
+    }
+
     private void Start()
     {
         this._root = this.GetComponent<UIDocument>().rootVisualElement;
         this._transparentBG = this._root.Q<VisualElement>("TransparentBG");
 
-        this._transparentBG.RegisterCallback<PointerDownEvent>(this.OnTransparentBGClick);
+        this._collectedToggle = this._root.Q<Toggle>("CollectedToggle");
 
+        this._collectedToggle.RegisterCallback<ClickEvent>(this.OnToggleChangeValue);
+        this._transparentBG.RegisterCallback<PointerDownEvent>(this.OnTransparentBGClick);
     }
 
-    void OnTransparentBGClick(PointerDownEvent e)
+    private void OnTransparentBGClick(PointerDownEvent e)
     {
         this._transparentBG.style.display = DisplayStyle.None;
 
+    }
+
+    private void OnToggleChangeValue(EventBase evt)
+    {
+        StartCoroutine(DatabaseManager.GetInstance().UpdateUserData(this._lastLoadedName, this._collectedToggle.value));
+    }
+
+    public void Close()
+    {
+        this._transparentBG.style.display = DisplayStyle.None;
     }
 
     public IEnumerator LoadFishData(FishModel fish)
@@ -76,6 +102,8 @@ public class IconPopUpGUIManager : MonoBehaviour
                         "<b>Months: </b>" + monthAvailability +
                         "</line-height>\n";
 
+        this._lastLoadedType = "Fish";
+        this._lastLoadedName = fish.Name;
     }
 
 
@@ -126,6 +154,8 @@ public class IconPopUpGUIManager : MonoBehaviour
                         "<b>Months: </b>" + monthAvailability +
                         "</line-height>\n";
 
+        this._lastLoadedType = "Insects";
+        this._lastLoadedName = insect.Name;
     }
 
     public IEnumerator LoadSeaCreatureData(SeaCreatureModel seaCreature)
@@ -175,6 +205,8 @@ public class IconPopUpGUIManager : MonoBehaviour
                         "<b>Months: </b>" + monthAvailability +
                         "</line-height>\n";
 
+        this._lastLoadedType = "Sea Creatures";
+        this._lastLoadedName = seaCreature.Name;
     }
 
     public IEnumerator LoadVillagerData(VillagerModel villager)
@@ -221,6 +253,8 @@ public class IconPopUpGUIManager : MonoBehaviour
                         "<b>Birthday: </b>" + villager.Birthday +
                         "</line-height>\n";
 
+        this._lastLoadedType = "Villagers";
+        this._lastLoadedName = villager.Name;
     }
 
 }

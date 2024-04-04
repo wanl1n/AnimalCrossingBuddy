@@ -11,7 +11,8 @@ public class TimeManager : MonoBehaviour
         SPRING,
         SUMMER,
         FALL,
-        WINTER
+        WINTER,
+        NONE
     }
 
     private static TimeManager _instance;
@@ -62,7 +63,7 @@ public class TimeManager : MonoBehaviour
         DateTime AutumnEnd = new DateTime(this.PlayerTime.Year, 11, 25);
 
         DateTime WinterStart = new DateTime(this.PlayerTime.Year, 11, 26);
-        DateTime WinterEnd = new DateTime(this.PlayerTime.Year, 2, 24);
+        DateTime WinterEnd = new DateTime(this.PlayerTime.Year + 1, 2, 24);
 
         if (IsInSouthernHemisphere)
         {
@@ -76,18 +77,33 @@ public class TimeManager : MonoBehaviour
             AutumnEnd = new DateTime(this.PlayerTime.Year, 5, 25);
 
             WinterStart = new DateTime(this.PlayerTime.Year, 5, 26);
-            WinterStart = new DateTime(this.PlayerTime.Year, 8, 24);
+            WinterEnd = new DateTime(this.PlayerTime.Year, 8, 24);
         }
 
-        if (IsBetweenTwoDates(this.PlayerTime, SpringStart, SpringEnd))
-            return Seasons.SPRING;
-        else if (IsBetweenTwoDates(this.PlayerTime, SummerStart, SummerEnd))
-            return Seasons.SUMMER;
-        else if (IsBetweenTwoDates(this.PlayerTime, AutumnStart, AutumnEnd))
-            return Seasons.FALL;
+        Seasons currentSeason = Seasons.NONE;
+        if (!IsInSouthernHemisphere)
+        {
+            if (IsBetweenTwoDates(this.PlayerTime, SpringStart, SpringEnd))
+                currentSeason = Seasons.SPRING;
+            else if (IsBetweenTwoDates(this.PlayerTime, SummerStart, SummerEnd))
+                currentSeason = Seasons.SUMMER;
+            else if (IsBetweenTwoDates(this.PlayerTime, AutumnStart, AutumnEnd))
+                currentSeason = Seasons.FALL;
+            else
+                currentSeason = Seasons.WINTER;
+        }
         else
-            return Seasons.WINTER;
-
+        {
+            if (IsBetweenTwoDates(this.PlayerTime, SpringStart, SpringEnd))
+                currentSeason = Seasons.SPRING;
+            else if (IsBetweenTwoDates(this.PlayerTime, WinterStart, WinterEnd))
+                currentSeason = Seasons.WINTER;
+            else if (IsBetweenTwoDates(this.PlayerTime, AutumnStart, AutumnEnd))
+                currentSeason = Seasons.FALL;
+            else
+                currentSeason = Seasons.SUMMER;
+        }
+        return currentSeason;
     }
 
     // date string ("26 March")

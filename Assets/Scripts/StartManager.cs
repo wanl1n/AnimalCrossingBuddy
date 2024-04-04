@@ -10,6 +10,7 @@ public class StartManager : MonoBehaviour
     private Button _startButton;
     private Image _adminButton;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,16 @@ public class StartManager : MonoBehaviour
         this._startButton.clickable.clicked += this.OnStartButtonClick;
         this._adminButton.RegisterCallback<ClickEvent>(this.OnAdminButtonClick);
 
-        StartCoroutine(DatabaseManager.GetInstance().CreateMainDatabase());
+        if (!PlayerPrefs.HasKey("CreatedDatabase"))
+        {
+            Debug.Log("Creating Database");
+            StartCoroutine(DatabaseManager.GetInstance().CreateMainDatabase());
+            PlayerPrefs.SetInt("CreatedDatabase", 1);
+        }
+        else
+        {
+            Debug.Log("Already Initialized Main Database");
+        }
     }
 
     private void OnStartButtonClick()
