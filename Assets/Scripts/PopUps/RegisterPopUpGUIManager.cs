@@ -19,9 +19,9 @@ public class RegisterPopUpGUIManager : MonoBehaviour
     private TextField _passwordField;
     public string Password { get { return _passwordField.value; } }
 
-    private Button _logInButton;
-    private Button _cancelButton;
-    private Button _registerButton;
+    private Button _confirmButton;
+    private Button _closeButton;
+    private Button _fineTextButton;
 
     private void Awake()
     {
@@ -41,20 +41,14 @@ public class RegisterPopUpGUIManager : MonoBehaviour
         this._usernameField = this._root.Q<TextField>("Username");
         this._passwordField = this._root.Q<TextField>("Password");
 
-        this._logInButton = this._root.Q<Button>("LogInButton");
-        this._cancelButton = this._root.Q<Button>("CancelButton");
-        this._registerButton = this._root.Q<Button>("RegisterButton");
+        this._closeButton = this._root.Q<Button>("CloseButton");
+        this._confirmButton = this._root.Q<Button>("LogInButton");
+        this._fineTextButton = this._root.Q<Button>("FineTextButton");
 
         this._transparentBG.RegisterCallback<ClickEvent>(this.ClosePopUp);
-        this._registerButton.RegisterCallback<ClickEvent>(OnRegisterClick);
-        this._cancelButton.RegisterCallback<ClickEvent>(OnCancelClick);
-        this._logInButton.RegisterCallback<ClickEvent>(OnLoginClick);
-    }
-
-    private void OnCancelClick(EventBase evt)
-    {
-        Debug.Log("CANCEL REGISTER");
-        this.ClosePopUp(evt);
+        this._closeButton.RegisterCallback<ClickEvent>(ClosePopUp);
+        this._confirmButton.RegisterCallback<ClickEvent>(OnRegisterClick);
+        this._fineTextButton.RegisterCallback<ClickEvent>(OnLoginClick);
     }
 
     private void OnRegisterClick(EventBase evt)
