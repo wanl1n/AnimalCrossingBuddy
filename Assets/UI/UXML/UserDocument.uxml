@@ -29,18 +29,18 @@
                         <engine:Label text="Collected Villagers" name="AllLabel" class="subheader" />
                         <engine:TextField placeholder-text="Search by name..." name="SearchBarLeft" class="textField" />
                     </engine:VisualElement>
-                    <engine:VisualElement name="AllList">
-                        <engine:ListView name="List" header-title="Collected Villagers" />
-                    </engine:VisualElement>
+                    <engine:ScrollView name="AllList" mode="Vertical" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden">
+                        <engine:VisualElement name="CollectedList" class="catchable-list" />
+                    </engine:ScrollView>
                 </engine:VisualElement>
                 <engine:VisualElement name="Table2" class="tables">
                     <engine:VisualElement name="ListHeaderContainer">
                         <engine:Label text="Caught Critters" name="AllLabel" class="subheader" />
                         <engine:TextField placeholder-text="Search by name..." name="SearchBarRight" class="textField" />
                     </engine:VisualElement>
-                    <engine:VisualElement name="AllList">
-                        <engine:ListView name="List" header-title="Caught Critters" />
-                    </engine:VisualElement>
+                    <engine:ScrollView name="AllList" mode="Vertical" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden">
+                        <engine:VisualElement name="CaughtList" class="catchable-list" />
+                    </engine:ScrollView>
                 </engine:VisualElement>
             </engine:VisualElement>
         </engine:ScrollView>

@@ -8,9 +8,11 @@ if (mysqli_connect_errno()) {
 
 $username = $_POST["username"];
 
-$query = "DELETE FROM `user_stats` WHERE Username = '" . $username ."';";
+$query1 = "DELETE FROM `collected_villagers` WHERE Username = '" . $username . "';";
+$delete1Query = mysqli_query($connection, $query1) or die("[2] : DELETE QUERY 1 failed.");
 
-$deleteQuery = mysqli_query($connection, $query) or die("[2] : DELETE QUERY failed.");
+$query2 = "DELETE FROM `caught_critters` WHERE Username = '" . $username . "';";
+$delete2Query = mysqli_query($connection, $query2) or die("[2] : DELETE QUERY 2 failed.");
 
 echo "0 \t";
 

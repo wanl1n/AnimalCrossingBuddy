@@ -73,3 +73,15 @@
     padding-top: 46px;
     display: none;
 }
+
+.list-parent {
+    margin-top: -10px;
+    height: auto;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
