@@ -21,6 +21,8 @@ public class DatabaseManager : MonoBehaviour
 
         string[] result = handler.downloadHandler.text.Split('\t');
 
+        Debug.Log(handler.downloadHandler.text);
+
         if (result[0] == "0")
         {
             List<StringModel> strings = new();

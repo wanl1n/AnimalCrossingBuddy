@@ -1,0 +1,23 @@
+#ButtonContainer {
+	flex-direction: row;
+    height: auto;
+}
+
+.adminButtons {
+	width: auto;
+    height: 100%;
+
+    border-radius: 20px;
+    background-color: rgb(247, 248, 230);
+    font-size: 45px;
+
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-RodinBokutoh%20Pro/FOT-RodinBokutoh%20Pro%20B/FOT-RodinBokutoh%20Pro%20B.otf?fileID=12800000&amp;guid=86a8bae87d3c80b4085ae90978fa915d&amp;type=3#FOT-RodinBokutoh Pro B");
+    -unity-font-style: normal;
+
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.adminButtons:hover {
+    color: rgb(253, 147, 3);
+}

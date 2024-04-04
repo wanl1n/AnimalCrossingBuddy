@@ -1,6 +1,7 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <engine:Template name="NavigationBarContainer" src="project://database/Assets/UI/UXML/Templates/NavigationBarContainer.uxml?fileID=9197481963319205126&amp;guid=025586f9277da634c80f8cbe014ae0eb&amp;type=3#NavigationBarContainer" />
     <Style src="project://database/Assets/UI/USS/Critters/CategoryPageStyle.uss?fileID=7433441132597879392&amp;guid=cde8dc80b26dc054cae1836a81a7ac8b&amp;type=3#CategoryPageStyle" />
+    <Style src="project://database/Assets/UI/USS/Admin/AdminCritterStyle.uss?fileID=7433441132597879392&amp;guid=aa86c83daf721114e8de88aa7739cdd4&amp;type=3#AdminCritterStyle" />
     <engine:VisualElement name="Root">
         <engine:Instance template="NavigationBarContainer" />
         <engine:Label text="Sea Creatures" name="Banner" />
@@ -32,6 +33,10 @@
                         <engine:VisualElement name="VisualElement" class="catchable-list" />
                     </engine:ScrollView>
                 </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="ButtonContainer">
+                <engine:Button text="RESTORE ALL" name="Restore" class="adminButtons" />
+                <engine:Button text="CLEAR ALL" name="Clear" class="adminButtons" />
             </engine:VisualElement>
         </engine:ScrollView>
     </engine:VisualElement>
