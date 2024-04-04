@@ -65,7 +65,7 @@ public class DatabaseManager : MonoBehaviour
         form.AddField("table", table);
         form.AddField("username", this._username);
 
-        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getUserData.php", form);
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/accounts/getUserData.php", form);
         yield return handler.SendWebRequest();
 
         string[] result = handler.downloadHandler.text.Split('\t');

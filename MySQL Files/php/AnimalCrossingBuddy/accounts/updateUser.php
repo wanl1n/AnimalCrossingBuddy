@@ -10,32 +10,40 @@
 	$name = $_POST["name"];
 	$toggle = $_POST["toggle"];
 
-	$getTypeQuery = "SELECT Type FROM `main_database` WHERE Name = '" . $name . "';";
+	$getTypeQuery = "SELECT * FROM `main_database` WHERE Name = '" . $name . "';";
 
-	$type = mysqli_query($connection, $getTypeQuery) or die("[2] : SEARCH TYPE QUERY failed.");
+	$typeQuery = mysqli_query($connection, $getTypeQuery) or die("[2] : SEARCH TYPE QUERY failed.");
+	$retrievedType = mysqli_fetch_assoc($typeQuery);
+	$type = $retrievedType["Type"];
 
 	$table = "";
-	if ($type == "Villager") {
+	$tableType = 0;
+	if (!strcmp($type, "Villagers")) {
 		$table = "collected_villagers";
+		$tableType = 1;
 	}
-	if ($type == "Fish" || $type == "Insects" || $type == "Sea Creatures") {
+	else if (!strcmp($type, "Fish") || !strcmp($type, "Insects") || !strcmp($type, "Sea Creatures")) {
 		$table = "caught_critters";
+		$tableType = 2;
 	}
 
 	if ($table == "") {
-		echo "[3] : No Table Determined." . $type;
+		echo "[3] : No Table Name Determined. " . $type;
 		exit();
 	}
 
 	if ($toggle) {
-		$insertIntoUserStatsQuery = "INSERT INTO `" . $table . "`(Username, Name, Type) 
-									 VALUES ('" . $username . "', '" . $name . "', '" . $type . "');";
+		if ($tableType == 1) {
+			$insertIntoUserStatsQuery = "INSERT INTO `" . $table . "` (Username, Name) VALUES ('" . $username . "', '" . $name . "');";
+		}
+		else if ($tableType == 2) {
+			$insertIntoUserStatsQuery = "INSERT INTO `" . $table . "` (Username, Name, Type) VALUES ('" . $username . "', '" . $name . "', '" . $type . "');";
+		}
 
-		mysqli_query($connection, $insertIntoUserStatsQuery) or die("[4] : INSERT QUERY failed.");
+		mysqli_query($connection, $insertIntoUserStatsQuery) or die("[4] : INSERT QUERY " . $insertIntoUserStatsQuery . " failed.");
 	}
 	else {
-		$removeFromUserStatsQuery = "DELETE FROM `" . $table . "` 
-									 WHERE Name = '" . $name . "' AND Username = '" . $username . "';";
+		$removeFromUserStatsQuery = "DELETE FROM `" . $table . "` WHERE Name = '" . $name . "' AND Username = '" . $username . "';";
 		mysqli_query($connection, $removeFromUserStatsQuery) or die("[4] : REMOVE QUERY failed.");
 	}
 

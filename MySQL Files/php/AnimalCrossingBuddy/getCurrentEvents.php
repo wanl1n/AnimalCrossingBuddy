@@ -7,32 +7,19 @@ if (mysqli_connect_errno()) {
 }
 
 $input = $_POST["datetime"];
-// echo $input . "\t";
-// echo strtotime('m-d', $input) . "\t";
+$isSouthernHemisphere = filter_var($_POST["isSouthernHemisphere"], FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
 $datetime = date('m-d', strtotime($input));
-// echo $datetime . "\t";
 
-$isSouthernHemisphere = $_POST["isSouthernHemisphere"];
-// echo $isSouthernHemisphere . "\t";
-
-if ($isSouthernHemisphere == "True") {
-    $hemisphereString = "SH";
-} else
-    $hemisphereString = "NH";
-
-
-// echo $hemisphereString . "\t";
-
-$query = "SELECT * FROM seasons_and_events;";
+$query = "SELECT * FROM seasons_and_events";
 
 $dateQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 
-echo "0";
+echo "0 \t";
 
 while ($row = mysqli_fetch_assoc($dateQuery)) {
     foreach ($row as $key => $value) {
         $column = explode(" ", $key);
-        if ($column[0] == date("Y", strtotime($input)) && $column[1] == $hemisphereString) {
+        if ($column[0] == date("Y")) {
             $dateRange = explode("-", $value);
             $startDate = date('m-d', strtotime($dateRange[0]));
             $endDate = date('m-d', strtotime($dateRange[1]));
@@ -47,12 +34,11 @@ while ($row = mysqli_fetch_assoc($dateQuery)) {
                     'Date Varies By Year' => $row["Date Varies By Year"],
                     'Start Time' => $row["Start Time"],
                     'End Time' => $row["End Time"],
-                    'Start Date' => date('M-d', strtotime($dateRange[0])),
-                    'End Date' => date('M-d', strtotime($dateRange[1])),
+                    'Start Date' => $startDate,
+                    'End Date' => $endDate,
                 );
-                echo "\t";
-                // echo $value;
-                echo json_encode($data, JSON_FORCE_OBJECT);
+
+                echo json_encode($data, JSON_FORCE_OBJECT) . "\t";
             }
         }
     }
