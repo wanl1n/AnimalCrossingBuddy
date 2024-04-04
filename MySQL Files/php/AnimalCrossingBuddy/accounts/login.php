@@ -8,7 +8,7 @@
 
 	$username = $_POST["username"];
 	$password = $_POST["password"];
-	$query1 = "SELECT Username, Salt, Hash, Score FROM users WHERE Username = '" . $username . "';";
+	$query1 = "SELECT Username, Salt, Hash FROM users WHERE Username = '" . $username . "';";
 
 	$usernameCheck = mysqli_query($connection, $query1) or die("[2] : Username CHECK QUERY failed.");
 
@@ -27,6 +27,5 @@
         exit();
     }
 
-    $score = $retrievedUser["Score"];
-    echo "0\t" . $score;
+    echo "0";
 ?>

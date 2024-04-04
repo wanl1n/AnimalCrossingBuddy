@@ -108,26 +108,27 @@ public class UserGUIManager : MonoBehaviour
 
     private void LogIn(EventBase evt)
     {
-        LogInPopUpGUIManager.GetInstance().OpenPopUp();
         this.CloseUserOptions();
+        LogInPopUpGUIManager.GetInstance().OpenPopUp();
     }
 
     private void Register(EventBase evt)
     {
-        RegisterPopUpGUIManager.GetInstance().OpenPopUp();
         this.CloseUserOptions();
+        RegisterPopUpGUIManager.GetInstance().OpenPopUp();
     }
 
     private void LogOut(EventBase evt)
     {
-        DatabaseManager.GetInstance().LogOut();
         this.CloseUserOptions();
+        DatabaseManager.GetInstance().LogOut();
     }
 
     private void DeleteData(EventBase evt)
     {
-        Debug.Log("DELETE DATA");
         this.CloseUserOptions();
+        StartCoroutine(DatabaseManager.GetInstance().DeleteUserData());
+        StartCoroutine(this.ReloadAll());
     }
 
     private IEnumerator LoadIcons()
