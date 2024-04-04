@@ -278,52 +278,54 @@ public class AvailabilityModel : BaseModel
         {
             timeAvailability = timeAvailability.Replace("-", "");
             string[] splitTimeAvailability = timeAvailability.Split(" ", StringSplitOptions.RemoveEmptyEntries);
-
-            for (int i = 0; i < splitTimeAvailability.Length; i++) 
-            {
+           
+            for (int i = 0; i < splitTimeAvailability.Length; i++)
                 splitTimeAvailability[i] = splitTimeAvailability[i].Trim(); 
+
+            for (int i = 0; i < splitTimeAvailability.Length; i += 4) 
+            {
+                int startHour = Int32.Parse(splitTimeAvailability[i+0]);
+                if (splitTimeAvailability[i+1].Contains("PM"))
+                {
+                    if (startHour != 12)
+                        startHour += 12;
+                }
+                if (splitTimeAvailability[i + 1].Contains("AM"))
+                {
+                    if (startHour == 12)
+                        startHour = 0;
+                }
+
+                int endHour = Int32.Parse(splitTimeAvailability[i + 2]);
+                if (splitTimeAvailability[i + 3].Contains("PM"))
+                {
+                    if (endHour != 12)
+                        endHour += 12;
+                }
+                if (splitTimeAvailability[i + 3].Contains("AM"))
+                {
+                    if (endHour == 12)
+                        endHour = 0;
+                }
+
+                TimeSpan startTime = TimeSpan.Parse(startHour + ":00");
+                TimeSpan endTime = TimeSpan.Parse(endHour + ":00");
+
+                TimeSpan currentTime = playerTime.TimeOfDay;
+
+
+                if (endTime < startTime)
+                {
+                    if ((currentTime >= startTime || currentTime <= endTime))
+                        return true;
+                }
+                else
+                {
+                    if (currentTime >= startTime && currentTime <= endTime)
+                        return true;
+                }
             }
 
-            int startHour = Int32.Parse(splitTimeAvailability[0]);
-            if (splitTimeAvailability[1].Contains("PM"))
-            {
-                if (startHour != 12)
-                    startHour += 12;
-            }
-            if (splitTimeAvailability[1].Contains("AM"))
-            {
-                if (startHour == 12)
-                    startHour = 0;
-            }
-
-            int endHour = Int32.Parse(splitTimeAvailability[2]);
-            if (splitTimeAvailability[3].Contains("PM"))
-            {
-                if (endHour != 12)
-                    endHour += 12;
-            }
-            if (splitTimeAvailability[3].Contains("AM"))
-            {
-                if (endHour == 12)
-                    endHour = 0;
-            }
-
-            TimeSpan startTime = TimeSpan.Parse(startHour + ":00");
-            TimeSpan endTime = TimeSpan.Parse(endHour + ":00");
-
-            TimeSpan currentTime = playerTime.TimeOfDay;
-
-
-            if (endTime < startTime)
-            {
-                if ((currentTime >= startTime || currentTime <= endTime))
-                    return true;
-            }
-            else
-            {
-               if (currentTime >= startTime && currentTime <= endTime)
-                    return true;
-            }
 
 
         }

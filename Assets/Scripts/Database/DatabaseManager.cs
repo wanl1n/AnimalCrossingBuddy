@@ -19,10 +19,7 @@ public class DatabaseManager : MonoBehaviour
         using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getIdNameColumnData.php", form);
         yield return handler.SendWebRequest();
 
-        Debug.Log(handler.downloadHandler.text);
         string[] result = handler.downloadHandler.text.Split('\t');
-
-        Debug.Log(handler.downloadHandler.text);
 
         if (result[0] == "0")
         {

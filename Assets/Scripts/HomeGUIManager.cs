@@ -25,6 +25,7 @@ public class HomeGUIManager : MonoBehaviour
 
     private Toggle _hemisphereToggle;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,7 +75,6 @@ public class HomeGUIManager : MonoBehaviour
     {
         LoadingGUIManager.GetInstance().ShowLoading();
         yield return StartCoroutine(LoadAllCatchable());
-        LoadingGUIManager.GetInstance().HideLoading();
 
     }
 
@@ -82,6 +82,8 @@ public class HomeGUIManager : MonoBehaviour
     {
 
         yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableFish, "Fish"));
+        LoadingGUIManager.GetInstance().HideLoading();
+
         yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableBugs, "Insects"));
         yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableSeas, "Sea_creatures"));
 

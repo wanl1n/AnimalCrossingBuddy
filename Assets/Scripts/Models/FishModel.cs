@@ -43,8 +43,6 @@ public class FishModel : AvailabilityModel
 
         string[] result = handler.downloadHandler.text.Split('\t');
 
-        Debug.Log(handler.downloadHandler.text);
-
         if (result[0].Contains("0"))
         {
             FishModel returnFish = JsonConvert.DeserializeObject<FishModel>(result[1]);
