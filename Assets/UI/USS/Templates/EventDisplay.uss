@@ -1,0 +1,54 @@
+.event-display {
+    flex-direction: row;
+    width: 100%;
+}
+
+.event-display #EventIcon {
+    width: 150px;
+    height: 125px;
+    background-color: rgba(231, 221, 185, 0.31);
+    margin-top: 25px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+    background-image: url("project://database/Assets/Sprites/UI/128279.png?fileID=-1319617254&guid=75faedde1d0439048b64367b5e2156d1&type=3#128279_0");
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-slice-left: 1;
+    -unity-slice-top: 1;
+    -unity-slice-right: 1;
+    -unity-slice-bottom: 1;
+}
+
+.event-display #EventText {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.event-display #EventTitle {
+    font-size: 54px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -unity-text-align: upper-left;
+    align-self: flex-start;
+}
+
+.event-display #EventSubtitle {
+    font-size: 40px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    -unity-text-align: middle-left;
+    align-self: flex-start;
+    color: rgb(58, 130, 72);
+}

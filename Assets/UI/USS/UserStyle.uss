@@ -1,5 +1,5 @@
 #Username {
-    margin-top: 5%;
+    margin-top: 15%;
     width: 29%;
     height: 10%;
 }
@@ -31,14 +31,11 @@
 
 .userButton {
     height: 50px;
-
     border-radius: 10px;
     background-color: rgb(247, 248, 230);
     font-size: 45px;
-
-    -unity-font-definition: url("project://database/Assets/Fonts/FOT-RodinBokutoh%20Pro/FOT-RodinBokutoh%20Pro%20B/FOT-RodinBokutoh%20Pro%20B.otf?fileID=12800000&amp;guid=86a8bae87d3c80b4085ae90978fa915d&amp;type=3#FOT-RodinBokutoh Pro B");
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-RodinBokutoh%20Pro/FOT-RodinBokutoh%20Pro%20B/FOT-RodinBokutoh%20Pro%20B.otf?fileID=12800000&guid=86a8bae87d3c80b4085ae90978fa915d&type=3#FOT-RodinBokutoh Pro B");
     -unity-font-style: normal;
-
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -46,4 +43,3 @@
 .userButton:hover {
     color: rgb(253, 147, 3);
 }
-

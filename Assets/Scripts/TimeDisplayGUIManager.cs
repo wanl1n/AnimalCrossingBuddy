@@ -153,6 +153,7 @@ public class TimeDisplayGUIManager : MonoBehaviour
         HomeGUIManager homeGUIManager = sceneDocument.GetComponent<HomeGUIManager>();
         if (homeGUIManager != null)
         {
+            StartCoroutine(homeGUIManager.LoadEvents());
             StartCoroutine(homeGUIManager.LoadAllCatchable());
         }
     }

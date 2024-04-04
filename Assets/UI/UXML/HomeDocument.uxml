@@ -2,9 +2,6 @@
     <engine:Template name="NavigationBarContainer" src="project://database/Assets/UI/UXML/Templates/NavigationBarContainer.uxml?fileID=9197481963319205126&amp;guid=025586f9277da634c80f8cbe014ae0eb&amp;type=3#NavigationBarContainer" />
     <Style src="project://database/Assets/UI/USS/HomeStyle.uss?fileID=7433441132597879392&amp;guid=3a6d156e7e3a3df408d88423080dda91&amp;type=3#HomeStyle" />
     <engine:VisualElement name="Root">
-        <engine:Instance template="NavigationBarContainer">
-            <UnityEngine.UIElements.Image name="AdminButton" />
-        </engine:Instance>
         <engine:ScrollView name="ContentPage">
             <engine:VisualElement name="DateTimeScreen" class="content-group">
                 <engine:VisualElement name="SeasonIcons">
@@ -25,6 +22,11 @@
                 </engine:VisualElement>
                 <engine:Image text="Reset Date and Time" name="ResetButton" />
             </engine:VisualElement>
+            <engine:VisualElement name="EventsScreen" style="flex-grow: 1;">
+                <engine:Label text="Events Now" name="EventsScreenLabel" />
+                <engine:VisualElement name="EventsList" style="flex-grow: 1;" />
+                <engine:Label text="No Events Ongoing" name="NoEventsLabel" />
+            </engine:VisualElement>
             <engine:VisualElement name="FeaturedScreen" class="content-group">
                 <engine:Label text="Catchable Now" name="CatchableNowLabel" />
                 <engine:VisualElement name="CatchableLists">
@@ -40,5 +42,8 @@
                 </engine:VisualElement>
             </engine:VisualElement>
         </engine:ScrollView>
+        <engine:Instance template="NavigationBarContainer" class="template">
+            <UnityEngine.UIElements.Image name="AdminButton" />
+        </engine:Instance>
     </engine:VisualElement>
 </engine:UXML>

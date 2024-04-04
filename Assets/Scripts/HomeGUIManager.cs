@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -11,7 +13,8 @@ public class HomeGUIManager : MonoBehaviour
     private VisualElement _navBar;
     private VisualElement _dateTimeScreen;
     private VisualElement _featuredScreen;
-    private VisualElement _eventsScreen;
+    private VisualElement _eventsList;
+    private Label _noEventsLabel;
 
     private VisualElement _catchableFish;
     private VisualElement _catchableBugs;
@@ -45,7 +48,9 @@ public class HomeGUIManager : MonoBehaviour
         this._catchableBugsText = this._featuredScreen.Q<Label>("CatchableBugsText");
         this._catchableSeasText = this._featuredScreen.Q<Label>("CatchableSeasText");
 
-        this._eventsScreen = this._root.Q<VisualElement>("EventsScreen");
+        this._eventsList = this._root.Q<VisualElement>("EventsList");
+        this._noEventsLabel = this._root.Q<Label>("NoEventsLabel");
+        StartCoroutine(LoadEvents());
 
         this._hemisphereToggle = this._root.Q<Toggle>("HemisphereToggle");
 
@@ -66,6 +71,46 @@ public class HomeGUIManager : MonoBehaviour
         StartCoroutine(Load());
 
     }
+
+    public IEnumerator LoadEvents()
+    {
+        _eventsList.Clear();
+        List<EventModel> events = new();
+
+        yield return EventModel.GetCurrentEvents(TimeManager.GetInstance().PlayerTime, TimeManager.GetInstance().IsInSouthernHemisphere, e => events = e);
+
+        foreach (var evt in events)
+        {
+            VisualTreeAsset template = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/UXML/Templates/EventDisplay.uxml");
+            VisualElement eventDisplay = template.Instantiate();
+            
+            VisualElement eventIcon = eventDisplay.Q<VisualElement>("EventIcon");
+            Texture2D img = new(0, 0);
+
+            if (evt.IconImage != "NA")
+            {
+                yield return DatabaseManager.GetInstance().DownloadTexture(evt.IconImage, c => img = c);
+                eventIcon.style.backgroundImage = img;
+            }
+
+            Label eventTitle = eventDisplay.Q<Label>("EventTitle");
+            eventTitle.text = evt.DisplayName;
+
+            Label eventSubtitle = eventDisplay.Q<Label>("EventSubtitle");
+            string[] start = evt.StartDate.Split("-");
+            string[] end = evt.EndDate.Split("-");
+            eventSubtitle.text = start[0] + " " + EventModel.AddOrdinal(int.Parse(start[1])) + " - " + end[0] + " " + EventModel.AddOrdinal(int.Parse(end[1]));
+
+            _eventsList.Add(eventDisplay);
+        }
+
+        if (events.Count > 1)
+        {
+            _noEventsLabel.style.display = DisplayStyle.None;
+        }
+
+    }
+
     private void OnAdminButtonClick(ClickEvent e)
     {
         SceneManager.LoadScene("AdminLoginScene");

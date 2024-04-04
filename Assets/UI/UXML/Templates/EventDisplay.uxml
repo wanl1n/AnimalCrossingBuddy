@@ -1,0 +1,10 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/Templates/EventDisplay.uss?fileID=7433441132597879392&amp;guid=ae32698c56160834f948d03ce1aeea3c&amp;type=3#EventDisplay" />
+    <engine:VisualElement name="EventDisplay" class="event-display">
+        <engine:VisualElement name="EventIcon" />
+        <engine:VisualElement name="EventText">
+            <engine:Label text="keep yourself safe day" name="EventTitle" />
+            <engine:Label text="1st - 31st" name="EventSubtitle" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

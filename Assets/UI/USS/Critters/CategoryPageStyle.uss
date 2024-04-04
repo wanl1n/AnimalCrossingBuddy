@@ -126,6 +126,7 @@ Label {
 
 #ContentPage {
     height: 100%;
+    margin-top: 250px;
 }
 
 .unity-scroll-view__content-container {

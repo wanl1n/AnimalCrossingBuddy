@@ -3,7 +3,9 @@
     padding-right: 31px;
     padding-bottom: 31px;
     padding-left: 31px;
-    align-items: center;
+    align-self: center;
+    position: absolute;
+    top: 0;
 }
 
 #NaviBar {
@@ -13,6 +15,10 @@
     width: 667px;
     height: 137px;
     justify-content: space-between;
+    padding-top: 3%;
+    padding-right: 3%;
+    padding-bottom: 3%;
+    padding-left: 3%;
 }
 
 .navi-buttons {

@@ -19,6 +19,7 @@ Label {
     background-color: rgb(231, 221, 185);
     width: 100%;
     height: 100%;
+    overflow: visible;
 }
 
 #NavigationBarContainer {
@@ -127,6 +128,7 @@ Label {
 
 #ContentPage {
     height: 100%;
+    margin-top: 250px;
 }
 
 .unity-scroll-view__content-container {
@@ -135,7 +137,7 @@ Label {
     align-self: center;
     margin: auto;
     width: 100%;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 #DateTimeScreen {
@@ -275,7 +277,6 @@ Label {
     margin-top: 1%;
 }
 
-
 #HemisphereToggle #unity-checkmark {
     width: 90px;
     height: 90px;
@@ -369,7 +370,7 @@ Label {
 }
 
 #OngoingEventsLabel {
-    font-size: 75px;    
+    font-size: 75px;
     margin-top: 20px;
 }
 
@@ -393,21 +394,53 @@ Label {
 
 #AdminButton {
     position: absolute;
-
-    width: 10%;
-    height: 75%;
+    width: 200px;
+    height: 200px;
     display: flex;
-
-    background-image: url("project://database/Assets/Sprites/UI/Icons/AdminIcon.png");
+    background-image: url("project://database/Assets/Sprites/UI/Icons/AdminIcon.png?fileID=21300000&guid=5f385de2b79f64842be2a9597a76892b&type=3#AdminIcon");
     -unity-background-image-tint-color: rgba(0, 0, 0, 0.5);
-
     margin-top: 2%;
     margin-left: 1%;
-
     opacity: 0.25;
 }
 
 #AdminButton:hover {
     -unity-background-image-tint-color: rgb(253, 147, 3);
     opacity: 1;
+}
+
+#EventsScreen {
+    margin-top: 100px;
+    width: 80%;
+    align-items: center;
+    height: auto;
+    background-color: rgb(248, 244, 232);
+    min-height: 300px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+}
+
+#EventsList {
+    align-items: flex-start;
+    background-color: rgb(248, 244, 232);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+    align-self: auto;
+}
+
+.template {
+    position: absolute;
+    width: 100%;
 }
