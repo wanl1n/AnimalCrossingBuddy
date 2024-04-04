@@ -385,6 +385,33 @@ public class DatabaseManager : MonoBehaviour
 
     }
 
+    public IEnumerator UpdateUserData(string name, bool toggle)
+    {
+        WWWForm form = new();
+
+        string toggleVal = "";
+        if (toggle) toggleVal = "1";
+        else toggleVal = "0";
+
+        form.AddField("username", this._username);
+        form.AddField("name", name);
+        form.AddField("toggle", toggleVal);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/accounts/updateUser.php", form);
+        yield return handler.SendWebRequest();
+
+        string result = handler.downloadHandler.text;
+
+        Debug.Log(result);
+        if (result.Contains("0"))
+        {
+            Debug.Log(toggleVal + " Updated User Data.");
+        }
+        else
+            Debug.Log("User Data not Updated. [ERROR] : " + handler.error);
+
+    }
+
     public IEnumerator DeleteModel(string name, string type)
     {
         WWWForm form = new();
@@ -428,7 +455,6 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-
     public IEnumerator CreateMainDatabase()
     {
         WWWForm form = new();
@@ -467,6 +493,7 @@ public class DatabaseManager : MonoBehaviour
             Debug.Log("Insert models failed. [ERROR] : " + handler.error);
         }
     }
+    
     private void Awake()
     {
         if (_instance == null)

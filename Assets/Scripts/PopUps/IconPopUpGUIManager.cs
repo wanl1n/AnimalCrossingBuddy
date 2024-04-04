@@ -10,6 +10,8 @@ public class IconPopUpGUIManager : MonoBehaviour
     private VisualElement _root;
     private VisualElement _transparentBG;
 
+    private Toggle _collectedToggle;
+
     private string _lastLoadedType;
     public string LastLoadedType
     {
@@ -27,14 +29,21 @@ public class IconPopUpGUIManager : MonoBehaviour
         this._root = this.GetComponent<UIDocument>().rootVisualElement;
         this._transparentBG = this._root.Q<VisualElement>("TransparentBG");
 
-        this._transparentBG.RegisterCallback<PointerDownEvent>(this.OnTransparentBGClick);
+        this._collectedToggle = this._root.Q<Toggle>("CollectedToggle");
 
+        this._collectedToggle.RegisterCallback<ClickEvent>(this.OnToggleChangeValue);
+        this._transparentBG.RegisterCallback<PointerDownEvent>(this.OnTransparentBGClick);
     }
 
     private void OnTransparentBGClick(PointerDownEvent e)
     {
         this._transparentBG.style.display = DisplayStyle.None;
 
+    }
+
+    private void OnToggleChangeValue(EventBase evt)
+    {
+        StartCoroutine(DatabaseManager.GetInstance().UpdateUserData(this._lastLoadedName, this._collectedToggle.value));
     }
 
     public void Close()

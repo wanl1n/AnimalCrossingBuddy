@@ -128,7 +128,6 @@ public class UserGUIManager : MonoBehaviour
     {
         this.CloseUserOptions();
         StartCoroutine(DatabaseManager.GetInstance().DeleteUserData());
-        StartCoroutine(this.ReloadAll());
     }
 
     private IEnumerator LoadIcons()
