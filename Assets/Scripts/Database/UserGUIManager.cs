@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class UserGUIManager : MonoBehaviour
 {
-    private static UserGUIManager Instance;
-
     [SerializeField]
     private string _collectedTable;
     [SerializeField]
@@ -123,14 +122,14 @@ public class UserGUIManager : MonoBehaviour
     {
         this.CloseUserOptions();
         DatabaseManager.GetInstance().LogOut();
-        StartCoroutine(this.LoadIcons());
+        SceneManager.LoadScene("UserScene");
     }
 
     private void DeleteData(EventBase evt)
     {
         this.CloseUserOptions();
         StartCoroutine(DatabaseManager.GetInstance().DeleteUserData());
-        StartCoroutine(this.LoadIcons());
+        SceneManager.LoadScene("UserScene");
     }
 
     public IEnumerator LoadIcons()
@@ -262,22 +261,5 @@ public class UserGUIManager : MonoBehaviour
 
         yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(stringModels, this._collectedListParent, this._collectedTable));
         yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(stringModels, this._caughtListParent, this._caughtTable));
-    }
-
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(this.gameObject);
-    }
-
-    public static UserGUIManager GetInstance()
-    {
-        if (Instance == null)
-        {
-            Instance = new UserGUIManager();
-        }
-        return Instance;
     }
 }

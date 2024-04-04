@@ -456,6 +456,28 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
+
+    public IEnumerator DeleteGuestData()
+    {
+        WWWForm form = new();
+
+        form.AddField("username", "Guest");
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/accounts/deleteUserData.php", form);
+        yield return handler.SendWebRequest();
+
+        string result = handler.downloadHandler.text;
+
+        Debug.Log(result);
+
+        if (result.Contains("0"))
+            Debug.Log("Success");
+        else if (!result.Contains("0"))
+        {
+            Debug.Log("Delete user data failed. [ERROR] : " + handler.error);
+        }
+    }
+
     public IEnumerator CreateMainDatabase()
     {
         WWWForm form = new();
@@ -508,6 +530,11 @@ public class DatabaseManager : MonoBehaviour
     private void Start()
     {
         this._username = "Guest";
+    }
+
+    private void OnApplicationQuit()
+    {
+        StartCoroutine(DeleteGuestData());
     }
 
     public static DatabaseManager GetInstance()

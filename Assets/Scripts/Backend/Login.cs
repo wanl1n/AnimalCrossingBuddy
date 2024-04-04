@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class Login : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class Login : MonoBehaviour
                 Debug.Log("User successfully logged in.");
                 DatabaseManager.GetInstance().Username = LogInPopUpGUIManager.GetInstance().Username;
                 LogInPopUpGUIManager.GetInstance().ClosePopUp();
-                StartCoroutine(UserGUIManager.GetInstance().LoadIcons());
+                SceneManager.LoadScene("UserScene");
             }
             else { Debug.LogError("Failed to login user. [ERROR] : " + handler.downloadHandler.text); }
         }
