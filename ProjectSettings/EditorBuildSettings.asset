@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainScenes/StartScene.unity
+    guid: 32d5f37908cddba45ae0c8f25f7a2af3
+  - enabled: 1
     path: Assets/Scenes/MainScenes/HomeScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -27,9 +30,6 @@ EditorBuildSettings:
     path: Assets/Scenes/AdminScenes/AdminLoginScene.unity
     guid: c58e8d3f32c9a094bacbe550ba036cde
   - enabled: 1
-    path: Assets/Scenes/MainScenes/StartScene.unity
-    guid: 32d5f37908cddba45ae0c8f25f7a2af3
-  - enabled: 1
     path: Assets/Scenes/AdminScenes/AdminHomeScene.unity
     guid: 7ed948cebd7225e4fb2ad5e4301434ba
   - enabled: 1
@@ -43,7 +43,7 @@ EditorBuildSettings:
     guid: cdd0749f09dc4cc4f8cffd09cc6bbdac
   - enabled: 1
     path: Assets/Scenes/AdminScenes/AdminVillagerScene.unity
-    guid: 552d74f89c0e197478ac5d6df566d65b
+    guid: a1d432a2fc6943d4ca84ded7a6277500
   - enabled: 1
     path: Assets/Scenes/AdminScenes/AdminUserScene.unity
     guid: ffa1f3246ff8f8a4485c33296ba7bc4a

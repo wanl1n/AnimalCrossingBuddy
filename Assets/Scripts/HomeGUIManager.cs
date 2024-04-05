@@ -81,7 +81,7 @@ public class HomeGUIManager : MonoBehaviour
 
         foreach (var evt in events)
         {
-            VisualTreeAsset template = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/UXML/Templates/EventDisplay.uxml");
+            VisualTreeAsset template = Resources.Load<VisualTreeAsset>("EventDisplay");
             VisualElement eventDisplay = template.Instantiate();
             
             VisualElement eventIcon = eventDisplay.Q<VisualElement>("EventIcon");

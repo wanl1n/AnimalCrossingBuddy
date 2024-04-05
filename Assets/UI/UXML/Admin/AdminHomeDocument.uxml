@@ -2,9 +2,7 @@
     <engine:Template name="NavigationBarContainer" src="project://database/Assets/UI/UXML/Templates/NavigationBarContainer.uxml?fileID=9197481963319205126&amp;guid=025586f9277da634c80f8cbe014ae0eb&amp;type=3#NavigationBarContainer" />
     <Style src="project://database/Assets/UI/USS/Admin/AdminHomeStyle.uss?fileID=7433441132597879392&amp;guid=dd7889e7559648d4ba09160fa6df9f05&amp;type=3#AdminHomeStyle" />
     <engine:VisualElement name="Root">
-        <engine:Instance template="NavigationBarContainer">
-            <UnityEngine.UIElements.Image name="LogOutButton" />
-        </engine:Instance>
+        <engine:Instance template="NavigationBarContainer" />
         <engine:VisualElement name="ContentContainer" style="flex-grow: 1;">
             <engine:VisualElement name="DateTimeScreen" class="content-group">
                 <engine:VisualElement name="SeasonIcons">
@@ -29,4 +27,5 @@
             <engine:ScrollView name="ContentPage" />
         </engine:VisualElement>
     </engine:VisualElement>
+    <engine:Image name="LogOutButton" />
 </engine:UXML>

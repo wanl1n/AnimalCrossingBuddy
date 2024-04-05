@@ -132,12 +132,15 @@ Label {
     overflow: hidden;
 }
 
+#ContentContainer {
+    margin-top: 200px;
+}
+
 #DateTimeScreen {
     margin-top: 50px;
     width: 100%;
     align-items: center;
     height: auto;
-    border-top-width: 180px;
 }
 
 #SeasonIcons {
