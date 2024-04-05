@@ -47,16 +47,16 @@ public class VillagerModel : BaseModel
     {
         WWWForm form = new();
 
-        string[] idOnly = id.Split('\t');
+        string[] nameOnly = id.Split('\t');
 
         form.AddField("table", table.ToLower());
 
-        form.AddField("condition", "Id = " + idOnly[0]);
+        form.AddField("condition", "Name = \"" + nameOnly[1] + "\"");
 
         using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getModelData.php", form);
         yield return handler.SendWebRequest();
 
-        // Debug.Log(handler.downloadHandler.text);
+        Debug.Log(handler.downloadHandler.text);
         string[] result = handler.downloadHandler.text.Split('\t');
 
         if (result[0].Contains("0"))
