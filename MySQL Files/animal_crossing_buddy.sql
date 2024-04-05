@@ -1189,3 +1189,22 @@ CREATE TABLE `users` (
   `Hash` varchar(100) NOT NULL,
   `Salt` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `admin_access_codes` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `Username` varchar(20) DEFAULT NULL,
+  `Hash` varchar(100) DEFAULT NULL,
+  `Salt` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admin_access_codes`
+--
+
+INSERT INTO `admin_access_codes` (`Id`, `Username`, `Hash`, `Salt`) VALUES
+(1, 'Admin', '$5$rounds=5000$any_value_hereAd$JsOA9sNuhgq8iz5CjbuaRxc0UW4mFHFG8ws4/RpRJG6', '$5$rounds=5000$any_value_hereAdmin$'),
+(2, 'Admin', '$5$rounds=5000$any_value_hereAd$XecIB4iT5NIMRlZoCTiIRkBUv5PP8BdOgJBQfH/fXFB', '$5$rounds=5000$any_value_hereAdmin$'),
+(3, 'Admin', '$5$rounds=5000$any_value_hereAd$5f6ngRUbo3tIN3Yac40t0lAjcvILebOz93YwxeRJpa9', '$5$rounds=5000$any_value_hereAdmin$'),
+(4, 'Admin', '$5$rounds=5000$any_value_hereAd$oMqexKE10uQ8VvCOGUsOogzbzAxYlX/D5YUXeIpCL4/', '$5$rounds=5000$any_value_hereAdmin$');
+
+

@@ -1,0 +1,33 @@
+#UsersScreen {
+    margin-top: 0px;
+    width: 80%;
+    align-items: center;
+    height: auto;
+    background-color: rgb(248, 244, 232);
+    min-height: 300px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+}
+
+#UserDisplay {
+    flex-direction: row;
+    width: 100%;
+}
+
+#UserText {
+    flex-direction: row;
+}
+
+#DeleteButton {
+    background-image: url("project://database/Assets/Sprites/UI/Icons/DeleteIcon.png");
+    width: 200px;
+    height: 200px;
+    display: flex;
+}
