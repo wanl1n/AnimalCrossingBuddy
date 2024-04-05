@@ -59,13 +59,17 @@ public class ContentListGUIManager : MonoBehaviour
     {
         LoadingGUIManager.GetInstance().ShowLoading();
         yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._currentParent, this._table));
-        if (this._currentParent.childCount != 0)
-        {   
-            this._currentText.style.display = DisplayStyle.None;
-        }
-        else
+        
+        if (this._currentParent != null)
         {
-            this._currentText.style.display = DisplayStyle.Flex;
+            if (this._currentParent.childCount != 0)
+            {   
+                this._currentText.style.display = DisplayStyle.None;
+            }
+            else
+            {
+                this._currentText.style.display = DisplayStyle.Flex;
+            }
         }
     }
 

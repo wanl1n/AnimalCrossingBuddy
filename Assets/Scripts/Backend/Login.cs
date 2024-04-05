@@ -36,7 +36,10 @@ public class Login : MonoBehaviour
                 LogInPopUpGUIManager.GetInstance().ClosePopUp();
                 SceneManager.LoadScene("UserScene");
             }
-            else { Debug.LogError("Failed to login user. [ERROR] : " + handler.downloadHandler.text); }
+            else { 
+                Debug.LogError("Failed to login user. [ERROR] : " + handler.downloadHandler.text);
+                LogInPopUpGUIManager.GetInstance().PasswordField.value = "Failed to login user!";
+            }
         }
     }
 
