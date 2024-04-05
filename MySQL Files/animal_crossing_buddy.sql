@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 03, 2024 at 09:48 AM
+-- Generation Time: Apr 05, 2024 at 06:55 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `caught_critters` (
-  `Id` int(4) UNIQUE AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  `Id` int(4) NOT NULL,
   `Icon Image Link` varchar(100) DEFAULT NULL,
   `Username` varchar(20) DEFAULT NULL,
   `Name` varchar(50) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `caught_critters` (
 --
 
 CREATE TABLE `collected_villagers` (
-  `Id` int(4) UNIQUE AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  `Id` int(4) NOT NULL,
   `Icon Image Link` varchar(100) DEFAULT NULL,
   `Username` varchar(20) DEFAULT NULL,
   `Name` varchar(20) NOT NULL
@@ -641,10 +641,15 @@ INSERT INTO `sea_creatures` (`Id`, `Name`, `Icon Image Link`, `Critterpedia Imag
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_stats`
+-- Table structure for table `users`
 --
 
-
+CREATE TABLE `users` (
+  `Id` int(4) NOT NULL,
+  `Username` varchar(20) NOT NULL,
+  `Hash` varchar(100) NOT NULL,
+  `Salt` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1095,7 +1100,19 @@ INSERT INTO `villagers` (`Id`, `Name`, `Icon Image Link`, `Photo Image Link`, `S
 -- Indexes for dumped tables
 --
 
+--
+-- Indexes for table `caught_critters`
+--
+ALTER TABLE `caught_critters`
+  ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `Id` (`Id`);
 
+--
+-- Indexes for table `collected_villagers`
+--
+ALTER TABLE `collected_villagers`
+  ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `Id` (`Id`);
 
 --
 -- Indexes for table `fish`
@@ -1134,8 +1151,13 @@ ALTER TABLE `sea_creatures`
   ADD UNIQUE KEY `Id` (`Id`),
   ADD UNIQUE KEY `Name` (`Name`);
 
-
-
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `Id` (`Id`),
+  ADD UNIQUE KEY `Username` (`Username`);
 
 --
 -- Indexes for table `villagers`
@@ -1148,6 +1170,18 @@ ALTER TABLE `villagers`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `caught_critters`
+--
+ALTER TABLE `caught_critters`
+  MODIFY `Id` int(4) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `collected_villagers`
+--
+ALTER TABLE `collected_villagers`
+  MODIFY `Id` int(4) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `fish`
@@ -1168,9 +1202,10 @@ ALTER TABLE `sea_creatures`
   MODIFY `Id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT for table `user_stats`
+-- AUTO_INCREMENT for table `users`
 --
-
+ALTER TABLE `users`
+  MODIFY `Id` int(4) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `villagers`
@@ -1182,10 +1217,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-CREATE TABLE `users` (
-  `Id` int(4) UNIQUE AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  `Username` varchar(20) UNIQUE NOT NULL,
-  `Hash` varchar(100) NOT NULL,
-  `Salt` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
