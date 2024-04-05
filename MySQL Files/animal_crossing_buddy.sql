@@ -1139,7 +1139,7 @@ ALTER TABLE `insects`
 --
 ALTER TABLE `main_database`
   ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `Name` (`Name`);
+
 
 --
 -- Indexes for table `seasons_and_events`
