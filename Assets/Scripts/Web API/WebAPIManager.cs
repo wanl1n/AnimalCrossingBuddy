@@ -11,13 +11,10 @@ public class WebAPIManager : MonoBehaviour
 
     /* Holds a reference to the API's base URL. */
     [SerializeField]
-    private string _baseURL = "https://deckofcardsapi.com/api/deck/";
+    private string _baseURL = "https://api.nookipedia.com/";
 
     [SerializeField]
-    private string _apiKey = "abd2d0e756mshf3943921a275760p10386bjsn2ac6a39f7fd2";
-
-    [SerializeField]
-    private string _apiHost = "omgvamp-hearthstone-v1.p.rapidapi.com";
+    private string _apiKey = "0e72ff77-9118-48f4-b612-806077f53cb4";
 
     private Event _event;
 
@@ -30,7 +27,7 @@ public class WebAPIManager : MonoBehaviour
 
     private IEnumerator RequestEvents()
     {
-        string url = "";
+        string url = this._baseURL + "nh/events";
 
         using (UnityWebRequest request = new UnityWebRequest(url, "GET"))
         {
