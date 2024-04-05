@@ -326,10 +326,10 @@ public class DatabaseManager : MonoBehaviour
                 }
 
                 yield return StartCoroutine(CreatePortraits(stringModels, parent, table));
-
                 break;
         }
 
+        LoadingGUIManager.GetInstance().HideLoading();
     }
 
     private IEnumerator GetAvailableModelData(string table, System.Action<List<StringModel>> models)

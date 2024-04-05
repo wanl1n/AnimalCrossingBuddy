@@ -56,7 +56,7 @@
 				exit();
 			}
 		}
-		
+
 		if ($tableType == 1) {
 			$insertIntoUserStatsQuery = "INSERT INTO `" . $table . "` (`Icon Image Link`, Username, Name) VALUES ('" . $iconLink . "', '" . $username . "', '" . $name . "');";
 		}
@@ -67,6 +67,16 @@
 		mysqli_query($connection, $insertIntoUserStatsQuery) or die("[4] : INSERT QUERY " . $insertIntoUserStatsQuery . " failed.");
 	}
 	else {
+		if ($name == "Anchovy") {
+			if (str_contains($iconLink, "Fish")) {
+				$table = "caught_critters";
+			}
+
+		}
+		else {
+			$table = "collected_villagers";
+		}
+		
 		$removeFromUserStatsQuery = "DELETE FROM `" . $table . "` WHERE Name = '" . $name . "' AND Username = '" . $username . "';";
 		mysqli_query($connection, $removeFromUserStatsQuery) or die("[4] : REMOVE QUERY failed.");
 	}

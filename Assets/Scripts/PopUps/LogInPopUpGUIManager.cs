@@ -18,7 +18,7 @@ public class LogInPopUpGUIManager : MonoBehaviour
 
     private TextField _passwordField;
     public string Password { get { return _passwordField.value; } }
-
+    public TextField PasswordField { get { return _passwordField; } }
     private Button _confirmButton;
     private Button _closeButton;
     private Button _fineTextButton;

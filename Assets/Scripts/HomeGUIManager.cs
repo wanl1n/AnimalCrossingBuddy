@@ -56,6 +56,8 @@ public class HomeGUIManager : MonoBehaviour
 
         this._adminButton.RegisterCallback<ClickEvent>(this.OnAdminButtonClick);
 
+        this._hemisphereToggle.value = TimeManager.GetInstance().IsInSouthernHemisphere;
+
         this._hemisphereToggle.RegisterValueChangedCallback(
             evt =>
             {
@@ -65,7 +67,6 @@ public class HomeGUIManager : MonoBehaviour
 
             }
         );
-        this._hemisphereToggle.value = TimeManager.GetInstance().IsInSouthernHemisphere;
 
         StartCoroutine(LoadEvents());
         StartCoroutine(Load());
@@ -128,6 +129,7 @@ public class HomeGUIManager : MonoBehaviour
 
     public IEnumerator LoadAllCatchable()
     {
+        LoadingGUIManager.GetInstance().ShowLoading();
 
         yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableFish, "Fish"));
         if (this._catchableFish.childCount != 0)
