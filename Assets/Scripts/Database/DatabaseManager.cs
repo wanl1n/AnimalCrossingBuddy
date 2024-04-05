@@ -440,14 +440,12 @@ public class DatabaseManager : MonoBehaviour
             string name = searchValue;
 
             form.AddField("table", table.ToLower());
+            form.AddField("condition", "Name LIKE \"%" + name + "%\"");
 
-            form.AddField("condition", "name LIKE \"%" + name + "%\"");
-
-            using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getModelData.php", form);
+            using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getUserModelData.php", form);
             yield return handler.SendWebRequest();
 
             string[] result = handler.downloadHandler.text.Split('\t');
-
 
             Debug.Log(handler.downloadHandler.text);
 

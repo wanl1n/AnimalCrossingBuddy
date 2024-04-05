@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class IconPopUpGUIManager : MonoBehaviour
@@ -46,6 +47,9 @@ public class IconPopUpGUIManager : MonoBehaviour
     private void OnToggleChangeValue(EventBase evt)
     {
         StartCoroutine(DatabaseManager.GetInstance().UpdateUserData(this._lastLoadedName, this._lastLoadedLink, this._collectedToggle.value));
+
+        if (SceneManager.GetActiveScene().name == "UserScene")
+            SceneManager.LoadScene("UserScene");
     }
 
     public void Close()
