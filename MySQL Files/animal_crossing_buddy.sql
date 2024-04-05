@@ -644,11 +644,7 @@ INSERT INTO `sea_creatures` (`Id`, `Name`, `Icon Image Link`, `Critterpedia Imag
 -- Table structure for table `user_stats`
 --
 
-CREATE TABLE `user_stats` (
-  `Id` int(4) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  `Type` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- --------------------------------------------------------
 
