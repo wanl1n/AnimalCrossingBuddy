@@ -7,6 +7,10 @@
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
+DROP SCHEMA IF EXISTS animal_crossing_buddy;
+CREATE SCHEMA animal_crossing_buddy;
+USE animal_crossing_buddy;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
