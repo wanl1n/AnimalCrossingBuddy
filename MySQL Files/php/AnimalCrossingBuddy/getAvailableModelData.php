@@ -9,8 +9,12 @@ if (mysqli_connect_errno()) {
 $table = $_POST["table"];
 $currentMonth = $_POST["currentMonth"];
 
+$type = $table;
+if ($table == "sea_creatures")
+    $type = "Sea Creatures";
+
 $query = "SELECT * FROM `" . $table . "` AS t WHERE `" .$currentMonth . "` != \"NA\"" . "AND 
-          (SELECT COUNT(*) FROM `main_database` WHERE Name = t.Name) != 0;";
+          (SELECT COUNT(*) FROM `main_database` WHERE Name = t.Name AND Type = \"" . $type . "\") != 0;";
 
 $columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 

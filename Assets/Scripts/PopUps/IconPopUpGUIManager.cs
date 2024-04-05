@@ -51,7 +51,8 @@ public class IconPopUpGUIManager : MonoBehaviour
     public void Close()
     {
         this._transparentBG.style.display = DisplayStyle.None;
-        this._collectedToggle.value = false;
+        if (this._collectedToggle != null)
+            this._collectedToggle.value = false;
     }
 
     public IEnumerator LoadFishData(FishModel fish)
@@ -109,7 +110,8 @@ public class IconPopUpGUIManager : MonoBehaviour
         this._lastLoadedName = fish.Name;
         this._lastLoadedLink = fish.IconImage;
 
-        StartCoroutine(DatabaseManager.GetInstance().CheckPossessStatus(fish.Name, "Fish"));
+        if (this._collectedToggle != null)
+            StartCoroutine(DatabaseManager.GetInstance().CheckPossessStatus(fish.Name, "Fish"));
     }
 
 
@@ -163,7 +165,9 @@ public class IconPopUpGUIManager : MonoBehaviour
         this._lastLoadedType = "Insects";
         this._lastLoadedName = insect.Name;
         this._lastLoadedLink = insect.IconImage;
-        StartCoroutine(DatabaseManager.GetInstance().CheckPossessStatus(insect.Name, "Insects"));
+
+        if (this._collectedToggle != null)
+            StartCoroutine(DatabaseManager.GetInstance().CheckPossessStatus(insect.Name, "Insects"));
     }
 
     public IEnumerator LoadSeaCreatureData(SeaCreatureModel seaCreature)
@@ -216,7 +220,9 @@ public class IconPopUpGUIManager : MonoBehaviour
         this._lastLoadedType = "Sea Creatures";
         this._lastLoadedName = seaCreature.Name;
         this._lastLoadedLink = seaCreature.IconImage;
-        StartCoroutine(DatabaseManager.GetInstance().CheckPossessStatus(seaCreature.Name, "Sea Creatures"));
+
+        if (this._collectedToggle != null)
+            StartCoroutine(DatabaseManager.GetInstance().CheckPossessStatus(seaCreature.Name, "Sea Creatures"));
     }
 
     public IEnumerator LoadVillagerData(VillagerModel villager)
@@ -266,7 +272,9 @@ public class IconPopUpGUIManager : MonoBehaviour
         this._lastLoadedType = "Villagers";
         this._lastLoadedName = villager.Name;
         this._lastLoadedLink = villager.IconImage;
-        StartCoroutine(DatabaseManager.GetInstance().CheckPossessStatus(villager.Name, "Villagers"));
+
+        if (this._collectedToggle != null)
+            StartCoroutine(DatabaseManager.GetInstance().CheckPossessStatus(villager.Name, "Villagers"));
     }
 
     public void SetToggle(bool toggle)

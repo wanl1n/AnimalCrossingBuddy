@@ -10,8 +10,12 @@ $table = $_POST["table"];
 
 $condition = $_POST["condition"];
 
+$type = $table;
+if ($table == "sea_creatures")
+    $type = "Sea Creatures";
+
 $query = "SELECT * FROM `" . $table . "` AS t WHERE ". $condition . " AND 
-(SELECT COUNT(*) FROM `main_database` WHERE Name = t.Name) != 0;";
+(SELECT COUNT(*) FROM `main_database` WHERE Name = t.Name AND Type = \"" . $type . "\") != 0;";
 
 $columnQuery = mysqli_query($connection, $query) or die("[2] : QUERY failed.");
 

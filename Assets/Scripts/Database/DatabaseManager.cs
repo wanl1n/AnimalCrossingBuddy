@@ -179,6 +179,16 @@ public class DatabaseManager : MonoBehaviour
 
     private IEnumerator StartShowModelData(string id, string table)
     {
+        // SPECIAL CASE FOR USER CAUGHT CRITTERS
+        if (table == "caught_critters")
+        {
+            List<StringModel> strings = new List<StringModel>();
+            string[] nameOnly = id.Split('\t');
+
+            //yield return StartCoroutine(GetColumnData(nameOnly[1], "users", c => strings))
+        }
+        
+        
         // get data 
         // query using evt.target name as the Id, and table parameter
         BaseModel model = new();
@@ -205,7 +215,7 @@ public class DatabaseManager : MonoBehaviour
                 }
                 break;
 
-            case "Sea Creatures"
+            case "Sea Creatures":
             case "Sea_creatures":
                 SeaCreatureModel seaCreature = new();
                 yield return StartCoroutine(SeaCreatureModel.GetSeaCreature(id, table, c => seaCreature = c));

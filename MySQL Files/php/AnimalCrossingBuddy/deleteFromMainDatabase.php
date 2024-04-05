@@ -10,7 +10,7 @@ $name = $_POST["name"];
 
 $type = $_POST["type"];
 
-$query = "DELETE FROM `main_database` WHERE Name = '" . $name ."' AND Type = \"$type\";";
+$query = "DELETE FROM `main_database` WHERE Name = \"" . $name ."\" AND Type = \"$type\";";
 
 $deleteQuery = mysqli_query($connection, $query) or die("[2] : DELETE QUERY failed.");
 
