@@ -185,7 +185,8 @@ public class DatabaseManager : MonoBehaviour
             List<StringModel> strings = new List<StringModel>();
             string[] nameOnly = id.Split('\t');
 
-            //yield return StartCoroutine(GetColumnData(nameOnly[1], "users", c => strings))
+            table = "";
+            yield return StartCoroutine(GetCritterType(nameOnly[1], t => table = t));
         }
         
         
@@ -198,7 +199,7 @@ public class DatabaseManager : MonoBehaviour
         {
             case "Fish":
                 FishModel fish = new();
-                yield return StartCoroutine(FishModel.GetFish(id, table, c => fish = c));
+                yield return StartCoroutine(FishModel.GetFish(id, "Fish", c => fish = c));
                 // show the popup
                 if (iconPopUpManager != null)
                 {
@@ -207,7 +208,7 @@ public class DatabaseManager : MonoBehaviour
                 break;
             case "Insects":
                 InsectModel insect = new();
-                yield return StartCoroutine(InsectModel.GetInsect(id, table, c => insect = c));
+                yield return StartCoroutine(InsectModel.GetInsect(id, "Insects", c => insect = c));
                 // show the popup
                 if (iconPopUpManager != null)
                 {
@@ -218,7 +219,7 @@ public class DatabaseManager : MonoBehaviour
             case "Sea Creatures":
             case "Sea_creatures":
                 SeaCreatureModel seaCreature = new();
-                yield return StartCoroutine(SeaCreatureModel.GetSeaCreature(id, table, c => seaCreature = c));
+                yield return StartCoroutine(SeaCreatureModel.GetSeaCreature(id, "Sea_creatures", c => seaCreature = c));
                 // show the popup
                 if (iconPopUpManager != null)
                 {
@@ -229,7 +230,7 @@ public class DatabaseManager : MonoBehaviour
             case "collected_villagers":
             case "Villagers":
                 VillagerModel villager = new();
-                yield return StartCoroutine(VillagerModel.GetVillager(id, table, c => villager = c));
+                yield return StartCoroutine(VillagerModel.GetVillager(id, "Villagers", c => villager = c));
                 // show the popup
                 if (iconPopUpManager != null)
                 {
@@ -546,6 +547,32 @@ public class DatabaseManager : MonoBehaviour
         else if (!result.Contains("0"))
         {
             Debug.Log("Delete user failed. [ERROR] : " + handler.error);
+        }
+    }
+
+    private IEnumerator GetCritterType(string name, System.Action<string> type) 
+    {
+        WWWForm form = new();
+
+        form.AddField("name", name);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/accounts/getCaughtCritterType.php", form);
+        yield return handler.SendWebRequest();
+
+        string result = handler.downloadHandler.text;
+        Debug.Log(result);
+
+        if (result.Contains("0"))
+        {
+            Debug.Log("Success");
+            string[] splitResult = result.Split("\t");
+
+
+            type(splitResult[1]);
+        }
+        else if (!result.Contains("0"))
+        {
+            Debug.Log("Get critter type failed. [ERROR] : " + handler.error);
         }
     }
 
