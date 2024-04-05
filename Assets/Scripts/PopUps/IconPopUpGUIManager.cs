@@ -36,7 +36,8 @@ public class IconPopUpGUIManager : MonoBehaviour
 
         this._collectedToggle = this._root.Q<Toggle>("CollectedToggle");
 
-        this._collectedToggle.RegisterCallback<ClickEvent>(this.OnToggleChangeValue);
+        if (this._collectedToggle != null ) 
+            this._collectedToggle.RegisterCallback<ClickEvent>(this.OnToggleChangeValue);
         this._transparentBG.RegisterCallback<PointerDownEvent>(this.OnTransparentBGClick);
     }
 

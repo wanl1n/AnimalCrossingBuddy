@@ -644,11 +644,7 @@ INSERT INTO `sea_creatures` (`Id`, `Name`, `Icon Image Link`, `Critterpedia Imag
 -- Table structure for table `user_stats`
 --
 
-CREATE TABLE `user_stats` (
-  `Id` int(4) NOT NULL,
-  `Name` varchar(50) NOT NULL,
-  `Type` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- --------------------------------------------------------
 
@@ -1099,19 +1095,7 @@ INSERT INTO `villagers` (`Id`, `Name`, `Icon Image Link`, `Photo Image Link`, `S
 -- Indexes for dumped tables
 --
 
---
--- Indexes for table `caught_critters`
---
-ALTER TABLE `caught_critters`
-  ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `Name` (`Name`);
 
---
--- Indexes for table `collected_villagers`
---
-ALTER TABLE `collected_villagers`
-  ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `Name` (`Name`);
 
 --
 -- Indexes for table `fish`
@@ -1150,12 +1134,8 @@ ALTER TABLE `sea_creatures`
   ADD UNIQUE KEY `Id` (`Id`),
   ADD UNIQUE KEY `Name` (`Name`);
 
---
--- Indexes for table `user_stats`
---
-ALTER TABLE `user_stats`
-  ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `Name` (`Name`);
+
+
 
 --
 -- Indexes for table `villagers`
@@ -1190,8 +1170,7 @@ ALTER TABLE `sea_creatures`
 --
 -- AUTO_INCREMENT for table `user_stats`
 --
-ALTER TABLE `user_stats`
-  MODIFY `Id` int(4) NOT NULL AUTO_INCREMENT;
+
 
 --
 -- AUTO_INCREMENT for table `villagers`

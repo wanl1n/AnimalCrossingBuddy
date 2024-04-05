@@ -125,7 +125,6 @@ Label {
     margin-right: 16px;
 }
 
-
 .unity-scroll-view__content-container {
     align-items: center;
     margin: auto;
@@ -138,6 +137,7 @@ Label {
     width: 100%;
     align-items: center;
     height: auto;
+    border-top-width: 180px;
 }
 
 #SeasonIcons {
@@ -233,7 +233,6 @@ Label {
     flex-direction: row;
 }
 
-
 #HemisphereToggle #unity-checkmark {
     width: 90px;
     height: 90px;
@@ -322,20 +321,15 @@ Label {
     -unity-background-image-tint-color: rgb(198, 195, 186);
 }
 
-
 #LogOutButton {
     position: absolute;
-
-    width: 10%;
-    height: 75%;
+    width: 200px;
+    height: 200px;
     display: flex;
-
-    background-image: url("project://database/Assets/Sprites/UI/Icons/AdminLogOut.png");
+    background-image: url("project://database/Assets/Sprites/UI/Icons/AdminLogOut.png?fileID=-7219867970607311204&guid=57c8607b0f928334a81efc719ecd9fec&type=3#AdminLogOut_0");
     -unity-background-image-tint-color: rgba(0, 0, 0, 0.5);
-
     margin-top: 2%;
     margin-left: 1%;
-
     opacity: 0.25;
 }
 
@@ -347,17 +341,13 @@ Label {
 #ResetDatabase {
     width: 50%;
     height: 10%;
-
     border-radius: 20px;
     background-color: rgb(247, 248, 230);
     font-size: 45px;
-
-    -unity-font-definition: url("project://database/Assets/Fonts/FOT-RodinBokutoh%20Pro/FOT-RodinBokutoh%20Pro%20B/FOT-RodinBokutoh%20Pro%20B.otf?fileID=12800000&amp;guid=86a8bae87d3c80b4085ae90978fa915d&amp;type=3#FOT-RodinBokutoh Pro B");
+    -unity-font-definition: url("project://database/Assets/Fonts/FOT-RodinBokutoh%20Pro/FOT-RodinBokutoh%20Pro%20B/FOT-RodinBokutoh%20Pro%20B.otf?fileID=12800000&guid=86a8bae87d3c80b4085ae90978fa915d&type=3#FOT-RodinBokutoh Pro B");
     -unity-font-style: normal;
-
     margin-top: 50px;
     margin-bottom: 50px;
-
     margin-left: auto;
     margin-right: auto;
 }
