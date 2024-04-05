@@ -127,7 +127,6 @@ public class HomeGUIManager : MonoBehaviour
     {
 
         yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableFish, "Fish"));
-        LoadingGUIManager.GetInstance().HideLoading();
         if (this._catchableFish.childCount != 0)
         {
             this._catchableFishText.style.display = DisplayStyle.None;
@@ -156,6 +155,7 @@ public class HomeGUIManager : MonoBehaviour
         {
             this._catchableSeasText.style.display = DisplayStyle.Flex;
         }
+        LoadingGUIManager.GetInstance().HideLoading();
 
 
 

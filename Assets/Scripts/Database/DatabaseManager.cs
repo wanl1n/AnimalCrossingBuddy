@@ -291,8 +291,8 @@ public class DatabaseManager : MonoBehaviour
                         bool inStringModel = false;
                         foreach (var model in stringModels)
                         {
-                            string modelIdName = model.Id + "\t" + model.Name;
-                            if (child.name == modelIdName)
+                            string modelIdName = model.Name;
+                            if (child.name.Contains(modelIdName))
                             {
                                 inStringModel = true;
                                 break;
