@@ -126,6 +126,7 @@ public class HomeGUIManager : MonoBehaviour
 
     public IEnumerator LoadAllCatchable()
     {
+        LoadingGUIManager.GetInstance().ShowLoading();
 
         yield return StartCoroutine(DatabaseManager.GetInstance().CreateNowPortraits(this._catchableFish, "Fish"));
         if (this._catchableFish.childCount != 0)
