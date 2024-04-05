@@ -50,7 +50,6 @@ public class HomeGUIManager : MonoBehaviour
 
         this._eventsList = this._root.Q<VisualElement>("EventsList");
         this._noEventsLabel = this._root.Q<Label>("NoEventsLabel");
-        StartCoroutine(LoadEvents());
 
         this._hemisphereToggle = this._root.Q<Toggle>("HemisphereToggle");
 
@@ -68,6 +67,7 @@ public class HomeGUIManager : MonoBehaviour
         );
         this._hemisphereToggle.value = TimeManager.GetInstance().IsInSouthernHemisphere;
 
+        StartCoroutine(LoadEvents());
         StartCoroutine(Load());
 
     }

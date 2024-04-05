@@ -40,7 +40,7 @@ public class AdminCritterButtonManager : MonoBehaviour
         List<StringModel> iconLinks = new();
         DatabaseManager.GetInstance().StopAllCoroutines();
 
-        yield return StartCoroutine(DatabaseManager.GetInstance().GetColumnData("Icon Image Link", this._table.ToLower(), c => iconLinks = c));
+        yield return StartCoroutine(DatabaseManager.GetInstance().GetNameColumnData("Icon Image Link", this._table.ToLower(), c => iconLinks = c));
 
 
         string type = this._table.ToLower();

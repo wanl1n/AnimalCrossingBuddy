@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UIElements;
@@ -27,7 +28,7 @@ public class DatabaseManager : MonoBehaviour
         _username = "Guest";
     }
 
-    public IEnumerator GetColumnData(string column, string table, System.Action<List<StringModel>> callback)
+    public IEnumerator GetNameColumnData(string column, string table, System.Action<List<StringModel>> callback)
     {
         WWWForm form = new();
         form.AddField("column", column);
@@ -37,8 +38,6 @@ public class DatabaseManager : MonoBehaviour
         yield return handler.SendWebRequest();
 
         string[] result = handler.downloadHandler.text.Split('\t');
-
-        Debug.Log(handler.downloadHandler.text);
 
         if (result[0] == "0")
         {
@@ -55,6 +54,36 @@ public class DatabaseManager : MonoBehaviour
         else 
         { 
             Debug.LogError("GetColumnData failed. [ERROR] : " + handler.error); 
+        }
+    }
+
+    public IEnumerator GetColumnData(string column, string table, System.Action<List<StringModel>> callback)
+    {
+        WWWForm form = new();
+        form.AddField("column", column);
+        form.AddField("table", table);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getIdAndColumnData.php", form);
+        yield return handler.SendWebRequest();
+
+        string[] result = handler.downloadHandler.text.Split('\t');
+
+
+        if (result[0] == "0")
+        {
+            List<StringModel> strings = new();
+
+            for (int i = 1; i < result.Length - 1; i++)
+            {
+                StringModel data = JsonConvert.DeserializeObject<StringModel>(result[i]);
+                strings.Add(data);
+            }
+
+            callback(strings);
+        }
+        else
+        {
+            Debug.LogError("GetColumnData failed. [ERROR] : " + handler.error);
         }
     }
 
@@ -485,6 +514,26 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
+    public IEnumerator DeleteUser(string username)
+    {
+        WWWForm form = new();
+
+        form.AddField("username", username);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/accounts/deleteUser.php", form);
+        yield return handler.SendWebRequest();
+
+        string result = handler.downloadHandler.text;
+
+        Debug.Log(result);
+
+        if (result.Contains("0"))
+            Debug.Log("Success");
+        else if (!result.Contains("0"))
+        {
+            Debug.Log("Delete user failed. [ERROR] : " + handler.error);
+        }
+    }
 
     public IEnumerator DeleteGuestData()
     {
@@ -504,6 +553,25 @@ public class DatabaseManager : MonoBehaviour
         else if (!result.Contains("0"))
         {
             Debug.Log("Delete user data failed. [ERROR] : " + handler.error);
+        }
+    }
+
+    public IEnumerator RestoreModels(string table)
+    {
+        WWWForm form = new();
+
+        form.AddField("table", table);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/insertToMainDatabase.php", form);
+        yield return handler.SendWebRequest();
+
+        string result = handler.downloadHandler.text;
+
+        if (result.Contains("0"))
+            Debug.Log("Success");
+        else if (!result.Contains("0"))
+        {
+            Debug.Log("Insert models failed. [ERROR] : " + handler.error);
         }
     }
 
@@ -527,25 +595,7 @@ public class DatabaseManager : MonoBehaviour
 
     }
 
-    public IEnumerator RestoreModels(string table)
-    {
-        WWWForm form = new();
-
-        form.AddField("table", table);
-
-        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/insertToMainDatabase.php", form);
-        yield return handler.SendWebRequest();
-
-        string result = handler.downloadHandler.text;
-
-        if (result.Contains("0"))
-            Debug.Log("Success");
-        else if (!result.Contains("0"))
-        {
-            Debug.Log("Insert models failed. [ERROR] : " + handler.error);
-        }
-    }
-    
+  
     private void Awake()
     {
         if (_instance == null)

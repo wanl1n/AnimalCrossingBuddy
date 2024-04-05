@@ -78,6 +78,6 @@ public class AdminNavBarGUIManager : MonoBehaviour
     private void LoadUserScene()
     {
         // Debug.Log("LoadUserScene");
-        //LoadScene("UserScene");
+        LoadScene("AdminUserScene");
     }
 }

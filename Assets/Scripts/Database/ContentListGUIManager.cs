@@ -46,7 +46,7 @@ public class ContentListGUIManager : MonoBehaviour
         
         LoadingGUIManager.GetInstance().ShowLoading();
 
-        yield return StartCoroutine(DatabaseManager.GetInstance().GetColumnData("Icon Image Link", this._table.ToLower(), c => iconLinks = c)); 
+        yield return StartCoroutine(DatabaseManager.GetInstance().GetNameColumnData("Icon Image Link", this._table.ToLower(), c => iconLinks = c)); 
 
         if (this._currentParent != null) 
             yield return StartCoroutine(this.LoadNowPortrait());
