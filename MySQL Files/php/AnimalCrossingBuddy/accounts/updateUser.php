@@ -35,10 +35,24 @@
 
 	$dupeCheckQuery = "SELECT * FROM `" . $table . "` WHERE Name = '" . $name . "' AND Username = '" . $username . "';";
 	$dupeChecker = mysqli_query($connection, $dupeCheckQuery) or die("[3] : DUPE SELECT QUERY failed.");
-	if (mysqli_num_rows($dupeChecker) > 0) {
-        echo "[3] : Entry already exists.";
-        exit();
-    }
+
+	if ($name == "Anchovy") {
+		if (str_contains($iconLink, "Fish")) {
+			$table = "caught_critters";
+			$tableType = 2;
+		}
+
+		if (mysqli_num_rows($dupeChecker) > 1) {
+			echo "[3] : Entry already exists.";
+			exit();
+		}
+	}
+	else {
+		if (mysqli_num_rows($dupeChecker) > 0) {
+			echo "[3] : Entry already exists.";
+			exit();
+		}
+	}
 
 	if ($toggle) {
 		if ($tableType == 1) {
