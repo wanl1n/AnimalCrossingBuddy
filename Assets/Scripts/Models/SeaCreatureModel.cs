@@ -26,11 +26,11 @@ public class SeaCreatureModel : AvailabilityModel
     {
         WWWForm form = new();
 
-        string[] idOnly = id.Split('\t');
+        string[] nameOnly = id.Split('\t');
 
         form.AddField("table", table.ToLower());
 
-        form.AddField("condition", "Id = " + idOnly[0]);
+        form.AddField("condition", "Name = \"" + nameOnly[1] + "\"");
 
         using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getModelData.php", form);
         yield return handler.SendWebRequest();
