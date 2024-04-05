@@ -148,10 +148,10 @@ public class UserGUIManager : MonoBehaviour
         yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(caughtIconLinks, this._caughtListParent, this._caughtTable));
     }
 
-    private IEnumerator LoadSearchedName(string table, VisualElement listParent)
+    private IEnumerator LoadSearchedName(string table, VisualElement listParent, string searchValue)
     {
         List<StringModel> iconLinks = new();
-        yield return StartCoroutine(DatabaseManager.GetInstance().GetModelData(table.ToLower(), c => iconLinks = c));
+        yield return StartCoroutine(DatabaseManager.GetInstance().GetUserModelData(table.ToLower(), c => iconLinks = c, searchValue));
         yield return StartCoroutine(DatabaseManager.GetInstance().CreatePortraits(iconLinks, listParent, table));
 
         List<VisualElement> childToRemove = new List<VisualElement>();
@@ -186,7 +186,7 @@ public class UserGUIManager : MonoBehaviour
         this._collectedListParent.Clear();
         StopCoroutine(LoadIcons());
         DatabaseManager.GetInstance().StopAllCoroutines();
-        StartCoroutine(LoadSearchedName(this._collectedTable, this._collectedListParent));
+        StartCoroutine(LoadSearchedName(this._collectedTable, this._collectedListParent, this._searchBarLeftText.value));
     }
 
     private void OnSearchBarRightValueChanged(ChangeEvent<string> e)
@@ -194,7 +194,7 @@ public class UserGUIManager : MonoBehaviour
         this._caughtListParent.Clear();
         StopCoroutine(LoadIcons());
         DatabaseManager.GetInstance().StopAllCoroutines();
-        StartCoroutine(LoadSearchedName(this._caughtTable, this._caughtListParent));
+        StartCoroutine(LoadSearchedName(this._caughtTable, this._caughtListParent, this._searchBarRightText.value));
     }
 
     public IEnumerator ReloadAll()

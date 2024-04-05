@@ -35,7 +35,7 @@ CREATE TABLE `caught_critters` (
   `Id` int(4) NOT NULL,
   `Icon Image Link` varchar(100) DEFAULT NULL,
   `Username` varchar(20) DEFAULT NULL,
-  `Name` varchar(50) NOT NULL,
+  `Name` varchar(50) NOT NULL,  
   `Type` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1247,3 +1247,10 @@ INSERT INTO `admin_access_codes` (`Id`, `Username`, `Hash`, `Salt`) VALUES
 (4, 'Admin', '$5$rounds=5000$any_value_hereAd$oMqexKE10uQ8VvCOGUsOogzbzAxYlX/D5YUXeIpCL4/', '$5$rounds=5000$any_value_hereAdmin$');
 
 
+CREATE TABLE `hemisphere_date_ranges` (
+  `Event Id` varchar(10) NOT NULL,
+  `Year` int(4) NOT NULL,
+  `Hemisphere` varchar(1) NOT NULL,
+  `Start Date` varchar(20) NOT NULL,
+  `End Date` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

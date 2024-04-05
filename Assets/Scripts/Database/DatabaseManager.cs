@@ -429,6 +429,51 @@ public class DatabaseManager : MonoBehaviour
 
     }
 
+    public IEnumerator GetUserModelData(string table, System.Action<List<StringModel>> models, string searchValue)
+    {
+        GameObject contentListManager = GameObject.FindGameObjectWithTag("Scene Document");
+        if (contentListManager != null)
+        {
+            WWWForm form = new();
+
+            string name = searchValue;
+
+            form.AddField("table", table.ToLower());
+
+            form.AddField("condition", "name LIKE \"%" + name + "%\"");
+
+            using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getModelData.php", form);
+            yield return handler.SendWebRequest();
+
+            string[] result = handler.downloadHandler.text.Split('\t');
+
+
+            Debug.Log(handler.downloadHandler.text);
+
+            if (result[0].Contains("0"))
+            {
+                List<StringModel> strings = new();
+
+                for (int i = 1; i < result.Length; i++)
+                {
+                    BaseModel model = JsonConvert.DeserializeObject<BaseModel>(result[i]);
+
+                    if (model != null)
+                        strings.Add(new StringModel(model.Id, model.Name, model.IconImage));
+                }
+
+                models(strings);
+            }
+            else
+            {
+                Debug.LogError("GetModelData failed. [ERROR] : " + handler.error);
+            }
+
+        }
+
+    }
+
+
     public IEnumerator CheckPossessStatus(string name, string type) 
     {
         WWWForm form = new();
