@@ -204,6 +204,8 @@ public class DatabaseManager : MonoBehaviour
                     StartCoroutine(iconPopUpManager.GetComponent<IconPopUpGUIManager>().LoadInsectData(insect));
                 }
                 break;
+
+            case "Sea Creatures"
             case "Sea_creatures":
                 SeaCreatureModel seaCreature = new();
                 yield return StartCoroutine(SeaCreatureModel.GetSeaCreature(id, table, c => seaCreature = c));
@@ -213,6 +215,8 @@ public class DatabaseManager : MonoBehaviour
                     StartCoroutine(iconPopUpManager.GetComponent<IconPopUpGUIManager>().LoadSeaCreatureData(seaCreature));
                 }
                 break;
+
+            case "collected_villagers":
             case "Villagers":
                 VillagerModel villager = new();
                 yield return StartCoroutine(VillagerModel.GetVillager(id, table, c => villager = c));
