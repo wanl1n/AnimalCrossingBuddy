@@ -56,6 +56,8 @@ public class HomeGUIManager : MonoBehaviour
 
         this._adminButton.RegisterCallback<ClickEvent>(this.OnAdminButtonClick);
 
+        this._hemisphereToggle.value = TimeManager.GetInstance().IsInSouthernHemisphere;
+
         this._hemisphereToggle.RegisterValueChangedCallback(
             evt =>
             {
@@ -65,7 +67,6 @@ public class HomeGUIManager : MonoBehaviour
 
             }
         );
-        this._hemisphereToggle.value = TimeManager.GetInstance().IsInSouthernHemisphere;
 
         StartCoroutine(LoadEvents());
         StartCoroutine(Load());
