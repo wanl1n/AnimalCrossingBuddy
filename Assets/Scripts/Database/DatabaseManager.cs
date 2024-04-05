@@ -194,6 +194,7 @@ public class DatabaseManager : MonoBehaviour
                 }
                 break;
         }
+
     }
 
     public IEnumerator CreateNowPortraits(VisualElement parent, string table)
@@ -383,6 +384,34 @@ public class DatabaseManager : MonoBehaviour
 
         }
 
+    }
+
+    public IEnumerator CheckPossessStatus(string name, string type) 
+    {
+        WWWForm form = new();
+
+        form.AddField("name", name);
+        form.AddField("type", type);
+        form.AddField("username", this._username);
+
+        using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/accounts/checkForDupe.php", form);
+        yield return handler.SendWebRequest();
+
+        string result = handler.downloadHandler.text;
+        Debug.Log("Check Possess Status: " + result);
+
+        if (result.Contains("0"))
+        {
+            //no dupe
+            IconPopUpGUIManager.GetInstance().SetToggle(false);
+        }
+        else if (result.Contains("1"))
+        {
+            //dupe
+            IconPopUpGUIManager.GetInstance().SetToggle(true);
+        }
+        else 
+            Debug.Log("Check possess status failed. [ERROR] : " + handler.error);
     }
 
     public IEnumerator UpdateUserData(string name, string iconLink, bool toggle)

@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Android.Gradle.Manifest;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class IconPopUpGUIManager : MonoBehaviour
 {
+    private static IconPopUpGUIManager Instance;
 
     private VisualElement _root;
     private VisualElement _transparentBG;
@@ -107,6 +110,8 @@ public class IconPopUpGUIManager : MonoBehaviour
         this._lastLoadedType = "Fish";
         this._lastLoadedName = fish.Name;
         this._lastLoadedLink = fish.IconImage;
+
+        StartCoroutine(DatabaseManager.GetInstance().CheckPossessStatus(fish.Name, "Fish"));
     }
 
 
@@ -160,6 +165,7 @@ public class IconPopUpGUIManager : MonoBehaviour
         this._lastLoadedType = "Insects";
         this._lastLoadedName = insect.Name;
         this._lastLoadedLink = insect.IconImage;
+        StartCoroutine(DatabaseManager.GetInstance().CheckPossessStatus(insect.Name, "Insects"));
     }
 
     public IEnumerator LoadSeaCreatureData(SeaCreatureModel seaCreature)
@@ -212,6 +218,7 @@ public class IconPopUpGUIManager : MonoBehaviour
         this._lastLoadedType = "Sea Creatures";
         this._lastLoadedName = seaCreature.Name;
         this._lastLoadedLink = seaCreature.IconImage;
+        StartCoroutine(DatabaseManager.GetInstance().CheckPossessStatus(seaCreature.Name, "Sea Creatures"));
     }
 
     public IEnumerator LoadVillagerData(VillagerModel villager)
@@ -261,6 +268,27 @@ public class IconPopUpGUIManager : MonoBehaviour
         this._lastLoadedType = "Villagers";
         this._lastLoadedName = villager.Name;
         this._lastLoadedLink = villager.IconImage;
+        StartCoroutine(DatabaseManager.GetInstance().CheckPossessStatus(villager.Name, "Villagers"));
     }
 
+    public void SetToggle(bool toggle)
+    {
+        this._collectedToggle.value = toggle;
+    }
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this.gameObject);
+    }
+
+    public static IconPopUpGUIManager GetInstance()
+    {
+        if (Instance == null)
+        {
+            Instance = new IconPopUpGUIManager();
+        }
+        return Instance;
+    }
 }
