@@ -24,14 +24,14 @@ public class EventModel
     [JsonProperty("Sort Date")]
     public string SortDate { get; set; }
 
-    [JsonProperty("Date Varies By Year")]
-    public string DateVariesByYear { get; set; }
-
     [JsonProperty("Start Time")]
     public string StartTime { get; set; }
 
     [JsonProperty("End Time")]
     public string EndTime { get; set; }
+    
+    [JsonProperty("Year")]
+    public string Year { get; set; }
 
     [JsonProperty("Start Date")]
     public string StartDate { get; set; }
@@ -76,7 +76,7 @@ public class EventModel
         using UnityWebRequest handler = UnityWebRequest.Post("http://localhost/sqlconnect/AnimalCrossingBuddy/getCurrentEvents.php", form);
         yield return handler.SendWebRequest();
 
-        // Debug.Log(handler.downloadHandler.text);
+        Debug.Log(handler.downloadHandler.text);
         string[] result = handler.downloadHandler.text.Split('\t');
         if (result[0].Contains("0"))
         {

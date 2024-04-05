@@ -97,9 +97,12 @@ public class HomeGUIManager : MonoBehaviour
             eventTitle.text = evt.DisplayName;
 
             Label eventSubtitle = eventDisplay.Q<Label>("EventSubtitle");
-            string[] start = evt.StartDate.Split("-");
-            string[] end = evt.EndDate.Split("-");
+            string[] start = evt.StartDate.Split(" ");
+            string[] end = evt.EndDate.Split(" ");
             eventSubtitle.text = start[0] + " " + EventModel.AddOrdinal(int.Parse(start[1])) + " - " + end[0] + " " + EventModel.AddOrdinal(int.Parse(end[1]));
+            // string[] start = evt.StartDate.Split("-");
+            // string[] end = evt.EndDate.Split("-");
+            // eventSubtitle.text = start[0] + " " + EventModel.AddOrdinal(int.Parse(start[1])) + " - " + end[0] + " " + EventModel.AddOrdinal(int.Parse(end[1]));
 
             _eventsList.Add(eventDisplay);
         }
