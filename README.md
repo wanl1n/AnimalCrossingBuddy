@@ -1,9 +1,8 @@
-Animal Crossing New Horizons Buddy
-
-Leocario, Marcus
-Que, Zachary
-Valdecantos, Vito
-Young, Kate
+Developers
+- Leocario, Marcus
+- Que, Zachary
+- Valdecantos, Vito
+- Young, Kate
 
 # Animal Crossing Buddy (GDINFMG)
 
